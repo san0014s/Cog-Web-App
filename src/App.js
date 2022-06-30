@@ -4,6 +4,7 @@ import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Project from "./routes/Project"
 import Contact from "./routes/Contact"
+import ReactionGame from "./games/ReactionGame"
 
 import { Route, Routes } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
       <Route path="/project" element={<Project />} /> 
       <Route path="/about" element={<About />} /> 
       <Route path="/contact" element={<Contact />} /> 
+      <Route path="/reactionGame" element={<ReactionGame />} />
     </Routes>
     </>
   );
