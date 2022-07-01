@@ -32,36 +32,45 @@ export default function ReactionGame() {
     const [startTime, setStartTime] = useState(0);
     const [endTime, setEndTime] = useState(0);
     const [timeDiffList, setTimeDiffList] = useState([]);
+    const [initialStateTimeoutId, setInitialStateTimeoutId] = useState(); // stores the ID associated with the thread that will start the game
 
-    useEffect(() => { // this callback is essentially executed any time the gameState variable changes
+    useEffect(() => { // this callback is executed any time the gameState variable changes (this is the behavior of a useEffect). it basically just handles game state transitions
         if (gameState === GameState.Initial) { // in the initial state, set a random time before the game transitions to the InProgress state
-            console.log("Initial game state detected");
             setButtonText(NOT_YET);
-            setTimeout(() => { // this callback will be executed in 5000 milliseconds (TODO: randomize this time)
-                setGameState(GameState.InProgress);
-            }, 5000)
+            setInitialStateTimeoutId( // i need to capture the return value of setTimeout and store it in this variable
+                setTimeout(() => { // this callback will be executed in 5000 milliseconds (TODO: randomize this time)
+                    setGameState(GameState.InProgress);
+                }, 5000));
         }
         else if (gameState === GameState.InProgress) { // in progress means we are now timing the player until they click the button
-            console.log("In Progress Game State Detected");
             setStartTime(moment());
             setButtonText(CLICK_NOW);
         }
         else if (gameState === GameState.Completed) {
-            console.log("completed game detected")
+            setButtonText(COMPLETE);
             var reactionTime = endTime - startTime;
-            setTimeDiffList(timeDiffList.concat(reactionTime));
-            setTimeout(() => {
+            setTimeDiffList(timeDiffList.concat(reactionTime)); // record reaction time
+            setTimeout(() => { // after 1 second, go back to the initial state to restart the game
                 setGameState(GameState.Initial);
             }, 1000)
         }
-    }, [gameState]);
+        else if (gameState === GameState.TooEarly) {
+            clearTimeout(initialStateTimeoutId); // get rid of the thing that would have started the game
+            setButtonText(TOO_EARLY);
+            setTimeout(() => { // after 1 second, go back to the initial state to restart the game
+                setGameState(GameState.Initial);
+            }, 1000);
+        }
+    }, [gameState]); // putting the gameState variable here means that the useEffect will watch this var and react to any updates that happen to it
 
     function onClickFunction() {
         console.log("button was clicked");
         if (gameState === GameState.InProgress) {
-            setButtonText(COMPLETE);
             setEndTime(moment());
             setGameState(GameState.Completed);
+        }
+        else if (gameState === GameState.Initial) {
+            setGameState(GameState.TooEarly);
         }
     }
 
