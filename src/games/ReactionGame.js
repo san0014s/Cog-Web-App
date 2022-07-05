@@ -122,8 +122,6 @@ export default function ReactionGame() {
      *  player clicks early, we switch to the "Too Early" state
      */
     function onClickFunction(thingClicked) {
-        console.log(thingClicked.target.id);
-        console.log("button was clicked");
         if (gameState === GameState.InProgress) {
             if (thingClicked.target.id === activeButton) {
                 setEndTime(moment());
