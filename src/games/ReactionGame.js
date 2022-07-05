@@ -50,9 +50,9 @@ export default function ReactionGame() {
     const [endTime, setEndTime] = useState(0);
     const [timeDiffList, setTimeDiffList] = useState([]);
 
-    const [activeButton, setActiveButton] = useState(BUTTON_1_ID);
-    const [button1Text, setButton1Text] = useState('');
-    const [button2Text, setButton2Text] = useState('');
+    const [activeButton, setActiveButton] = useState();
+    const [button1Text, setButton1Text] = useState();
+    const [button2Text, setButton2Text] = useState();
 
     useEffect(() => { // this callback is executed any time the gameState variable changes (this is the behavior of a useEffect). it basically just handles game state transitions
         if (gameState === GameState.Initial) { // in the initial state, set a random time before the game transitions to the InProgress state
