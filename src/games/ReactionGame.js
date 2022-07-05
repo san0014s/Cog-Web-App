@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import moment from 'moment';
 
+const ROUNDS_TO_PLAY = 5;
+
 const NOT_YET = "Not Yet...";
 const CLICK_NOW = "Click me now!!";
 const COMPLETE = "Success!";
 const TOO_EARLY = "Clicked too early, try again";
+const GAME_OVER = "Game over!";
 
 // this is just an immutable enum type to keep track of where the game is at
 const GameState = Object.freeze({
     Initial: Symbol("Initial"), 
     InProgress: Symbol("In Progress"),
     Completed: Symbol("Complete"),
-    TooEarly: Symbol("TooEarly") // TODO use clearTimeout() to get rid of setTimeout when this game state is detected
+    TooEarly: Symbol("Too Early"),
+    GameOver: Symbol("Game Over")
 });
 
 const Button = styled.button`
@@ -50,8 +54,14 @@ export default function ReactionGame() {
             setButtonText(COMPLETE);
             var reactionTime = endTime - startTime;
             setTimeDiffList(timeDiffList.concat(reactionTime)); // record reaction time
+
             setTimeout(() => { // after 1 second, go back to the initial state to restart the game
-                setGameState(GameState.Initial);
+                if (timeDiffList.length === ROUNDS_TO_PLAY - 1) { // subtracting rounds to play by 1 because useStates update asynchronously on each render (even though I append to the list on the final round, the length at this point will still be 1 less than the final round #)
+                    setGameState(GameState.GameOver);
+                }
+                else {
+                    setGameState(GameState.Initial);
+                }
             }, 1000)
         }
         else if (gameState === GameState.TooEarly) {
@@ -60,6 +70,9 @@ export default function ReactionGame() {
             setTimeout(() => { // after 1 second, go back to the initial state to restart the game
                 setGameState(GameState.Initial);
             }, 1000);
+        }
+        else if (gameState === GameState.GameOver) {
+            setButtonText(GAME_OVER);
         }
     }, [gameState]); // putting the gameState variable here means that the useEffect will watch this var and react to any updates that happen to it
 
@@ -74,8 +87,15 @@ export default function ReactionGame() {
         }
     }
 
+    function getAverage() {
+        if (timeDiffList.length === 0)
+            return "X"
+        else
+            return timeDiffList.reduce((a, b) => a + b) / timeDiffList.length;
+    }
+
     return <>
-        <div>Reacted in {timeDiffList.slice(-1)} ms, Average is X ms, Attempts so far X/10</div>
+        <div>Reacted in {timeDiffList.slice(-1)} ms, Average is {getAverage()} ms, Attempts so far {timeDiffList.length}/{ROUNDS_TO_PLAY}</div>
         <Button onClick={onClickFunction}>
             {buttonText}
         </Button>
