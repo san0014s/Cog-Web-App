@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import moment from 'moment';
+import SessionState from "../components/SessionState";
 
 const GAME_TYPE = 1;
 const ROUNDS_TO_PLAY = 5;
@@ -117,7 +118,7 @@ export default function ReactionGame() {
         let personalData = {
             "gameType":gameType,
             "stat":stat,
-            "accountId":24 //TODO: replace with session prop
+            "accountId":SessionState.getId() //TODO: perhaps we should check to be sure this value is valid?
         }
 
         fetch('http://localhost:8080/storeData', { // TODO: make protocol, ip address, and port(?) configurable

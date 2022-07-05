@@ -5,6 +5,7 @@ import About from "./routes/About"
 import Project from "./routes/Project"
 import Contact from "./routes/Contact"
 import ReactionGame from "./games/ReactionGame"
+import SessionState from "./components/SessionState"
 
 import { Route, Routes } from "react-router-dom";
 
@@ -14,6 +15,9 @@ import { Route, Routes } from "react-router-dom";
 // and can allows the us (users) to change the browser url
 
 function App() {
+
+  SessionState.setId(24); // TODO this should be set on login
+
   return (
     <>
     <Routes> 
