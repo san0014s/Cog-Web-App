@@ -4,6 +4,8 @@ import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Project from "./routes/Project"
 import Contact from "./routes/Contact"
+import ReactionGame from "./games/ReactionGame"
+import SessionState from "./components/SessionState"
 
 import { Route, Routes } from "react-router-dom";
 
@@ -13,13 +15,17 @@ import { Route, Routes } from "react-router-dom";
 // and can allows the us (users) to change the browser url
 
 function App() {
+
+  SessionState.setId(24); // TODO this should be set on login
+
   return (
     <>
     <Routes> 
       <Route path="/" element={<Home />} /> 
-      <Route path="/project" element={<About />} /> 
-      <Route path="/about" element={<Project />} /> 
+      <Route path="/project" element={<Project />} /> 
+      <Route path="/about" element={<About />} /> 
       <Route path="/contact" element={<Contact />} /> 
+      <Route path="/reactionGame" element={<ReactionGame />} />
     </Routes>
     </>
   );
