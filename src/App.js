@@ -2,8 +2,10 @@ import React from "react"; //using react
 import "./index.css"; //import css idex
 import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
-import Project from "./routes/Project"
+import Updates from "./routes/Updates"
 import Contact from "./routes/Contact"
+import Account from "./routes/Account"
+import Project from "./routes/Project"
 import ReactionGame from "./games/ReactionGame"
 import SessionState from "./components/SessionState"
 
@@ -22,9 +24,11 @@ function App() {
     <>
     <Routes> 
       <Route path="/" element={<Home />} /> 
-      <Route path="/project" element={<Project />} /> 
+      <Route path="/updates" element={<Updates />} /> 
       <Route path="/about" element={<About />} /> 
       <Route path="/contact" element={<Contact />} /> 
+      <Route path="/account" element={<Account />} /> 
+      <Route path="/project" element={<Project />} /> 
       <Route path="/reactionGame" element={<ReactionGame />} />
     </Routes>
     </>
