@@ -22,6 +22,16 @@ function App() {
 
   return (
     <>
+    /* The Routes tag includes all the pages that can be accessed in the app. To add a new page, do the following
+    * 1. Create a new .js file somewhere (conventionally in the games or routes folder) and write code for that page (see any other page for an example)
+    * 2. At the top of this file, write...
+    *        import [name-of-page] from "[relative-path-to-page]"
+    *
+    * 3. In the routes tag, write... 
+    *        <Route path="[name-in-url]" element={<[name-of-page]/>} />
+    * Now while the app is running, in the URL, add the "[name-in-url]" and your new page should appear
+    * Hope this helps :)
+    */
     <Routes> 
       <Route path="/" element={<Home />} /> 
       <Route path="/updates" element={<Updates />} /> 
