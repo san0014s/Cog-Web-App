@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 //the following constants are what prints out for each button and the home page greeting
 const greeting = "Welcome to the Cognitive Web Application";
