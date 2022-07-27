@@ -9,6 +9,8 @@ const AccountButton = "Go to Your Account";
 const GamesButton = "Go to Games";
 const ContactButton = "Contact Us!";
 const UpdateButton = "Updates";
+const LoginButton = "TempLogin";
+const SignupButton = "TempSignup"
 
 //different button themes (just one right now)
 const theme = { 
@@ -74,6 +76,14 @@ export default function Home() {
     navigate('/updates');
   }
 
+  const navigateLogin = () => {
+    navigate('/login');
+  }
+
+  const navigateSignup = () => {
+    navigate('/Signup');
+  }
+
   //TODO: Pages still needed: login, signup 
 
   return <>
@@ -96,6 +106,14 @@ export default function Home() {
 
     <Button onClick = {navigateUpdates}>
       {UpdateButton}
+    </Button>
+
+    <Button onClick = {navigateLogin}>
+      {LoginButton}
+    </Button>
+
+    <Button onClick = {navigateSignup}>
+      {SignupButton}
     </Button>
   </>
 }
