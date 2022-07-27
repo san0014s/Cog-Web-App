@@ -8,6 +8,7 @@ import Account from "./routes/Account"
 import Project from "./routes/Project"
 import ReactionGame from "./games/ReactionGame"
 import SessionState from "./components/SessionState"
+import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <>
+    <Navbar></Navbar>
     <Routes> 
       <Route path="/" element={<Home />} /> 
       <Route path="/updates" element={<Updates />} /> 
