@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   const naviagateGames = () => {
-    navigate('/ReactionGame'); //TODO: Currently redirects to the reaction time game, will redirect to games page once that is made
+    navigate('/games'); //TODO: Currently redirects to the reaction time game, will redirect to games page once that is made
   }
 
   const naviagateContactUs = () => {

@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react"; 
+import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
 
@@ -10,19 +11,20 @@ const PAGE_STATE = Object.freeze({
     POST_GAME: Symbol("Post-Game")
 })
 
-const GAMES = [
-    {
-        display: "Reaction game",
-        description: "Test your reaction time or whatever",
-        howTo: "Click the button when it says to click it i guess",
-        component: <ReactionGame/>
-    }
-]
-
 export default function Games() {
 
     const [pageState, setPageState] = useState(PAGE_STATE.GAMES_LIST)
     const [gameToRender, setGameToRender] = useState();
+
+    const GAMES = [
+        {
+            display: "Reaction game",
+            description: "Test your reaction time or whatever",
+            howTo: "Click the button when it says to click it i guess",
+            component: <ReactionGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+        }
+    ]
+    
 
     return <>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
@@ -45,5 +47,11 @@ export default function Games() {
             />}
 
         {pageState === PAGE_STATE.IN_GAME && gameToRender.component}
+
+        {pageState === PAGE_STATE.POST_GAME && 
+            <PostGame
+                playAgain={() => setPageState(PAGE_STATE.PRE_GAME)}
+                backToGames={() => setPageState(PAGE_STATE.GAMES_LIST)}
+            />}
     </>
 }
