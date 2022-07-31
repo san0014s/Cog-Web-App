@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import styled from 'styled-components';
-import React from 'react'
 
 
 //the following constants are what prints out for each button and the home page greeting
@@ -13,7 +12,7 @@ const GamesButton = "Go to Games";
 const ContactButton = "Contact Us!";
 const UpdateButton = "Updates";
 const LoginButton = "TempLogin";
-const SignupButton = "TempSignup"
+const SignupButton = "TempSignup";
 
 //different button themes (just one right now)
 const theme = { 
