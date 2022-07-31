@@ -8,8 +8,10 @@ import Account from "./routes/Account"
 import Project from "./routes/Project"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
-import ReactionGame from "./games/ReactionGame"
+import Games from "./routes/Games";
+
 import SessionState from "./components/SessionState"
+import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -34,6 +36,7 @@ function App() {
     // Hope this helps :)
     //
     <>
+    <Navbar></Navbar>
     <Routes> 
       <Route path="/" element={<Home />} /> 
       <Route path="/updates" element={<Updates />} /> 
@@ -41,9 +44,9 @@ function App() {
       <Route path="/contact" element={<Contact />} /> 
       <Route path="/account" element={<Account />} /> 
       <Route path="/project" element={<Project />} /> 
-      <Route path="/reactionGame" element={<ReactionGame />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/games" element={<Games />} />
     </Routes>
     </>
   );
