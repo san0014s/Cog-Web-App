@@ -41,7 +41,7 @@ const Button = styled.button`
       }
 `
 
-export default function ReactionGame() {
+export default function ReactionGame({ advanceStateFunction }) {
 
     const [gameState, setGameState] = useState(GameState.Initial);
     const [initialStateTimeoutId, setInitialStateTimeoutId] = useState(); // stores the ID associated with the thread that will start the game
@@ -106,6 +106,7 @@ export default function ReactionGame() {
             setButton1Text(GAME_OVER);
             setButton2Text(GAME_OVER);
             recordData(GAME_TYPE, getAverage());
+            advanceStateFunction();
         }
     }, [gameState]); // putting the gameState variable here means that the useEffect will watch this var and react to any updates that happen to it
 

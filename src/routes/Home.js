@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 //the following constants are what prints out for each button and the home page greeting
 const greeting = "Welcome to the Cognitive Web Application";
@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   const naviagateGames = () => {
-    navigate('/ReactionGame'); //TODO: Currently redirects to the reaction time game, will redirect to games page once that is made
+    navigate('/games'); //TODO: Currently redirects to the reaction time game, will redirect to games page once that is made
   }
 
   const naviagateContactUs = () => {
