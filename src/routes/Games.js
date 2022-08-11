@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
+import MemoryGame from "../games/MemoryGame"
 
 const PAGE_STATE = Object.freeze({
     GAMES_LIST: Symbol("Games List"),
@@ -22,6 +23,12 @@ export default function Games() {
             description: "Test your reaction time or whatever",
             howTo: "Click the button when it says to click it i guess",
             component: <ReactionGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+        },
+        {
+            display: "Memory game",
+            description: "Test your memory",
+            howTo: "Match Images",
+            component: <MemoryGame/>
         }
     ]
     
