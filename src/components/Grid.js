@@ -17,7 +17,7 @@ const Grid = props => {
         {list.map((index) => (
           <Card
             key={index[0]}
-            className={`col-3 card ${
+            className={`col-1 card ${
               visibleItems.includes(index) ? "grid-card-show" : ""
             } ${
               finishedItems.includes(index)

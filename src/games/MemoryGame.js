@@ -116,7 +116,7 @@ export default function MemoryGame() {
   return (
     <body class="background">
     <div class="liveBox">
-      <h1 class="lives">Lives: {3-counter}</h1>
+    <h1 class="lives">Lives: {3-counter}</h1>
     </div>
     <div className="text-center p-4 d-flex flex-column">
       <div class="game"> Game {oldGame}</div>
@@ -190,9 +190,3 @@ export default function MemoryGame() {
     
   );
 }
-
-
-
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<MemoryGame />, rootElement);
