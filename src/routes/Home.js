@@ -58,63 +58,33 @@ export default function Home() {
 
   const navigate = useNavigate();
 
-  const navigateAboutUs = () => {
-    navigate('/about');
-  }
-
-  const naviagateAccount = () => {
-    navigate('/account');
-  }
-
-  const naviagateGames = () => {
-    navigate('/games'); //TODO: Currently redirects to the reaction time game, will redirect to games page once that is made
-  }
-
-  const naviagateContactUs = () => {
-    navigate('/contact');
-  }
-
-  const navigateUpdates = () => {
-    navigate('/updates');
-  }
-
-  const navigateLogin = () => {
-    navigate('/login');
-  }
-
-  const navigateSignup = () => {
-    navigate('/Signup');
-  }
-
-  //TODO: Pages still needed: login, signup 
-
   return <>
     <div>{greeting}</div>
-    <Button onClick = {navigateAboutUs}>
+    <Button onClick = {() => navigate('/about')}>
       {AboutButton}
     </Button>
 
-    <Button onClick = {naviagateAccount}>
+    <Button onClick = {() => navigate('/account')}>
       {AccountButton}
     </Button>
 
-    <Button onClick = {naviagateGames}>
+    <Button onClick = {() => navigate('/games')}>
       {GamesButton}
     </Button>
 
-    <Button onClick = {naviagateContactUs}>
+    <Button onClick = {() => navigate('/contact')}>
       {ContactButton}
     </Button>
 
-    <Button onClick = {navigateUpdates}>
+    <Button onClick = {() => navigate('/updates')}>
       {UpdateButton}
     </Button>
 
-    <Button onClick = {navigateLogin}>
+    <Button onClick = {() => navigate('/login')}>
       {LoginButton}
     </Button>
 
-    <Button onClick = {navigateSignup}>
+    <Button onClick = {() => navigate('/Signup')}>
       {SignupButton}
     </Button>
   </>
