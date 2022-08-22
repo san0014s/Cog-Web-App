@@ -3,11 +3,8 @@ import React, { useState } from "react";
 import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
-<<<<<<< HEAD
 import FamilyCard from "../games/FamilyCard"
-=======
 import MemoryGame from "../games/MemoryGame"
->>>>>>> cb5d747ef7ceef1d187efba5f4f605480ac756b4
 
 const PAGE_STATE = Object.freeze({
     GAMES_LIST: Symbol("Games List"),
