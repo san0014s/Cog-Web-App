@@ -1,5 +1,11 @@
 body{
-    background: lightsalmon;
+    background-size: 1000% 1000%;
+    background-image: linear-gradient(
+          to right,
+          rgba(125, 220, 240, 1), 
+          rgba(160,250,248,1)
+    );  
+    animation: AnimateBG 7s ease-in-out infinite;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +13,7 @@ body{
 }
 
 #contact-container{
-    width: 1200px;
+    width: 1600px;
     border-radius: 15px;
     overflow: hiddens;
     padding: 10px;

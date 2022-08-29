@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 
 
 import "../css/MemoryStyle.css";
+import "../components/Navbar"
 
 import Grid from "../components/Grid";
 

@@ -3,7 +3,9 @@ import '../contact.css';
 
 export default function Contact(){
   return(
-    <><h1>Contact Us!</h1>
+    <>
+    <body>
+    <h1>Contact Us!</h1>
     <p>lorem ipsum</p>
     
     <div id="contact-container">
@@ -32,7 +34,8 @@ export default function Contact(){
        
       </form>
 
-    </div></>
+    </div>
+    </body></>
   )
 }
     

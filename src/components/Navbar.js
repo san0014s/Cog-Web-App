@@ -41,6 +41,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
+    <div class= "format">
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -163,6 +164,7 @@ const ResponsiveAppBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    </div>
   );
 };
 export default ResponsiveAppBar;

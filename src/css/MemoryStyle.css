@@ -2,7 +2,7 @@
     position: absolute;
     width: 100px;
     height: 30px;
-    right: 65px;
+    right: 175px;
     top: 90px;
     color: black;
     padding-right: 5px;
@@ -34,7 +34,7 @@
   .game{
       position: relative;
       left: 40%;
-      top: -25px;
+      top: 0px;
       align-items: center;
       justify-content: center;
       color: black;
@@ -43,19 +43,14 @@
   }
   
   .background {
-    width: 100%;
+    width: 225vh;
     height: 100vh;
     overscroll-behavior: contain;
     display: flex;
     align-items: center;
     justify-content: center;
     background-size: 1000% 1000%;
-    background-image: linear-gradient(
-          to right,
-          rgba(125, 220, 240, 1), 
-          rgba(160,250,248,1)
-    );  
-    animation: AnimateBG 7s ease-in-out infinite;
+
   }
   
   @keyframes AnimateBG { 
@@ -65,7 +60,9 @@
   }
   
   .grid-card {
+      display: inline;
       justify-content: center;
+      align-content: center;
       background: #7fdcec;
       width:100%;
       height: 100%;
@@ -110,9 +107,14 @@
     }
   
   .boxed {
-  
+    
     width: 800px;
-    display: flex;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  
+    gap: 4px;
+    grid-auto-flow: column;
     padding-right: 5px;
     padding-left: 5px;
     padding-top: 10px;

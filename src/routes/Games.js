@@ -6,6 +6,8 @@ import ReactionGame from "../games/ReactionGame"
 import FamilyCard from "../games/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
 
+
+
 const PAGE_STATE = Object.freeze({
     GAMES_LIST: Symbol("Games List"),
     PRE_GAME: Symbol("Pre-Game"),
@@ -14,7 +16,7 @@ const PAGE_STATE = Object.freeze({
 })
 
 export default function Games() {
-
+        
     const [pageState, setPageState] = useState(PAGE_STATE.GAMES_LIST)
     const [gameToRender, setGameToRender] = useState();
 
@@ -36,7 +38,8 @@ export default function Games() {
 
     return <>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
-            return <div key={game}>
+            return <body>
+                <div key={game}>
                 <Button onClick={() => {
                     setGameToRender(game);
                     setPageState(PAGE_STATE.PRE_GAME);
@@ -44,6 +47,7 @@ export default function Games() {
                     {game.display}
                 </Button>
             </div>
+            </body>
         })}
 
         {pageState === PAGE_STATE.PRE_GAME && 
