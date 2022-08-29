@@ -36,18 +36,18 @@ function App() {
     // Hope this helps :)
     //
     <>
-    <Navbar></Navbar>
-    <Routes> 
-      <Route path="/" element={<Home />} /> 
-      <Route path="/updates" element={<Updates />} /> 
-      <Route path="/about" element={<About />} /> 
-      <Route path="/contact" element={<Contact />} /> 
-      <Route path="/account" element={<Account />} /> 
-      <Route path="/project" element={<Project />} /> 
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/games" element={<Games />} />
-    </Routes>
+      <Navbar></Navbar>
+      <Routes> 
+        <Route path="/" element={<Home />} /> 
+        <Route path="/updates" element={<Updates />} /> 
+        <Route path="/about" element={<About />} /> 
+        <Route path="/contact" element={<Contact />} /> 
+        <Route path="/account" element={<Account />} /> 
+        <Route path="/project" element={<Project />} /> 
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/games" element={<Games />} />
+      </Routes>
     </>
   );
 }
