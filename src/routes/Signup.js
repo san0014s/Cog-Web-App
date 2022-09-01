@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Signup() {
+  const [name, setName] = useState('')
   const [username, setUsername] = useState('');
   const [dateOfBirth, setDOB] = useState('');
   const [email, setEmail] = useState('');
@@ -9,18 +11,36 @@ export default function Signup() {
   const [confPassword, setConfPassword] = useState('');
   const [interests, setInterests] = useState('');
 
+  const navigate = useNavigate();
+
   // below function will be called when user
   // click on submit button .
   const handleSubmit = (e) => {
-    if (password !== confPassword) {
-      console.log("password Not Match");
-      //TODO: instead of console.log, tell the user
-    } else {
-      console.log('A form was submitted with Name :"' + username +
-      '" ,Date of Birth :"' + dateOfBirth + '" and Email :"' + email + '"');
-      //TODO: Connect to the database/backend
-    }
     e.preventDefault();
+
+    if (password !== confPassword) {
+      alert("Passwords do not match!")
+      return;
+    } 
+
+    var accountToCreate = {
+      name: name,
+      username: username,
+      password: password,
+      email: email,
+      dateOfBirth: dateOfBirth,
+      interests: interests
+    }
+
+    fetch('http://localhost:8080/createAccount', { // TODO: make protocol, ip address, and port(?) configurable
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(accountToCreate)
+    }).then(() => {
+      navigate('/login')
+    }).catch((error) => { // catch any errors
+      console.error(error)
+    })
   }
 
 
@@ -28,6 +48,10 @@ export default function Signup() {
     <form onSubmit={(e) => { handleSubmit(e) }}>
     <h2> Start Improving Your Mental Health Today!</h2>
     <h3> Sign-up Form </h3>
+    <label >
+      Preferred Name:
+    </label><br />
+    <input type="text" value={name} required onChange={(e)=> setName(e.target.value)} /><br />
     <label >
       Username:
     </label><br />
