@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +13,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import SessionState from './SessionState';
 
 const pages = [
     {display: 'Home', href: '/'},
@@ -19,16 +21,36 @@ const pages = [
     {display: 'About', href: '/about'},
     {display: 'Updates', href:'/updates'}
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+  const navigate = useNavigate();
+
+  const settings = [
+    {display: 'Profile', onClick: () => {
+        handleCloseUserMenu()
+        navigate('/profile')
+      }},
+    {display: 'Account', onClick: () => {
+        handleCloseUserMenu()
+        navigate('/account')
+      }},
+    {display: 'Dashboard', onClick: () => handleCloseUserMenu()},
+    {display: 'Logout', onClick: () => {
+        SessionState.setId(-1);
+        handleCloseUserMenu();
+        navigate('/')
+      }}
+  ];
+
   const handleOpenNavMenu = (event) => {
+    console.log(SessionState.getId());
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
+    console.log(SessionState.getId());
     setAnchorElUser(event.currentTarget);
   };
 
@@ -154,8 +176,8 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.display} onClick={() => setting.onClick()}>
+                  <Typography textAlign="center">{setting.display}</Typography>
                 </MenuItem>
               ))}
             </Menu>
