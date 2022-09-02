@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import SessionState from '../components/SessionState';
 
 export default function Login() {
@@ -6,6 +7,8 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [loginFailed, setLoginFailed] = useState(false);
   const [loginInProgress, setLoginInProgress] = useState(false);
+
+  const navigate = useNavigate();
 
   // below function will be called when user
   // click on submit button .
@@ -31,6 +34,7 @@ export default function Login() {
     }).then((data) => { // use the response body as json
       SessionState.setId(data); // set the session state
       setLoginInProgress(false);
+      navigate("/profile")
     }).catch((error) => { // catch any errors
       console.error(error)
       setLoginInProgress(false)
