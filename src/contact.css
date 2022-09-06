@@ -4,6 +4,23 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://images.pexels.com/photos/6192337/pexels-photo-6192337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.sub-title{
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 #contact-container{
@@ -12,7 +29,11 @@ body{
     overflow: hiddens;
     padding: 10px;
     display: flex;
-    background: white;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.75);
 }
 
 .contact-info{
@@ -30,5 +51,135 @@ body{
 h4{
         font-size: 2rem;
         font-weight: 500;
-        margin-top: 0;
+        /*margin-top: 0;*/
+        margin: 0;
+}
+
+/*The paragraph above the contact form*/
+p{
+    color: rgba(255,255,255,.9);
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.icon-Text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.social-media{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.icon-circle{
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 50%;
+    transition: .3s all ease-in-out;
+}
+
+/*trying to have a hovering effect over the icon circles*/
+/*having an issue hovering over anything changes the color rather than the icon*/
+/* :hover{
+    background: #05f7ff;
+} */
+
+/*it should be calling icon-Text and then the fa class*/
+.fa{
+    flex: 0 0 20px;
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    color: #05f7ff;
+}
+
+/*No class declared*/
+span{
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+/****Acutal form****/
+form{
+    padding: 40px;
+    width: 100%;
+}
+
+.column{
+    display: flex;
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.form-group{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 0 1 100%;
+    padding-right: 40px;
+} :nth-child(){ /**matches every element that is the nth child of its parent**/
+    padding-right: 0;
+}
+
+#radio-buttons{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+} .solo{
+    padding: 0;
+}
+
+input[type="radio"]:checked + label{
+    color: white;
+    font-weight: 700;
+}
+
+button{
+    width: 200px;
+    height: 60px;
+    cursor: pointer; /*this allow it to appear clickable*/
+    background: white;  
+    border: none; 
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.right{
+    align-items: flex-end;
+}
+
+.radio-button{
+    margin-right: 20px;
+}
+
+input[type="text"], input[type="tel"], input[type="email"], textarea{
+    /* background:rgba(255, 255, 255, 0.2); */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: white;
+    background: transparent;
+    border-bottom: 2px solid rgba(255,255,255,.4);
+    transition: .3s all ease-in-out;
+    margin-bottom: 2rem;
+} :focus{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #05f7ff;
+}
+
+label{
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .4);
+    margin-bottom: 1rem;
 }
