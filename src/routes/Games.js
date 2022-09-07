@@ -15,7 +15,7 @@ const PAGE_STATE = Object.freeze({
 })
 
 export default function Games() {
-
+        
     const [pageState, setPageState] = useState(PAGE_STATE.GAMES_LIST)
     const [gameToRender, setGameToRender] = useState();
 
@@ -37,14 +37,14 @@ export default function Games() {
 
     return <>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
-            return <div key={game}>
-                <Button onClick={() => {
-                    setGameToRender(game);
-                    setPageState(PAGE_STATE.PRE_GAME);
-                }}>
-                    {game.display}
-                </Button>
-            </div>
+            return <div key={game.display}>
+                    <Button onClick={() => {
+                        setGameToRender(game);
+                        setPageState(PAGE_STATE.PRE_GAME);
+                    }}>
+                        {game.display}
+                    </Button>
+                </div>
         })}
 
         {pageState === PAGE_STATE.PRE_GAME && 

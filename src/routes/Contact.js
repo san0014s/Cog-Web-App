@@ -1,48 +1,49 @@
 import React from 'react';
-import '../contact.css';
+import '../css/Contact.css';
 
 //contact
 //TODO: need icons for phone numbers, emails, and linkedin (look into materialUI)
-export default function Contact(){
-  return(
+export default function Contact() {
+  return (
+    <body className="Biggy">
     <><h1>Contact Us!</h1>
-    <p className="sub-title">If you have any inquiries, please use the contact form below.</p>
-    
-    <div id="contact-container">
+      <p className="sub-title">If you have any inquiries, please use the contact form below.</p>
+
+      <div id="contact-container">
 
 
-      <div className="contact-info">
+        <div className="contact-info">
           <h3>Contact Information</h3>
           <p>text</p>
-          <div className="icon-Text"> 
-            <i class="fa fa-phone" aria-hidden="true"></i> 
+          <div className="icon-Text">
+            <i class="fa fa-phone" aria-hidden="true"></i>
             <span>Steven Navarro: 304-702-9445 </span>
           </div>
           <div className="icon-Text">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span>Steven Navarro: san0014@mix.wvu.edu</span>
           </div>
-      </div>
+        </div>
 
 
-      <div className="social-media">
-        <a href="#" className="icon-circle">
+        <div className="social-media">
+          <a href="#" className="icon-circle">
             <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-        </a>
-      </div>
+          </a>
+        </div>
 
 
-      <form>
-        <div className="column">
-          <div className="form-group">
-            <label>First Name</label>
-            <input type="text"></input>
-          </div>
+        <form>
+          <div className="column">
+            <div className="form-group">
+              <label>First Name</label>
+              <input type="text"></input>
+            </div>
             <div className="form-group">
               <label>Last Name</label>
               <input type="text"></input>
             </div>
-        </div>
+          </div>
           <div className="column">
             <div className="form-group">
               <label>Email</label>
@@ -56,8 +57,8 @@ export default function Contact(){
           <div className="column">
             <div className="form-group solo">
               <label>Please choose the category that best fits your inquiry.</label>
-                <div id="radio-buttons">
-                  <div className="radio-button">
+              <div id="radio-buttons">
+                <div className="radio-button">
                   <input type="radio" id="radiobugs" name="type" value="Bugs"></input><label for="radiobugs">Bugs</label>
                 </div>
                 <div className="radio-button">
@@ -73,21 +74,21 @@ export default function Contact(){
             </div>
           </div>
           <div className="column">
-              <div className="form-group solo">
-                <label>Message</label>
-                <textarea></textarea>
-              </div>
+            <div className="form-group solo">
+              <label>Message</label>
+              <textarea></textarea>
             </div>
+          </div>
           <div className="column">
             <div className="form-group solo right">
               <button className="primary">Send Message</button>
             </div>
           </div>
-      </form>
+        </form>
 
-    </div></>
+      </div>
+     </> 
+  </body>
   )
 }
-    
-
 

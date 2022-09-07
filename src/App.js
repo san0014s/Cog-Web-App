@@ -38,6 +38,7 @@ function App() {
     // Hope this helps :)
     //
     <>
+
       <FamilyList flashcards={flashcards} /><>
         <Navbar></Navbar>
         <Routes>
@@ -51,6 +52,7 @@ function App() {
           <Route path="/games" element={<Games />} />
         </Routes>
       </></>
+
   );
 }
 

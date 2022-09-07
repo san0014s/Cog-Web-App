@@ -1,14 +1,7 @@
 // eslint-disable-next-line
 import React, { useState, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
-
-
-
-import "../css/MemoryStyle.css";
-
 import Grid from "../components/Grid";
-
-
+import "../css/MemoryGame.css";
 
 
 var counter = 0;
@@ -114,79 +107,79 @@ export default function MemoryGame() {
   );
 
   return (
-    <body class="background">
-    <div class="liveBox">
-    <h1 class="lives">Lives: {3-counter}</h1>
-    </div>
-    <div className="text-center p-4 d-flex flex-column">
-      <div class="game"> Game {oldGame}</div>
-      <div class="boxed">
-      {list.length === 0 ? (
-        <div>...Loading</div>
-      ) : (
-        <div>
-          <Grid
-            list= {list}
-            visibleItems={visibleItems}
-            setVisibleItems={setVisibleItems}
-            finishedItems={finishedItems}
-            checkItems={checkItems}
-          />
+    <div className="background">
+      <div className="liveBox">
+      <h1 className="lives">Lives: {3-counter}</h1>
+      </div>
+      <div className="text-center p-4 d-flex flex-column">
+        <div className="game"> Game {oldGame}</div>
+        <div className="boxed">
+        {list.length === 0 ? (
+          <div>...Loading</div>
+        ) : (
+          <div>
+            <Grid
+              list= {list}
+              visibleItems={visibleItems}
+              setVisibleItems={setVisibleItems}
+              finishedItems={finishedItems}
+              checkItems={checkItems}
+            />
+            </div>
+          )}
           </div>
-        )}
-        </div>
-          {winner && (
-            <div class="game">
-              <font size="+5">You Win</font>
+            {winner && (
+              <div className="game">
+                <font size="+5">You Win</font>
+                <br />
+                <font size="-5">Finished in seconds</font>
+                <br />
+                { <button
+                  onClick={() => {
+                    
+                    //Clear Image List so we can repopulate for next round
+                    while(list.length > 0){
+                      list.pop();
+                    }
+                    setNewGame(!newGame);
+                    setVisibleItems([]);
+                    setFinishedItems([]);
+                    setWinner(false);
+                    oldGame += 1;
+                  }}
+                  className="btn btn-warning mb-4"
+                >
+                  Next Round
+                </button> }
+              </div>
+            )}
+          {loser && (
+            <div>
+              <font size="+5">You Lose</font>
               <br />
-              <font size="-5">Finished in seconds</font>
+              <font size="+3">Game will Restart in 3 Seconds!</font>
+              <meta http-equiv="refresh" content="3; URL=http://localhost:3000" />
               <br />
-              { <button
+              {/* { <button
                 onClick={() => {
-                  
-                  //Clear Image List so we can repopulate for next round
-                  while(list.length > 0){
+                  while(list.length >0){
                     list.pop();
                   }
                   setNewGame(!newGame);
                   setVisibleItems([]);
                   setFinishedItems([]);
-                  setWinner(false);
-                  oldGame += 1;
+                  counter = 0;
+                  oldGame = 1;
+                  newG = 1;
                 }}
                 className="btn btn-warning mb-4"
               >
-                Next Round
-              </button> }
+                Restart
+              </button> } */}
             </div>
           )}
-        {loser && (
-          <div>
-            <font size="+5">You Lose</font>
-            <br />
-            <font size="+3">Game will Restart in 3 Seconds!</font>
-            <meta http-equiv="refresh" content="3; URL=http://localhost:3000" />
-            <br />
-            {/* { <button
-              onClick={() => {
-                while(list.length >0){
-                  list.pop();
-                }
-                setNewGame(!newGame);
-                setVisibleItems([]);
-                setFinishedItems([]);
-                counter = 0;
-                oldGame = 1;
-                newG = 1;
-              }}
-              className="btn btn-warning mb-4"
-            >
-              Restart
-            </button> } */}
-          </div>
-        )}
-      </div>
-    </body>
+        </div>
+    </div>
     
   );
 }
