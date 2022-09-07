@@ -5,14 +5,14 @@ import '../css/Contact.css';
 //TODO: need icons for phone numbers, emails, and linkedin (look into materialUI)
 export default function Contact() {
   return (
-    <body className="Biggy">
-    <><h1>Contact Us!</h1>
+    <body className="Contact-body">
+      <h1>Contact Us!</h1>
       <p className="sub-title">If you have any inquiries, please use the contact form below.</p>
 
-      <div id="contact-container">
+      <div id="Contact-container">
 
 
-        <div className="contact-info">
+        <div className="Contact-info">
           <h3>Contact Information</h3>
           <p>text</p>
           <div className="icon-Text">
@@ -33,7 +33,7 @@ export default function Contact() {
         </div>
 
 
-        <form>
+        <form className="Contact-form">
           <div className="column">
             <div className="form-group">
               <label>First Name</label>
@@ -87,7 +87,6 @@ export default function Contact() {
         </form>
 
       </div>
-     </> 
   </body>
   )
 }

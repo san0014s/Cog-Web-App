@@ -1,12 +1,4 @@
-.Contact-body{
-    background-size: 1000% 1000%;
-    background-image: linear-gradient(
-          to right,
-          rgba(125, 220, 240, 1), 
-          rgba(160,250,248,1)
-    ); 
-} 
-.Biggy{
+.Contact-body {
     animation: AnimateBG 7s ease-in-out infinite;
     display: flex;
     flex-direction: column;
@@ -32,7 +24,7 @@ h1{
 }
 
 #Contact-container{  /* I'm not sure what the # does here? */
-    width: 1600px;
+    width: 90vw;
     border-radius: 15px;
     overflow: hiddens;
     padding: 10px;
@@ -56,11 +48,11 @@ h1{
    
 } 
 
-.Contact-h4{
-        font-size: 2rem;
-        font-weight: 500;
-        /*margin-top: 0;*/
-        margin: 0;
+h4{
+    font-size: 2rem;
+    font-weight: 500;
+    /*margin-top: 0;*/
+    margin: 0;
 }
 
 /*The paragraph above the contact form*/
@@ -115,7 +107,7 @@ span{
 }
 
 /****Acutal form****/
-form{
+.Contact-form {
     padding: 40px;
     width: 100%;
 }
