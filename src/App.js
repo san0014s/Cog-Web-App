@@ -1,5 +1,6 @@
 import React, { useState } from "react"; //using react
 import "./index.css"; //import css idex
+import "./FamilyCard.css";
 import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Updates from "./routes/Updates"
