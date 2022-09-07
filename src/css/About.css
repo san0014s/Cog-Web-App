@@ -1,0 +1,73 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+body {
+    background: blue;
+  }
+  */
+
+  
+.wrapper{
+    margin-top: 5%;
+}
+
+.wrapper h1{
+    font-family: 'Brush Script MT', Brush Script Std, cursive;
+    font-size: 52 px;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+.group{
+    display: flex;
+    text-align: center;
+    width: auto;
+    justify-content: center;
+}
+
+.group .group_member{
+    background: #84BBF1;
+    margin: 5px;
+    margin-bottom: 50px;
+    width: 300px; 
+    padding: 20px;
+    line-height: 20px;
+    color: black;
+    position: relative;
+
+}
+
+.group .group_member h3{
+    font-family: 'Brush Script MT', Brush Script Std, cursive;
+    color: #0000A7;
+    font-size: 26px;
+    margin-top: 50 px; 
+
+}
+
+.group .group_member p.role{
+    color: #cccc;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 12 px 0;
+}
+
+.group .group_member .team_img{
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%;
+    /* position: absolute; */
+    position: relative;
+}
+
+.group .group_member .team_img img{
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%;
+}
