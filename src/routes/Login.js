@@ -25,11 +25,12 @@ export default function Login() {
       password: password
     }
 
-    fetch('http://localhost:8080/verifyLogin', { // TODO: make protocol, ip address, and port(?) configurable
+    fetch('http://localhost:8080/Account/verifyLogin', { // TODO: make protocol, ip address, and port(?) configurable
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginCredentials)
     }).then((response) => {
+      console.log(response);
       return response.json() // turn the response body into json
     }).then((data) => { // use the response body as json
       SessionState.setId(data); // set the session state
