@@ -32,8 +32,15 @@ export default function Login() {
     }).then((response) => {
       return response.json() // turn the response body into json
     }).then((data) => { // use the response body as json
+      if (!data || data < 0) {
+        setLoginFailed(true);
+        setLoginInProgress(false);
+        return;
+      }
+
       SessionState.setId(data); // set the session state
       setLoginInProgress(false);
+      setLoginFailed(false);
       navigate("/profile")
     }).catch((error) => { // catch any errors
       console.error(error)
