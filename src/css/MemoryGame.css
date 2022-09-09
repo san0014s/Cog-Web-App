@@ -1,0 +1,135 @@
+.liveBox{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    right: 175px;
+    top: 90px;
+    color: black;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    background-color: beige;
+    /* background-image: linear-gradient(
+          -45deg, 
+          rgba(0,0,0,1) 0%, 
+          rgba(123,123,123,1) 50%, 
+          rgba(125,249,255,1) 100%
+    );   */
+  
+    margin: auto;
+    box-sizing: content-box;
+  }
+  
+  .lives {
+    position: relative;
+    right: 0px;
+    top: -25px;
+    color: rgb(201, 75, 75);
+    font-family: "Goudy Old Style";
+  }
+  
+  
+  .game{
+      position: relative;
+      left: 40%;
+      top: 0px;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-family: "Ebrima";
+      font-size: 40px;
+  }
+  
+  .background {
+    width: 225vh;
+    height: 100vh;
+    overscroll-behavior: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 1000% 1000%;
+
+  }
+  
+  @keyframes AnimateBG { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  
+  .grid-card {
+      display: inline;
+      justify-content: center;
+      align-content: center;
+      background: #7fdcec;
+      width:100%;
+      height: 100%;
+      margin: auto;
+      object-fit: contain;
+      border-radius: 25px;
+    }
+    .grid-card::after {
+      content: "";
+      justify-content: center;
+      background: beige;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: rotateY(0) perspective(100px);
+      transition: 0.4s;
+      backface-visibility: hidden;
+      border-radius: 25px;
+    }
+    .grid-img{
+      height: 200px;
+      width: 200px;
+      object-fit: contain;
+      overflow: hidden;
+      object-position: center;
+      background: beige;
+      transform: rotateY(180deg) perspective(100px);
+      transition: 0.4s;
+      backface-visibility: hidden;
+      border-radius: 25px;
+    }
+    .grid-card-show::after {
+      transform: rotateY(180deg) perspective(100px);
+    }
+    .grid-card-show .grid-img {
+      transform: rotateY(0) perspective(100px);
+    }
+    .grid-card-finished {
+      opacity: 0.5;
+    }
+  
+  .boxed {
+    
+    width: 800px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  
+    gap: 4px;
+    grid-auto-flow: column;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 10px dashed rgb(140,235,235) ;
+    border-radius: 25px;
+    background-color: beige;
+    /* background-image: linear-gradient(
+          -45deg, 
+          rgba(0,0,0,1) 0%, 
+          rgba(123,123,123,1) 50%, 
+          rgba(125,249,255,1) 100%
+    );   */
+  
+    margin: auto;
+    box-sizing: content-box;
+  } 
+  

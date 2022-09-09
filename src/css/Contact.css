@@ -1,0 +1,40 @@
+.Contact-body{
+    background-size: 1000% 1000%;
+    background-image: linear-gradient(
+          to right,
+          rgba(125, 220, 240, 1), 
+          rgba(160,250,248,1)
+    );  
+    animation: AnimateBG 7s ease-in-out infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Contact-container{  /* I'm not sure what the # does here? */
+    width: 1600px;
+    border-radius: 15px;
+    overflow: hiddens;
+    padding: 10px;
+    display: flex;
+    background: white;
+}
+
+.Contact-info{
+    background-color: purple;
+    flex: 0 1 40%;
+    border-radius: 15px;
+    padding: 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+   
+} 
+
+.Contact-h4{
+        font-size: 2rem;
+        font-weight: 500;
+        margin-top: 0;
+}

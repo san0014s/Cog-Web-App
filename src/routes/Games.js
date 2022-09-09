@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
+import FamilyCard from "../games/FamilyCard"
+import MemoryGame from "../games/MemoryGame"
+
+
 
 const PAGE_STATE = Object.freeze({
     GAMES_LIST: Symbol("Games List"),
@@ -12,7 +16,7 @@ const PAGE_STATE = Object.freeze({
 })
 
 export default function Games() {
-
+        
     const [pageState, setPageState] = useState(PAGE_STATE.GAMES_LIST)
     const [gameToRender, setGameToRender] = useState();
 
@@ -22,20 +26,26 @@ export default function Games() {
             description: "Test your reaction time or whatever",
             howTo: "Click the button when it says to click it i guess",
             component: <ReactionGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+        },
+        {
+            display: "Memory game",
+            description: "Test your memory",
+            howTo: "Match Images",
+            component: <MemoryGame/>
         }
     ]
     
 
     return <>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
-            return <div key={game}>
-                <Button onClick={() => {
-                    setGameToRender(game);
-                    setPageState(PAGE_STATE.PRE_GAME);
-                }}>
-                    {game.display}
-                </Button>
-            </div>
+            return <div key={game.display}>
+                    <Button onClick={() => {
+                        setGameToRender(game);
+                        setPageState(PAGE_STATE.PRE_GAME);
+                    }}>
+                        {game.display}
+                    </Button>
+                </div>
         })}
 
         {pageState === PAGE_STATE.PRE_GAME && 
