@@ -168,7 +168,7 @@ export default function ReactionGame({ advanceStateFunction }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(personalData)
         })
-        .catch(e => console.log(e)); // TODO: possibly apply a .then() and .catch() or return the promise so that callers can handle .then and/or .catch
+        .catch(e => console.error(e)); // TODO: possibly apply a .then() and .catch() or return the promise so that callers can handle .then and/or .catch
     }
 
     return <>

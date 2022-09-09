@@ -23,7 +23,6 @@ export default function Profile() {
     }, [])
 
     if (account) {
-        console.log(account)
         return <>
             <h1>{account.name}</h1>
             <h4>@{account.username}</h4>

@@ -30,7 +30,6 @@ export default function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginCredentials)
     }).then((response) => {
-      console.log(response);
       return response.json() // turn the response body into json
     }).then((data) => { // use the response body as json
       SessionState.setId(data); // set the session state
