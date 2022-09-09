@@ -57,6 +57,7 @@ export default function Login() {
 
     {loginFailed && <><label style={{color: "red"}}>Username or password incorrect, please try again</label><br/></>}
     <input type="submit" value="Submit" />
+    <p>Don't have an account? <a href="/signup">Sign up!</a></p>
     </form>
   </>
 }

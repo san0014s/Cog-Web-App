@@ -32,7 +32,7 @@ export default function Signup() {
       interests: interests
     }
 
-    fetch('http://localhost:8080/Account/createAccount', { // TODO: make protocol, ip address, and port(?) configurable
+    fetch('http://localhost:8080/Account', { // TODO: make protocol, ip address, and port(?) configurable
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(accountToCreate)
@@ -77,6 +77,7 @@ export default function Signup() {
     </label><br />
     <input type="text" value={interests} onChange={(e) => setInterests(e.target.value)} /><br />
     <input type="submit" value="Submit" />
+    <p>Already have an account? <a href="/login">Log in!</a></p>
     </form>
   </>
 }

@@ -10,10 +10,10 @@ import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games";
 
-import SessionState from "./components/SessionState"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
+import Profile from "./routes/Profile";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -45,6 +45,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/games" element={<Games />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
     </>
   );
