@@ -14,6 +14,7 @@ const UpdateButton = "Updates";
 const LoginButton = "TempLogin";
 const SignupButton = "TempSignup";
 const FFC_EditButton = "Edit Deck Screen"
+const temp = "temp"
 
 //different button themes (just one right now)
 const theme = { 
@@ -91,6 +92,10 @@ export default function Home() {
 
     <Button onClick = {() => navigate('/FFC_Edit')}>
       {FFC_EditButton}
+    </Button>
+
+    <Button onClick = {() => navigate('/FFC_Edit_Experimental')}>
+      {temp}
     </Button>
   </>
 }

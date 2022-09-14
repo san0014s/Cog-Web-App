@@ -10,6 +10,7 @@ import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games";
 import FFC_Edit from "./routes/FFC_Edit"
+import FFC_Edit_Experimental from "./routes/FFC_Edit_Experimental"
 
 import SessionState from "./components/SessionState"
 import Navbar from "./components/Navbar.js";
@@ -49,6 +50,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/games" element={<Games />} />
         <Route path="/FFC_Edit" element={<FFC_Edit />} />
+        <Route path="/FFC_Edit_Experimental" element={<FFC_Edit_Experimental />} />
       </Routes>
     </>
   );
