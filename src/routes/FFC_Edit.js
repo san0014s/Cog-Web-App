@@ -21,7 +21,7 @@ export default function FFC_Edit() {
       <div>
         {selectedImage && (
           <div>
-          <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} /> <br />
+          <img alt="not found" width={"250px"} src={URL.createObjectURL(selectedImage)} /> <br />
           <input type="text" required onChange={(e)=> setCardName(e.target.value)} /> <br />
           <button onClick={()=>setSelectedImage(null)}>Remove</button>
 
@@ -32,6 +32,7 @@ export default function FFC_Edit() {
         <input
           type="file"
           name="myImage"
+          multiple accept="image/*"
           onChange={(event) => {
             console.log(event.target.files[0]);
             setSelectedImage(event.target.files[0]);
