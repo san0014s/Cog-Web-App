@@ -10,10 +10,10 @@ import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games";
 
-import SessionState from "./components/SessionState"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
+import Profile from "./routes/Profile";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -21,8 +21,6 @@ import { Route, Routes } from "react-router-dom";
 // and can allows the us (users) to change the browser url
 
 function App() {
-
-  SessionState.setId(24); // TODO this should be set on login
 
   return (
     // The Routes tag includes all the pages that can be accessed in the app. To add a new page, do the following
@@ -36,18 +34,19 @@ function App() {
     // Hope this helps :)
     //
     <>
-      <Navbar></Navbar>
-      <Routes> 
-        <Route path="/" element={<Home />} /> 
-        <Route path="/updates" element={<Updates />} /> 
-        <Route path="/about" element={<About />} /> 
-        <Route path="/contact" element={<Contact />} /> 
-        <Route path="/account" element={<Account />} /> 
-        <Route path="/project" element={<Project />} /> 
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/games" element={<Games />} />
-      </Routes>
+    <Navbar></Navbar>
+    <Routes> 
+      <Route path="/" element={<Home />} /> 
+      <Route path="/updates" element={<Updates />} /> 
+      <Route path="/about" element={<About />} /> 
+      <Route path="/contact" element={<Contact />} /> 
+      <Route path="/account" element={<Account />} /> 
+      <Route path="/project" element={<Project />} /> 
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/games" element={<Games />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
     </>
   );
 }
