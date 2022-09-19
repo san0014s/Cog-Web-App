@@ -6,7 +6,7 @@ import '../css/Contact.css';
 export default function Contact() {
   return (
     <body className="Contact-body">
-      <h1>Contact Us!</h1>
+      <h1 className="Contact-h1">Contact Us!</h1>
       <p className="sub-title">If you have any inquiries, please use the contact form below.</p>
 
       <div id="Contact-container">
@@ -14,14 +14,14 @@ export default function Contact() {
 
         <div className="Contact-info">
           <h3>Contact Information</h3>
-          <p>text</p>
+          <p className="Contact-p2">text</p>
           <div className="icon-Text">
             <i class="fa fa-phone" aria-hidden="true"></i>
             <span>Steven Navarro: 304-702-9445 </span>
           </div>
           <div className="icon-Text">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <span>Steven Navarro: san0014@mix.wvu.edu</span>
+            <span className="Contact-span">Steven Navarro: san0014@mix.wvu.edu</span>
           </div>
         </div>
 
@@ -36,22 +36,22 @@ export default function Contact() {
         <form className="Contact-form">
           <div className="column">
             <div className="form-group">
-              <label>First Name</label>
-              <input type="text"></input>
+              <label className="Contact-label">First Name</label>
+              <input className="Contact-textinput" type="text"></input>
             </div>
             <div className="form-group">
               <label>Last Name</label>
-              <input type="text"></input>
+              <input className="Contact-textinput" type="text"></input>
             </div>
           </div>
           <div className="column">
             <div className="form-group">
               <label>Email</label>
-              <input type="email"></input>
+              <input className="Contact-emailinput" type="email"></input>
             </div>
             <div className="form-group">
               <label>Phone Number</label>
-              <input type="tel"></input>
+              <input className="Contact-telinput" type="tel"></input>
             </div>
           </div>
           <div className="column">
@@ -59,16 +59,16 @@ export default function Contact() {
               <label>Please choose the category that best fits your inquiry.</label>
               <div id="radio-buttons">
                 <div className="radio-button">
-                  <input type="radio" id="radiobugs" name="type" value="Bugs"></input><label for="radiobugs">Bugs</label>
+                  <input className="Contact-rb" type="radio" id="radiobugs" name="type" value="Bugs"></input><label for="radiobugs">Bugs</label>
                 </div>
                 <div className="radio-button">
-                  <input type="radio" id="radioproject" name="type" value="Project Questions"></input><label for="radioproject">Project Questions</label>
+                  <input className="Contact-rb" type="radio" id="radioproject" name="type" value="Project Questions"></input><label for="radioproject">Project Questions</label>
                 </div>
                 <div className="radio-button">
-                  <input type="radio" id="radiogames" name="type" value="Games"></input><label for="radiogames">Games</label>
+                  <input className="Contact-rb" type="radio" id="radiogames" name="type" value="Games"></input><label for="radiogames">Games</label>
                 </div>
                 <div className="radio-button">
-                  <input type="radio" id="radiofamily" name="type" value="Family Flash Cards"></input><label for="radiofamily">Family Flash Cards</label>
+                  <input className="Contact-rb" type="radio" id="radiofamily" name="type" value="Family Flash Cards"></input><label for="radiofamily">Family Flash Cards</label>
                 </div>
               </div>
             </div>

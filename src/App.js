@@ -1,6 +1,5 @@
 import React, { useState } from "react"; //using react
 import "./index.css"; //import css idex
-import "./FamilyCard.css";
 import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Updates from "./routes/Updates"
@@ -25,7 +24,7 @@ function App() {
 
   SessionState.setId(24); // TODO this should be set on login
 
-  const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS)
+  
   return (
     // The Routes tag includes all the pages that can be accessed in the app. To add a new page, do the following
     // 1. Create a new .js file somewhere (conventionally in the games or routes folder) and write code for that page (see any other page for an example)
@@ -39,7 +38,7 @@ function App() {
     //
     <>
 
-      <FamilyList flashcards={flashcards} /><>
+      
         <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -51,38 +50,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/games" element={<Games />} />
         </Routes>
-      </></>
+      </>
 
   );
 }
-
-const SAMPLE_FLASHCARDS = [
-  {
-    id: 1,
-    question: 'Who is this family member?',
-    answer: 'Lorem Ipsum',
-    options: [
-      'lor',
-      'ip',
-      'sum',
-      'em'
-    ]
-  }
-]
-
-const SAMPLE_FLASHCARDS2 = [
-  {
-    id: 2,
-    question: 'Who is this family member?',
-    answer: 'Lorem Ipsum',
-    options: [
-      'lor',
-      'ip',
-      'sum',
-      'em'
-    ]
-  }
-]
 
 
 export default App;
