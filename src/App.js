@@ -14,7 +14,7 @@ import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
 import Profile from "./routes/Profile";
-import Upload from "./s3/Upload";
+import UploadToS3Button from "./s3/UploadToS3Button";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -47,7 +47,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/games" element={<Games />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/test" element={<Upload />} />
+      <Route path="/test" element={<UploadToS3Button />} />
     </Routes>
     </>
   );

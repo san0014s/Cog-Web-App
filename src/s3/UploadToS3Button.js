@@ -7,16 +7,19 @@ import GetS3Object from './GetS3Object';
 
 // a React functional component, used to create a simple upload input and button
 
-const Upload = () => {
+const UploadToS3Button = () => {
 
-    const thing = async () => {
-        var thing = await GetS3Object("", "");
-        console.log(thing);
-    }
+    // const thing = async () => {
+    //     var thing = await GetS3Object("", "");
+    //     console.log(thing);
+    // }
 
     useEffect(() => {
 
-        thing()
+        GetS3Object("", "")
+            .then((response) => {
+                console.log(response);
+            })
         
         // MyS3Client.send(
         //     new ListObjectsCommand({ Delimiter: "/", Bucket: process.env.REACT_APP_BUCKET_NAME })
@@ -31,4 +34,4 @@ const Upload = () => {
     </div>
 }
 
-export default Upload;
+export default UploadToS3Button;
