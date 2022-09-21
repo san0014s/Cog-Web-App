@@ -5,7 +5,6 @@ import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
 import FamilyCard from "../games/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
-import SlidingPuzzle from "../games/SlidingPuzzle"
 
 
 
@@ -33,13 +32,6 @@ export default function Games() {
             description: "Test your memory",
             howTo: "Match Images",
             component: <MemoryGame/>
-        },
-
-        {
-            display: "Sliding Puzzle",
-            description: "Test your spatial reasoning",
-            howTo: "Complete Puzzle",
-            component: <SlidingPuzzle/>
         }
     ]
     
