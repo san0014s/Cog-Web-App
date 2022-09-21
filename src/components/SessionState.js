@@ -1,12 +1,19 @@
+const SESSION_ID = "SESSION_ID";
+
 var SessionState = (function() {
-    var id = -1;
-  
+
     var getId = function() {
-        return id;
+        var id = localStorage.getItem(SESSION_ID)
+        if (id === undefined || id === null) {
+            return -1;
+        }
+        else {
+            return id;
+        }
     };
   
     var setId = function(id_param) {
-        id = id_param;     
+        localStorage.setItem(SESSION_ID, id_param)
     };
   
     return {

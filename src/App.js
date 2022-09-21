@@ -1,4 +1,4 @@
-import React, { useState } from "react"; //using react
+import React from "react"; //using react
 import "./index.css"; //import css idex
 import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
@@ -7,10 +7,9 @@ import Contact from "./routes/Contact"
 import Account from "./routes/Account"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
-import Games from "./routes/Games";
-import FamilyList from "./games/FamilyList";
+import Games from "./routes/Games"
+import Profile from "./routes/Profile"
 
-import SessionState from "./components/SessionState"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
@@ -22,9 +21,6 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
 
-  SessionState.setId(24); // TODO this should be set on login
-
-  
   return (
     // The Routes tag includes all the pages that can be accessed in the app. To add a new page, do the following
     // 1. Create a new .js file somewhere (conventionally in the games or routes folder) and write code for that page (see any other page for an example)
@@ -37,21 +33,19 @@ function App() {
     // Hope this helps :)
     //
     <>
-
-      
-        <Navbar></Navbar>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/updates" element={<Updates />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/games" element={<Games />} />
-        </Routes>
-      </>
-
+    <Navbar></Navbar>
+    <Routes> 
+      <Route path="/" element={<Home />} /> 
+      <Route path="/updates" element={<Updates />} /> 
+      <Route path="/about" element={<About />} /> 
+      <Route path="/contact" element={<Contact />} /> 
+      <Route path="/account" element={<Account />} /> 
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/games" element={<Games />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
+    </>
   );
 }
 
