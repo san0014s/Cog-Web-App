@@ -35,21 +35,21 @@ export default function Contact() {
           <div className="column">
             <div className="form-group">
               <label className="Contact-label">First Name</label>
-              <input className="Contact-textinput" type="text"></input>
+              <input className="Contact-input" type="text"></input>
             </div>
             <div className="form-group">
               <label className="Contact-label">Last Name</label>
-              <input className="Contact-textinput" type="text"></input>
+              <input className="Contact-input" type="text"></input>
             </div>
           </div>
           <div className="column">
             <div className="form-group">
               <label className="Contact-label">Email</label>
-              <input className="Contact-emailinput" type="email"></input>
+              <input className="Contact-input" type="email"></input>
             </div>
             <div className="form-group">
               <label className="Contact-label">Phone Number</label>
-              <input className="Contact-telinput" type="tel"></input>
+              <input className="Contact-input" type="tel"></input>
             </div>
           </div>
           <div className="column">
@@ -74,7 +74,7 @@ export default function Contact() {
           <div className="column">
             <div className="form-group solo">
               <label className="Contact-label">Message</label>
-              <textarea></textarea>
+              <textarea className="Contact-input"></textarea>
             </div>
           </div>
           <div className="column">
