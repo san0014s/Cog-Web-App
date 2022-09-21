@@ -8,8 +8,9 @@ import Account from "./routes/Account"
 import Project from "./routes/Project"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
-import Games from "./routes/Games";
+import Games from "./routes/Games"
 import FFC_Edit from "./routes/FFC_Edit"
+import FFC_Select from "./routes/FFC_Select"
 
 import SessionState from "./components/SessionState"
 import Navbar from "./components/Navbar.js";
@@ -49,6 +50,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/games" element={<Games />} />
         <Route path="/FFC_Edit" element={<FFC_Edit />} />
+        <Route path="/FFC_Select" element={<FFC_Select />} />
       </Routes>
     </>
   );
