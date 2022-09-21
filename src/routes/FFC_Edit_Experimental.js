@@ -4,7 +4,7 @@ const UploadAndDisplayImage = () => {
   const [images, setImages] = useState([]);
   const [imageURLS, setImageURLs] = useState([]);
   const [imageNames, setImageNames] = useState([]);
-  const [deckName, setDeckName] = useState([]);
+  const [deckName, setDeckName] = useState();
   useEffect(() => {
     if (images.length < 1) return;
     const newImageUrls: any = [];
@@ -20,10 +20,16 @@ const UploadAndDisplayImage = () => {
     setImageNames([...e.target.value]);
   }
 
-  function onRemoveImage(e: any) {//breaks the thing
-    setImages([...null]);
-    setImageNames([...null]);
-    setImageURLs({...null});
+  function onRemoveImage(e) {//breaks the thing
+    console.log(e)
+
+    var editarray = images.filter(function(value, index){ 
+        return value > 5;//remove the image we don't want
+    });
+
+    setImages(editarray);
+    // setImageNames([...null]);
+    // setImageURLs({...null});
   }
 
   return (
@@ -37,7 +43,7 @@ const UploadAndDisplayImage = () => {
         <>
           <img src={imageSrc} alt="not found" width={"250px"} /> <br />
           <input type="text" required onChange={(e)=> onNameChange} /> <br />
-          <button onClick={()=>onRemoveImage()}>Remove</button> <br />
+          <button onClick={onRemoveImage}>Remove</button> <br />
           <br />
         </>
       ))}
