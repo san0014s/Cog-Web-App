@@ -37,15 +37,13 @@
 }
 
 .Contact-info{
-    background-color: purple;
+    background-color: rgb(129, 0, 129, .7);
     flex: 0 1 40%;
     border-radius: 15px;
     padding: 40px;
     color: white;
     display: flex;
     flex-direction: column;
-
-   
 } 
 
 
@@ -131,12 +129,16 @@
     padding: 0;
 }
 
-.Contact-rb/*input[type="radio"]*/:checked + label{
-    color: white;
+.Contact-rb  + label{
+    color: rgba(255, 255, 255, .4);
+}
+
+.Contact-rb:checked + label{
+    color: rgba(255, 255, 255);
     font-weight: 700;
 }
 
-button{
+.Contact-button{
     width: 200px;
     height: 60px;
     cursor: pointer; /*this allow it to appear clickable*/
