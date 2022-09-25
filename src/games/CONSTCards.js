@@ -1,7 +1,10 @@
 import "./FamilyCard.css";
 
+return(
+    <div className="container-cardwrapper">
 <><FamilyList flashcards={flashcards} /><></></>
-
+    </div>
+)
 const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS)
 
 const SAMPLE_FLASHCARDS = [
