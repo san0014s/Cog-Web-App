@@ -137,14 +137,14 @@ export default function SlidingPuzzle() {
 
   return (
     <div className="Slide">
-      {<h3>Moves: {moves}</h3>}
+      {<h1>Moves: {moves}</h1>}
       <div
         style={{
           display: "inline-block",
-          backgroundColor: "darkgray",
-          border: `5px solid ${complete ? "black" : "gray"}`,
+          backgroundColor: "beige",
+          border: `5px solid ${complete ? "black" : "beige"}`,
           borderRadius: 5,
-          padding: 5
+          padding: 25
         }}
       >
         {puzzle.map((row, i) => (
@@ -155,7 +155,7 @@ export default function SlidingPuzzle() {
             }}
           >
             {row.map((col, j) => {
-              const color = col === 0 ? "transparent" : "lightgray";
+              const color = col === 0 ? "transparent" : "beige";
               return (
                 <div
                   key={`${i}-${j}`}
@@ -167,8 +167,8 @@ export default function SlidingPuzzle() {
                     width: 250,
                     height: 250,
                     margin: 2,
-                    backgroundColor: color,
-                    borderRadius: 5,
+                    backgroundColor: "skyblue",
+                    borderRadius: 25,
                     cursor: complete ? "not-allowed" : "pointer",
                     userSelect: "none"
                   }}
