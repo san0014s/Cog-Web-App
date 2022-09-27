@@ -7,7 +7,6 @@ import FamilyCard from "../games/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
 
 
-
 const PAGE_STATE = Object.freeze({
     GAMES_LIST: Symbol("Games List"),
     PRE_GAME: Symbol("Pre-Game"),

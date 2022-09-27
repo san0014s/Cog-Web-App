@@ -159,11 +159,10 @@ export default function ReactionGame({ advanceStateFunction }) {
     function recordData(gameType, stat) { // TODO this should be a utility function used by all games & thus shouldn't be contained in this component in the future
         let personalData = {
             "gameType":gameType,
-            "stat":stat,
-            "accountId":SessionState.getId() //TODO: perhaps we should check to be sure this value is valid?
+            "stat":stat
         }
 
-        fetch('http://localhost:8080/storeData', { // TODO: make protocol, ip address, and port(?) configurable
+        fetch('http://localhost:8080/account/' + SessionState.getId() + '/storeData', { // TODO: make protocol, ip address, and port(?) configurable
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(personalData)

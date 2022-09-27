@@ -32,7 +32,7 @@ export default function Signup() {
       interests: interests
     }
 
-    fetch('http://localhost:8080/Account', { // TODO: make protocol, ip address, and port(?) configurable
+    fetch('http://localhost:8080/account', { // TODO: make protocol, ip address, and port(?) configurable
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(accountToCreate)
