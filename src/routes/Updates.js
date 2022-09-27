@@ -24,7 +24,7 @@ const Updates = () => {
   return (
     <div>
       Updates
-      <Paper style={{'white-space': 'pre-wrap', height: '70vh', width: '80vw', overflow: 'auto', resize: 'both'}}>
+      <Paper style={{'whiteSpace': 'pre-wrap', height: '70vh', width: '80vw', overflow: 'auto', resize: 'both'}}>
         <DiscordMessages>
           {messages && messages.map((message) => {
             return (
