@@ -13,7 +13,6 @@ import Profile from "./routes/Profile"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
-import Profile from "./routes/Profile";
 import UploadToS3Button from "./s3/UploadToS3Button";
 
 
