@@ -21,12 +21,10 @@ const Updates = () => {
 
   }, [])
 
-  console.log(messages);
-
   return (
     <div>
       Updates
-      <Paper style={{height: '50vh', width: '50vw', overflow: 'auto', resize: 'both'}}>
+      <Paper style={{height: '70vh', width: '80vw', overflow: 'auto', resize: 'both'}}>
         <DiscordMessages>
           {messages && messages.map((message) => {
             return (
