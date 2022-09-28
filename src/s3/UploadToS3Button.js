@@ -1,37 +1,33 @@
 import React , {useEffect, useState} from 'react';
-import { ListObjectsCommand } from "@aws-sdk/client-s3";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 import MyS3Client from '../components/MyS3Client';
-import GetS3Object from './GetS3Object';
 
-// base functionality pulled from example program here: https://github.com/Namyalg/Upload-to-S3-from-React/blob/main/src/Upload.js
+// https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/javascript_s3_code_examples.html
 
-// a React functional component, used to create a simple upload input and button
+export default function UploadToS3Button({targetDirectory, setObjectKey}) {
 
-const UploadToS3Button = () => {
-
-    // const thing = async () => {
-    //     var thing = await GetS3Object("", "");
-    //     console.log(thing);
-    // }
+    const [objectContent, setObjectContent] = useState();
 
     useEffect(() => {
+        console.log(objectContent);
+    }, [objectContent])
 
-        GetS3Object("", "")
-            .then((response) => {
-                console.log(response);
-            })
-        
-        // MyS3Client.send(
-        //     new ListObjectsCommand({ Delimiter: "/", Bucket: process.env.REACT_APP_BUCKET_NAME })
-        // ).then((response) => {
-        //     console.log(response)
-        // }).catch((error) => {
-        //     console.error(error)
-        // })
-    }, []);
+    const onSubmit = () => {
+        if (objectContent === undefined) {
+            console.log("no objectContent");
+            return;
+        }
+
+        MyS3Client.send(new PutObjectCommand({
+            Bucket: process.env.REACT_APP_BUCKET_NAME,
+            Key: crypto.randomUUID(),
+            Body: objectContent
+        }))
+    }
 
     return <div>
+        <input type="file" name="myImage"  accept="image/*" onChange={(e) => setObjectContent(e.target.files[0])}/>
+        <br></br>
+        <button onClick={onSubmit}>Submit</button>
     </div>
 }
-
-export default UploadToS3Button;
