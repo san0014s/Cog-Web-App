@@ -25,7 +25,7 @@ export default function Login() {
       password: password
     }
 
-    fetch('http://localhost:8080/account/verifyLogin', { // TODO: make protocol, ip address, and port(?) configurable
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/account/verifyLogin`, { // TODO: make protocol, ip address, and port(?) configurable
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginCredentials)

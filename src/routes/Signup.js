@@ -32,7 +32,7 @@ export default function Signup() {
       interests: interests
     }
 
-    fetch('http://localhost:8080/account', { // TODO: make protocol, ip address, and port(?) configurable
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/account`, { // TODO: make protocol, ip address, and port(?) configurable
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(accountToCreate)
