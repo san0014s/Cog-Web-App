@@ -162,7 +162,7 @@ export default function ReactionGame({ advanceStateFunction }) {
             "stat":stat
         }
 
-        fetch('http://localhost:8080/account/' + SessionState.getId() + '/storeData', { // TODO: make protocol, ip address, and port(?) configurable
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/storeData`, { // TODO: make protocol, ip address, and port(?) configurable
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(personalData)
