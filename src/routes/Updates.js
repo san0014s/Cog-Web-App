@@ -14,7 +14,7 @@ const Updates = () => {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:8080/discord/todos", requestOptions)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/discord/todos`, requestOptions)
       .then(response => response.text())
       .then(result => setMessages(JSON.parse(result)))
       .catch(error => console.log('error', error));
