@@ -159,16 +159,15 @@ export default function ReactionGame({ advanceStateFunction }) {
     function recordData(gameType, stat) { // TODO this should be a utility function used by all games & thus shouldn't be contained in this component in the future
         let personalData = {
             "gameType":gameType,
-            "stat":stat,
-            "accountId":SessionState.getId() //TODO: perhaps we should check to be sure this value is valid?
+            "stat":stat
         }
 
-        fetch('http://localhost:8080/storeData', { // TODO: make protocol, ip address, and port(?) configurable
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/storeData`, { // TODO: make protocol, ip address, and port(?) configurable
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(personalData)
         })
-        .catch(e => console.log(e)); // TODO: possibly apply a .then() and .catch() or return the promise so that callers can handle .then and/or .catch
+        .catch(e => console.error(e)); // TODO: possibly apply a .then() and .catch() or return the promise so that callers can handle .then and/or .catch
     }
 
     return <>
