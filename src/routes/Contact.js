@@ -18,9 +18,50 @@ export default function Contact() {
             <i className="fa fa-phone" aria-hidden="true"></i>
             <span>Steven Navarro: 304-702-9445 </span>
           </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-phone" aria-hidden="true"></i>
+            <span>Karl Scheib: 304-240-0904 </span>
+          </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-phone" aria-hidden="true"></i>
+            <span>Jacob Taylor: 304-550-4823 </span>
+          </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-phone" aria-hidden="true"></i>
+            <span>Kryzstof Kudlak: 304-542-0034 </span>
+          </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-phone" aria-hidden="true"></i>
+            <span>Nathanial Arndt: 304-279-0677 </span>
+          </div>
+
           <div className="icon-Text">
             <i className="fa fa-envelope" aria-hidden="true"></i>
             <span className="Contact-span">Steven Navarro: san0014@mix.wvu.edu</span>
+          </div>
+        
+          <div className="icon-Text">
+            <i className="fa fa-envelope" aria-hidden="true"></i>
+            <span className="Contact-span">Karl Scheib: kes0049@mix.wvu.edu</span>
+          </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-envelope" aria-hidden="true"></i>
+            <span className="Contact-span">Jacob Taylor: jct0020@mix.wvu.edu</span>
+          </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-envelope" aria-hidden="true"></i>
+            <span className="Contact-span">Kryzstof Kudlak: kjk0027@mix.wvu.edu</span>
+          </div>
+
+          <div className="icon-Text">
+            <i className="fa fa-envelope" aria-hidden="true"></i>
+            <span className="Contact-span">Nathanial Arndt: nsa0007@mi.wvu.edu</span>
           </div>
           
           <div className="social-media">
