@@ -34,9 +34,9 @@ export default function Games() {
             component: <MemoryGame/>
         },
         {
-            display: "Sliding Puzzle game",
-            description: "Complete the sliding puzzle",
-            howTo: "Slide the puzzle",
+            display: "Sliding Puzzle",
+            description: "Test your spatial reasoning",
+            howTo: "Complete Puzzle",
             component: <SlidingPuzzle/>
         }
     ]
