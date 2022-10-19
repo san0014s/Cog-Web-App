@@ -5,15 +5,14 @@ import About from "./routes/About"
 import Updates from "./routes/Updates"
 import Contact from "./routes/Contact"
 import Account from "./routes/Account"
-import Project from "./routes/Project"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
-import Games from "./routes/Games";
+import Games from "./routes/Games"
+import Profile from "./routes/Profile"
 
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
-import Profile from "./routes/Profile";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -41,7 +40,6 @@ function App() {
       <Route path="/about" element={<About />} /> 
       <Route path="/contact" element={<Contact />} /> 
       <Route path="/account" element={<Account />} /> 
-      <Route path="/project" element={<Project />} /> 
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/games" element={<Games />} />
@@ -50,5 +48,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

@@ -45,7 +45,7 @@ export default function NavbarAvatarIcon() {
             return;
         }
 
-        fetch('http://localhost:8080/Account/' + SessionState.getId(), { // TODO: make protocol, ip address, and port(?) configurable
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}`, {
             method: 'GET',
             headers: { "Content-Type": "application/json" }
         }).then((response) => {
