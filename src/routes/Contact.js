@@ -36,7 +36,7 @@ export default function Contact() {
 
           <div className="icon-Text">
             <i className="fa fa-phone" aria-hidden="true"></i>
-            <span>Nathanial Arndt: 304-279-0677 </span>
+            <span>Nathaniel Arndt: 304-279-0677 </span>
           </div>
 
           <div className="icon-Text">
@@ -61,7 +61,7 @@ export default function Contact() {
 
           <div className="icon-Text">
             <i className="fa fa-envelope" aria-hidden="true"></i>
-            <span className="Contact-span">Nathanial Arndt: nsa0007@mix.wvu.edu</span>
+            <span className="Contact-span">Nathaniel Arndt: nsa0007@mix.wvu.edu</span>
           </div>
           
           <div className="social-media">
