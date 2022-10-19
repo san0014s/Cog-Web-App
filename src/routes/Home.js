@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import {Routes, Route, useNavigate} from 'react-router-dom'
 import "../css/Home.css"
+import styled from 'styled-components';
 
 
 //the following constants are what prints out for each button and the home page greeting
