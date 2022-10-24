@@ -25,7 +25,7 @@ const About = () => {
 
             <div class="group_member">
               <div class="team_img">
-                    <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/SAN.jpg" alt="nsa_image"></img>
+                    <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/SAN.jpg" alt="steven_image"></img>
               </div>
                   <h3>Steven Navarro</h3>
                   <p class="role">Front End</p>
@@ -36,7 +36,7 @@ const About = () => {
 
             <div class="group_member">
               <div class="team_img">
-                  <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KJK.png" alt="kk_image"></img>
+                  <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KJK.png" alt="krysztof_image"></img>
               </div>
                   <h3>Krysztof Kudlak</h3>
                   <p class="role">Front End</p>
@@ -47,7 +47,7 @@ const About = () => {
 
             <div class="group_member">
               <div class="team_img">
-                  <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KES.png" alt="ks_image"></img>
+                  <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KES.png" alt="karl_image"></img>
               </div>
                   <h3>Karl Scheib</h3>
                   <p class="role">Front End</p>
