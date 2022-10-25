@@ -1,0 +1,47 @@
+.body{
+        width: 100%;
+        height: 250px;
+        text-align: center;
+        display: inline-block;
+        background-color: beige;  
+        margin: auto;
+
+}
+
+.demo-bg {
+    opacity: 0.75;
+    position: absolute;
+    left: 0;
+    height: 250px;
+    width: 20%;
+  }
+
+  
+.demo-bg2 {
+    opacity: 0.75;
+    position: absolute;
+    right: 0px;
+    height: 250px;
+    width: 20%;
+  }
+  
+
+.body2{
+    width: 100%;
+    height: 250px;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    background-color: #70deea;  
+    margin: auto;
+}
+
+.profile{
+    color:beige;
+}
+
+.profile2{
+    color:#70deea;
+}
+
