@@ -45,7 +45,6 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/games" element={<Games />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/test" element={<UploadToS3Button />} />
     </Routes>
     </>
   );
