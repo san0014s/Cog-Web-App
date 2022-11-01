@@ -17,7 +17,7 @@ const GAME_DATA = [
     {
         graphTitle: "Total Moves Needed to Finish Sliding Puzzle",
         yAxisTitle: "Total Moves",
-        suffix: "moves",
+        suffix: " moves",
     }
 ]
 
@@ -27,7 +27,6 @@ export default function PersonalDataChart({ gameType }) {
 
     const options = {
         animationEnabled: true,
-        exportEnabled: true,
         theme: "light2", // "light1", "dark1", "dark2"
         title:{
             text: GAME_DATA[gameType-1].graphTitle,
@@ -36,9 +35,12 @@ export default function PersonalDataChart({ gameType }) {
             title: GAME_DATA[gameType-1].yAxisTitle,
             suffix: GAME_DATA[gameType-1].suffix
         },
+        axisX: {
+            interval: 1,
+        },
         data: [{
             type: "line",
-            toolTipContent: "{y}ms",
+            toolTipContent: `{y}${GAME_DATA[gameType-1].suffix}`,
             dataPoints: personalData
         }]
     }
