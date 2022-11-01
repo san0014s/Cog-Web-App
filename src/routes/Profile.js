@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
+import { GAMES_ENUM } from "../constants/GamesConstants";
 
 export default function Profile() {
 
@@ -31,7 +32,7 @@ export default function Profile() {
                 src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}/>
             <p>Joined: {account.joinDate}</p>
             <p>Interests: {account.interests}</p>
-            <PersonalDataChart/>
+            <PersonalDataChart gameType={GAMES_ENUM.REACTION}/>
         </>
     }
 

@@ -3,7 +3,25 @@ import SessionState from "./SessionState";
 
 import {CanvasJSChart} from 'canvasjs-react-charts'
 
-export default function PersonalDataChart() {
+const GAME_DATA = [
+    {
+        graphTitle: "Average Reaction Time over Time",
+        yAxisTitle: "Average Reaction Time (milliseconds)",
+        suffix: "ms",
+    },
+    {
+        graphTitle: "Round Achieved in Memory Game",
+        yAxisTitle: "Round Number",
+        suffix: "",
+    },
+    {
+        graphTitle: "Total Moves Needed to Finish Sliding Puzzle",
+        yAxisTitle: "Total Moves",
+        suffix: "moves",
+    }
+]
+
+export default function PersonalDataChart({ gameType }) {
 
     const [personalData, setPersonalData] = useState([]);
 
@@ -12,26 +30,21 @@ export default function PersonalDataChart() {
         exportEnabled: true,
         theme: "light2", // "light1", "dark1", "dark2"
         title:{
-            text: "Average Reaction Time over Time"
+            text: GAME_DATA[gameType-1].graphTitle,
         },
         axisY: {
-            title: "Average Reaction Time (milliseconds)",
-            suffix: "ms"
-        },
-        axisX: {
-            title: "",
-            prefix: "",
-            interval: 2
+            title: GAME_DATA[gameType-1].yAxisTitle,
+            suffix: GAME_DATA[gameType-1].suffix
         },
         data: [{
             type: "line",
-            toolTipContent: "{x}: {y}ms",
+            toolTipContent: "{y}ms",
             dataPoints: personalData
         }]
     }
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/personalData`, { // TODO: make protocol, ip address, and port(?) configurable
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/personalData/${gameType}`, {
             method: 'GET',
             headers: { "Content-Type": "application/json" }
         }).then((response) => {
