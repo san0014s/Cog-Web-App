@@ -18,6 +18,11 @@ const GAME_DATA = [
         graphTitle: "Total Moves Needed to Finish Sliding Puzzle",
         yAxisTitle: "Total Moves",
         suffix: " moves",
+    },
+    {
+        graphTitle: "Total Matches Made in Color Matching Game",
+        yAxisTitle: "Total Matches Made",
+        suffix: " matches",
     }
 ]
 
