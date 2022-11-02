@@ -60,7 +60,7 @@ export default function PersonalDataChart({ gameType }) {
         }).catch((error) => { // catch any errors
             console.error(error)
         })
-    }, []);
+    }, [gameType]);
 
     return <Fragment>
         <CanvasJSChart options = {options}/>
