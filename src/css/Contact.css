@@ -116,7 +116,8 @@
     flex-direction: column;
     flex: 0 1 100%;
     padding-right: 40px;
-} :nth-child(){ /**matches every element that is the nth child of its parent**/
+} 
+.form-group:nth-child(){ /**matches every element that is the nth child of its parent**/
     padding-right: 0;
 }
 
@@ -167,7 +168,8 @@
     border-bottom: 2px solid rgba(255,255,255,.4);
     transition: .3s all ease-in-out;
     margin-bottom: 2rem;
-} :focus{
+} 
+.Contact-input:focus{
     border: none;
     outline: none;
     border-bottom: 2px solid #05f7ff;
