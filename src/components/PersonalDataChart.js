@@ -10,9 +10,9 @@ const GAME_DATA = [
         suffix: "ms",
     },
     {
-        graphTitle: "Round Achieved in Memory Game",
-        yAxisTitle: "Round Number",
-        suffix: "",
+        graphTitle: "Matches Made in Memory Game",
+        yAxisTitle: "Matches Made",
+        suffix: " matches",
     },
     {
         graphTitle: "Total Moves Needed to Finish Sliding Puzzle",

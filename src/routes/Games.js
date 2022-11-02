@@ -34,7 +34,7 @@ export default function Games() {
             display: "Memory game",
             description: "Test your memory",
             howTo: "Match Images",
-            component: <MemoryGame/>
+            component: <MemoryGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
         },
         {
             id: GAMES_ENUM.SLIDING_PUZZLE,
