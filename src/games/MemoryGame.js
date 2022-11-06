@@ -1,14 +1,14 @@
 // eslint-disable-next-line
 import React, { useState, useEffect, useRef } from "react";
 import Grid from "../components/Grid";
+import { GAMES_ENUM } from "../constants/GamesConstants";
 import "../css/MemoryGame.css";
-import SessionState from "../components/SessionState";
+import { recordData } from "./GameDataRecorder";
 
 
 var counter = 0;
 var newG = 1;
 var oldGame = 1;
-const GAME_TYPE = 2;
 
 //Image Array
 var imgs = ['https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000', 
@@ -41,30 +41,8 @@ function shuffle(array) {
   return array;
 }
 
-  /**
-     * Hits the storeData endpoint of the REST server to store a stat and gameType
-     * 
-     * @param {int} gameType - enumerable property representing the game type (i've arbitrarily chosen 1 for this game, TODO: standardize that server side)
-     * @param {num} stat - whatever stat needs recorded for this game
-     */
-   function recordData(gameType, stat) { // TODO this should be a utility function used by all games & thus shouldn't be contained in this component in the future
-    let personalData = {
-        "gameType":gameType,
-        "stat":stat,
-        "accountId":SessionState.getId() //TODO: perhaps we should check to be sure this value is valid?
-    }
-
-    fetch('http://localhost:8080/storeData', { // TODO: make protocol, ip address, and port(?) configurable
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(personalData)
-    })
-    .catch(e => console.error(e)); // TODO: possibly apply a .then() and .catch() or return the promise so that callers can handle .then and/or .catch
-}
-
-
 //Main Function
-export default function MemoryGame() {
+export default function MemoryGame({ advanceStateFunction }) {
 
   const [newGame, setNewGame] = useState(false);
   const [list] = useState([]);
@@ -72,6 +50,7 @@ export default function MemoryGame() {
   const [finishedItems, setFinishedItems] = useState([]);
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
+  const [matchesMade, setMatchesMade] = useState(0);
 
 
   //Check Items to See if they match or not
@@ -81,6 +60,7 @@ export default function MemoryGame() {
       firstIndex[1] === secondIndex[1]
     ) {
       setFinishedItems([...finishedItems, firstIndex, secondIndex]);
+      setMatchesMade(matchesMade + 1);
     } else {
       setTimeout(() => {
         setVisibleItems([]);
@@ -90,7 +70,6 @@ export default function MemoryGame() {
       counter += 1;
       if (counter >= 3){
         setLoser(true);
-        recordData(GAME_TYPE, newG);
       }
     }
   };
@@ -181,24 +160,12 @@ export default function MemoryGame() {
             <div>
               <font size="+5">You Lose</font>
               <br />
-              <button href="http://localhost:3000/games"> Play Again </button>
+              <button onClick={() => {
+                console.log(matchesMade)
+                recordData(GAMES_ENUM.MEMORY, matchesMade)
+                advanceStateFunction()
+              }}>Finish</button>
               <br />
-              {/* { <button
-                onClick={() => {
-                  while(list.length >0){
-                    list.pop();
-                  }
-                  setNewGame(!newGame);
-                  setVisibleItems([]);
-                  setFinishedItems([]);
-                  counter = 0;
-                  oldGame = 1;
-                  newG = 1;
-                }}
-                className="btn btn-warning mb-4"
-              >
-                Restart
-              </button> } */}
             </div>
           )}
         </div>
