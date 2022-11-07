@@ -6,6 +6,7 @@ import ReactionGame from "../games/ReactionGame"
 import FamilyCard from "../games/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
 import SlidingPuzzle from "../games/SlidingPuzzle"
+import ColorGame from "../games/ColorGame.js"
 
 
 const PAGE_STATE = Object.freeze({
@@ -38,6 +39,12 @@ export default function Games() {
             description: "Test your spatial reasoning",
             howTo: "Complete Puzzle",
             component: <SlidingPuzzle/>
+        },
+        {
+            display: "Color Game",
+            description: "Test your color awareness",
+            howTo: "Pick the color of the word",
+            component: <ColorGame/>
         }
     ]
     
