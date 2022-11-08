@@ -1,9 +1,13 @@
+import { MenuItem, Select } from "@mui/material";
 import React, { useEffect, useState } from "react"
+import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
+import { GAMES_ENUM } from "../constants/GamesConstants";
 
 export default function Profile() {
 
     const [account, setAccount] = useState();
+    const [gameType, setGameType] = useState(GAMES_ENUM.REACTION);
 
     useEffect(() => {
         if (SessionState.getId() < 0) {
@@ -26,16 +30,29 @@ export default function Profile() {
         return <>
             <h1>{account.name}</h1>
             <h4>@{account.username}</h4>
-            <img alt={account.name}
-                src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}/>
+            <img 
+                alt={account.name}
+                src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}
+            />
             <p>Joined: {account.joinDate}</p>
             <p>Interests: {account.interests}</p>
+            <Select 
+                value={gameType}
+                onChange={(e) => {setGameType(e.target.value)}}
+            >
+                <MenuItem value={GAMES_ENUM.REACTION}>Reaction Game</MenuItem>
+                <MenuItem value={GAMES_ENUM.MEMORY}>Memory Game</MenuItem>
+                <MenuItem value={GAMES_ENUM.SLIDING_PUZZLE}>Sliding Puzzle Game</MenuItem>
+                <MenuItem value={GAMES_ENUM.COLORS}>Color Matching Game</MenuItem>
+            </Select>
+            <PersonalDataChart gameType={gameType}/>
         </>
     }
-
-    return <>
-        <h1>Oops! Looks like you aren't logged in...</h1>
-        <h4>Try visiting the <a href="/login">login</a> page to sign in to your account</h4>
-    </>
+    else {
+        return <>
+            <h1>Oops! Looks like you aren't logged in...</h1>
+            <h4>Try visiting the <a href="/login">login</a> page to sign in to your account</h4>
+        </>
+    }
 
 }

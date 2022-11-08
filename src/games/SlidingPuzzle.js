@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/SlidingPuzzle.css";
+import { recordData } from "./GameDataRecorder";
+import { GAMES_ENUM } from "../constants/GamesConstants"
 
 const getShuffledPuzzle = () => {
   const values = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -59,7 +61,7 @@ const getPuzzle = () => {
   return puzzle;
 };
 
-export default function SlidingPuzzle() {
+export default function SlidingPuzzle({ advanceStateFunction }) {
   const [puzzle, setPuzzle] = React.useState([]);
   const [complete, setComplete] = React.useState(false);
   const [moves, setMoves] = React.useState(0);
@@ -186,10 +188,11 @@ export default function SlidingPuzzle() {
         <p>
           <button
             onClick={() => {
-              resetPuzzle();
+              recordData(GAMES_ENUM.SLIDING_PUZZLE, moves);
+              advanceStateFunction();
             }}
           >
-            Play Again
+            Finish
           </button>
         </p>
       )}
