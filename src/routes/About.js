@@ -18,9 +18,10 @@ const About = () => {
                 </div>
                   <h3>Nate Arndt</h3>
                   <p class="role">Front End</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ni!</p>
+                  <p>I am a Cybersecurity Major from Martinsburg, WV. My career interests include security analysis
+                    and vulnerability testing. I enjoy creating solutions with motivated team members on complex projects.
+                    Outside of academics, I like to get outdoors as much as possible and work on my small business. 
+                  </p>
             </div>
 
             <div class="group_member">

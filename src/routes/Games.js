@@ -5,6 +5,8 @@ import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
 import FamilyCard from "../games/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
+import ColorGame from "../games/ColorGame"
+
 
 
 
@@ -32,6 +34,12 @@ export default function Games() {
             description: "Test your memory",
             howTo: "Match Images",
             component: <MemoryGame/>
+        },
+        {
+            display: "Matching game",
+            description: "Test processing",
+            howTo: "Click the color corresponding",
+            component: <MatchingGame/>
         }
     ]
     
