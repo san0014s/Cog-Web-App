@@ -36,10 +36,10 @@ export default function Games() {
             component: <MemoryGame/>
         },
         {
-            display: "Matching game",
+            display: "Color game",
             description: "Test processing",
             howTo: "Click the color corresponding",
-            component: <MatchingGame/>
+            component: <ColorGame/>
         }
     ]
     

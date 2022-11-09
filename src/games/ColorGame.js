@@ -410,8 +410,9 @@ export default function ColorGame() {
 			setScore(score + 1);
 		}
 
-		const nextQuestion = currentQuestion + 1;
+		const nextQuestion = Math.floor(Math.random() * 36);
 		if (nextQuestion < questions.length) {
+            //if timer <= 0 - end game
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);

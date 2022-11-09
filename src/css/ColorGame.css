@@ -7,9 +7,10 @@
     border-radius: 15px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
-    position: absolute;
-    top: 250px;
-    left: 600px;
+    position: relative;
+    top: 100px;
+    /* left: 300px; */
+    /* right: 100px; */
     justify-content: center;
   }
   
