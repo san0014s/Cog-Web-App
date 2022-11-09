@@ -404,15 +404,19 @@ export default function ColorGame() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [start, setStart] = useState(0);
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
 		}
 
-		const nextQuestion = currentQuestion + 1;
-		if (nextQuestion < questions.length) {
+		const nextQuestion = Math.floor(Math.random() * 36);
+		const end = 10;
+		const curr = start + 1;
+		if (curr < end) {
 			setCurrentQuestion(nextQuestion);
+			setStart(start + 1);
 		} else {
 			setShowScore(true);
 		}
@@ -421,7 +425,7 @@ export default function ColorGame() {
 		<div className='colorGame'>
 			{showScore ? (
 				<div className='score-section'>
-					You scored {score} out of {questions.length}
+					You scored {score}
 				</div>
 			) : (
 				<>
