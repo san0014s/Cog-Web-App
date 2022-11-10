@@ -24,10 +24,6 @@ export default function NavbarAvatarIcon() {
             handleCloseUserMenu()
             navigate('/profile')
         }},
-        {display: 'Account', onClick: () => {
-            handleCloseUserMenu()
-            navigate('/account')
-        }},
         {display: 'Dashboard', onClick: () => handleCloseUserMenu()},
         {display: 'Logout', onClick: () => {
             SessionState.setId(-1);
