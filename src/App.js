@@ -16,6 +16,7 @@ import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
 import UploadToS3Button from "./s3/UploadToS3Button";
+import DeckList from "./components/Flashcards/DeckList";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -46,9 +47,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/games" element={<Games />} />
-      <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/FFC_Edit" element={<FFC_Edit />} />
         <Route path="/FFC_Select" element={<FFC_Select />} />
+        <Route path="/decks" element={<DeckList />} />
       </Routes>
     </>
   );
