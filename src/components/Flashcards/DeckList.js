@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 import React, { Fragment, useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SessionState from "../SessionState";
 import CreateDeckModal from "./CreateDeckModal";
 
 export default function DeckList() {
 
+    const navigate = useNavigate();
     const [deckToEdit, setDeckToEdit] = useState();
     const [deckModalOpen, setDeckModalOpen] = useState(false);
     const [existingDecks, setExistingDecks] = useState([]);
@@ -49,10 +51,22 @@ export default function DeckList() {
                     setDeckToEdit(deck);
                     setDeckModalOpen(true);
                 }}>
-                    Edit
+                    Edit Deck
+                </button>
+                <button onClick={() => {
+                    navigate(
+                        '/edit/cards', 
+                        {
+                            state: { 
+                               deck: deck
+                            }
+                        }
+                    );
+                }}>
+                    Edit Cards
                 </button>
                 <button onClick={() => deleteDeck(deck.id)}>Delete</button>
-                <br />
+                <br /><br />
             </div>
         })}
 

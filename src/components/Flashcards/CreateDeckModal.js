@@ -67,7 +67,7 @@ export default function CreateDeckModal({ open, onClose, deckToEdit }) {
                         defaultValue={deckToEdit === undefined ? '' : deckToEdit.name}
                     />
                     <br></br>
-                    <Button type="submit">Create</Button>
+                    <Button type="submit">{deckToEdit === undefined ? "Create" : "Update"}</Button>
                 </form>
             </Box>
         </Modal>
