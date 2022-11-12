@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import SessionState from '../components/SessionState';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -9,6 +11,12 @@ export default function Login() {
   const [loginInProgress, setLoginInProgress] = useState(false);
 
   const navigate = useNavigate();
+
+   const showToastMessage = () => {
+        toast.warning('Username and Password do not match, please try again!', {
+            position: toast.POSITION.TOP_RIGHT,
+        });
+    };
 
   // below function will be called when user
   // click on submit button .
@@ -35,6 +43,7 @@ export default function Login() {
       if (!data || data < 0) {
         setLoginFailed(true);
         setLoginInProgress(false);
+        showToastMessage();
         return;
       }
 
@@ -60,10 +69,11 @@ export default function Login() {
       Password:
     </label><br />
     <input type="password" value={password} required onChange={(e) => setPassword(e.target.value) } /><br />
-
-    {loginFailed && <><label style={{color: "red"}}>Username or password incorrect, please try again</label><br/></>}
     <input type="submit" value="Submit" />
     <p>Don't have an account? <a href="/signup">Sign up!</a></p>
     </form>
+    <div>
+        <ToastContainer />
+    </div>
   </>
 }
