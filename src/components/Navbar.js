@@ -34,7 +34,14 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <img src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/LogoWhiteResized.png"  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <img
+          src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/LogoWhiteResized.png"
+          style={{
+            height: '50px', 
+            width: '50px',
+            marginRight: '10px',
+          }}
+        />
           <Typography
             variant="h6"
             noWrap
@@ -89,7 +96,6 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap

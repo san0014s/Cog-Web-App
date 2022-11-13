@@ -42,9 +42,10 @@ const About = () => {
             </div>
                 <h3>Krysztof Kudlak</h3>
                 <p class="role">Front End</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ni!</p>
+                <p>I am a Computer Science major at WVU graduating Fall '22 with an Area of 
+                  emphasis in Cybersecurity. I work full time as a Software Engineering Intern
+                  at Leidos. I specialize in fullstack software development and hope to continue
+                  pursuing a career in that field upon graduation.</p>
           </div>
 
           <div class="group_member">
