@@ -29,7 +29,7 @@ export default function CreateCardModal({ open, onClose, deck, cardToEdit }) {
             const newCard = {
                 name: cardName,
                 relationship: relationship,
-                picture: "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg",
+                picture: `${process.env.REACT_APP_OBJECT_URL}/profile-pictures/default-pfp.jpg`,
             }
             fetch(`${process.env.REACT_APP_BACKEND_URL}/deck/${deck.id}/card`, {
                 method: 'POST',
@@ -44,7 +44,6 @@ export default function CreateCardModal({ open, onClose, deck, cardToEdit }) {
                 name: cardName,
                 relationship: relationship,
             }
-            console.log(updatedDeck)
             fetch(`${process.env.REACT_APP_BACKEND_URL}/deck/${deck.id}/card/${cardToEdit.id}`, {
                 method: 'PUT',
                 headers: { "Content-Type": "application/json" },

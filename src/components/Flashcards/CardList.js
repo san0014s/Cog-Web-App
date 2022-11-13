@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 import React, { Fragment, useCallback, useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import UploadToS3Button from "../../s3/UploadToS3Button";
 import CreateCardModal from "./CreateCardModal";
 
 export default function CardList() {
 
+    const navigate = useNavigate();
     const { state } = useLocation();
     const deck = useMemo(() => {
         if (state !== null) {
@@ -46,13 +48,55 @@ export default function CardList() {
         })
     }, [existingCards, deck]);
 
+
+
+    const onImageUpload = (card) => {
+        const updatedCard = {
+            ...card,
+            picture: `${process.env.REACT_APP_S3_URL}/cardImages/${card.id}.png`
+        }
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/deck/${deck.id}/card/${card.id}`, {
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedCard)
+        })
+        .then(() => {
+            const newCardsList = existingCards.map((card) => {
+                if (card.id === updatedCard.id) {
+                    return updatedCard;
+                }
+                return card;
+            })
+            setExistingCards(newCardsList);
+        })
+    }
+
     if (deck) {
         return <Fragment>
+
+            <CreateCardModal
+                open={cardModalOpen}
+                onClose={() => setCardModalOpen(false)}
+                deck={deck}
+                cardToEdit={cardToEdit}
+            />
+
             {existingCards.map((card) => {
-                return <Fragment>
+                return <Fragment key={card.id}>
                     <p>{card.name} | {card.relationship}</p>
-                    <img src={card.picture}/>
+                    <img
+                        src={card.picture}
+                        style={{
+                            height: '100px',
+                            width: '100px',
+                        }}
+                    />
                     <br/>
+                    <UploadToS3Button
+                        directory={'cardImages'}
+                        objectKey={`${card.id}.png`}
+                        onUpload={() => onImageUpload(card)}
+                    />
                     <button onClick={() => {
                         setCardToEdit(card);
                         setCardModalOpen(true);
@@ -64,12 +108,6 @@ export default function CardList() {
                 </Fragment>
             })}
 
-            <CreateCardModal
-                open={cardModalOpen}
-                onClose={() => setCardModalOpen(false)}
-                deck={deck}
-                cardToEdit={cardToEdit}
-            />
             <Button
                 onClick={() => {
                     setCardToEdit(undefined);
@@ -81,6 +119,18 @@ export default function CardList() {
             >
                 Create Card
             </Button>
+
+            <Button
+                onClick={() => {
+                    navigate('/decks')
+                }}
+                style={{
+                    textTransform: 'none'
+                }}
+            >
+                Back to Deck List
+            </Button>
+
         </Fragment>  
     }
     return <></>
