@@ -98,6 +98,17 @@ export default function DeckList() {
         >
             Create Deck
         </Button>
+        <br></br>
+        <Button
+            onClick={() => {
+                navigate('/profile')
+            }}
+            style={{
+                textTransform: 'none'
+            }}
+        >
+            Back to Profile
+        </Button>
 
     </Fragment>
 }

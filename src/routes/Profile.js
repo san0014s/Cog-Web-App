@@ -1,11 +1,13 @@
-import { MenuItem, Select } from "@mui/material";
+import { Button, MenuItem, Select } from "@mui/material";
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
 import { GAMES_ENUM } from "../constants/GamesConstants";
 
 export default function Profile() {
 
+    const navigate = useNavigate();
     const [account, setAccount] = useState();
     const [gameType, setGameType] = useState(GAMES_ENUM.REACTION);
 
@@ -36,6 +38,18 @@ export default function Profile() {
             />
             <p>Joined: {account.joinDate}</p>
             <p>Interests: {account.interests}</p>
+            <Button
+                variant='contained'
+                style={{
+                    backgroundColor: 'green',
+                }}
+                onClick={() => {
+                    navigate('/decks')
+                }}
+            >
+                Go To Family Flashcards
+            </Button>
+            <br></br>
             <Select 
                 value={gameType}
                 onChange={(e) => {setGameType(e.target.value)}}
