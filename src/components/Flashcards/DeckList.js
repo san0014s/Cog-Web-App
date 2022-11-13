@@ -45,8 +45,20 @@ export default function DeckList() {
     return <Fragment>
 
         {existingDecks.map((deck) => {
-            return <div>
+            return <div key={deck.id}>
                 <p>{deck.name} | {deck.creationDate} | {deck.lastUsed}</p>
+                <button onClick={() => {
+                    navigate(
+                        '/play/deck', 
+                        {
+                            state: {  // STEVEN: look at how this was used in CardList.js. Use it like that
+                               deck: deck
+                            }
+                        }
+                    );
+                }}>
+                    Play Deck
+                </button>
                 <button onClick={() => {
                     setDeckToEdit(deck);
                     setDeckModalOpen(true);
