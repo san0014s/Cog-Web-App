@@ -13,7 +13,7 @@ export default function Login() {
   const navigate = useNavigate();
 
    const showToastMessage = () => {
-        toast.warning('Username and Password do not match, please try again!', {
+        toast.error('Incorrect username or password, please try again!', {
             position: toast.POSITION.TOP_RIGHT,
         });
     };
