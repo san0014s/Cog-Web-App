@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../css/ColorGame.css";
+import { recordData } from "./GameDataRecorder";
+import { GAMES_ENUM } from "../constants/GamesConstants";
 
-export default function ColorGame() {
+
+
+export default function ColorGame({ advanceStateFunction }) {
     const colors_value = [
         '#0000FF', '#FF0000', "#00FF00", "#FFFF00", "#FFA500", "#A020F0"
         //Blue, Red, Green, Yellow, Orange, Purple
@@ -10,6 +14,16 @@ export default function ColorGame() {
         //'#0000FF', '#FF0000', "#00FF00", "#FFFF00", "#FFA500", "#A020F0"
         "Blue", "Red", "Green", "Yellow", "Orange", "Purple" 
     ]
+
+	const GameState = Object.freeze({
+		Initial: Symbol("Initial"), 
+		InProgress: Symbol("In Progress"),
+		GameOver: Symbol("Game Over")
+	});
+
+	const [startTime, setStartTime] = useState(0);
+    const [endTime, setEndTime] = useState(0);
+    const [timeDiffList, setTimeDiffList] = useState([]);
 
 
 
@@ -401,35 +415,72 @@ export default function ColorGame() {
 			
 	];
 
+	const max = 30;
+
+	const [gameState, setGameState] = useState(GameState.InProgress);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [initialMinute,initialSeconds] = [0,max];
+    const [minutes, setMinutes ] = useState(initialMinute);
+    const [seconds, setSeconds ] =  useState(initialSeconds);
 	const [start, setStart] = useState(0);
+	const [count, setCount] = useState(seconds);
+	var timer;
+	
+	const GAME_TYPE = 4;
+
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
+			setCount(count + 2);
+			clearTimeout(timer);
+		}
+		else{
+			setCount(count - 2);
+			clearTimeout(timer);
 		}
 
 		const nextQuestion = Math.floor(Math.random() * 36);
-		const end = 10;
-		const curr = start + 1;
-		if (curr < end) {
+		if (count >= 0) {
 			setCurrentQuestion(nextQuestion);
-			setStart(start + 1);
 		} else {
 			setShowScore(true);
 		}
 	};
+
+	useEffect(()=>{
+        if(count>0){
+            timer = setTimeout(()=>setCount(count - 1),1000);
+        }
+		else if (count == 0) {
+			setShowScore(true);
+		}
+
+    }, [count]);
+
+
 	return (
 		<div className='colorGame'>
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score}
+					<p>
+					<button
+						onClick={() => {
+						recordData(GAMES_ENUM.COLORS, score);
+						advanceStateFunction();
+						}}
+					>
+						Finish
+					</button>
+					</p>
 				</div>
 			) : (
 				<>
 					<div className='question-section'>
+					<p> {count} </p>
 						<div style={{
           color: questions[currentQuestion]["answer"],
 		  "align-text": "center",
