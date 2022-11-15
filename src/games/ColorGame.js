@@ -415,7 +415,7 @@ export default function ColorGame({ advanceStateFunction }) {
 			
 	];
 
-	const max = 30;
+	const max = 300;
 
 	const [gameState, setGameState] = useState(GameState.InProgress);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -462,28 +462,33 @@ export default function ColorGame({ advanceStateFunction }) {
 
 
 	return (
-		<div className='colorGame'>
-			{showScore ? (
-				<div className='score-section'>
-					You scored {score}
-					<p>
-					<button
-						onClick={() => {
-						recordData(GAMES_ENUM.COLORS, score);
-						advanceStateFunction();
-						}}
-					>
-						Finish
-					</button>
-					</p>
-				</div>
+		<div className='color_body'>
+			<div className='colorGame'>
+				{showScore ? (
+					<div className='score-section'>
+						You scored {score}
+						<p>
+						<button
+							onClick={() => {
+							recordData(GAMES_ENUM.COLORS, score);
+							advanceStateFunction();
+							}}
+						>
+							Finish
+						</button>
+						</p>
+					</div>
 			) : (
 				<>
+					<div className='timer-text'>
+						<h1>{count}</h1>
+					</div>
 					<div className='question-section'>
-					<p> {count} </p>
 						<div style={{
           color: questions[currentQuestion]["answer"],
-		  "align-text": "center",
+		  "padding": "15px",
+		  "justifyContent": "center",
+		  "text-align": "center",
 		  "font-size": "40px"
         }}>{questions[currentQuestion].questionText}</div>
 					</div>
@@ -494,6 +499,7 @@ export default function ColorGame({ advanceStateFunction }) {
 					</div>
 				</>
 			)}
+		</div>
 		</div>
 	);
 }

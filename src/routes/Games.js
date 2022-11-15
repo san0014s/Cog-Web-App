@@ -47,15 +47,22 @@ export default function Games() {
             display: "Color Game",
             description: "Test your color awareness",
             howTo: "Pick the color of the word",
-            component: <ColorGame/>
+            component: <ColorGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
         }
     ]
     
 
     return <>
+    <div style={{    "position": "fixed",
+            width: "100vw",
+            height: "100vh",
+            overflow: "auto",
+            "background-color": "#fdf5df" }}>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
             return <div key={game.display}>
-                    <Button onClick={() => {
+                    <Button style={{display:"grid",
+  "grid-auto-flow": "row", "top": "125px", "margin": "auto", height:"150px", width: "400px",
+           "backgroundColor": "#2E7378", "color": "#fdf5df", "font": "Brush Script MT", gap: "50px", justifyContent: "center"}}onClick={() => {
                         setGameToRender(game);
                         setPageState(PAGE_STATE.PRE_GAME);
                     }}>
@@ -80,5 +87,7 @@ export default function Games() {
                 playAgain={() => setPageState(PAGE_STATE.PRE_GAME)}
                 backToGames={() => setPageState(PAGE_STATE.GAMES_LIST)}
             />}
+    </div>
     </>
+    
 }

@@ -5,7 +5,7 @@ import '../css/About.css';
 
 const About = () => {
   return (
-    <body>
+    <body className='color_body'>
 
       <div class="wrapper">
         <h1> Meet Our Team </h1>
@@ -64,9 +64,11 @@ const About = () => {
             </div>
                 <h3>Jake Taylor</h3>
                 <p class="role">Front End</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris ni!</p>
+                <p>I am currently a Cybersecurity undergraduate student at West Virginia University. My passion lies in filmmaking and photography,
+                  but occasionally I get a little wacky and do work like this. My goals within this field are to eventually work on the Artificial Intelligence
+                  behind autofocus in cameras and spot healing in Adobe Studio applications and I am currently planning to get my MS in Computer Science here at West Virginia
+                  starting this Spring.
+                </p>
           </div>
 
 

@@ -143,8 +143,8 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
       <div
         style={{
           display: "inline-block",
-          backgroundColor: "beige",
-          border: `5px solid ${complete ? "black" : "beige"}`,
+          backgroundColor: "#2E7378",
+          border: `5px solid ${complete ? "black" : "#2E7378"}`,
           borderRadius: 5,
           padding: 25
         }}
@@ -157,7 +157,7 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
             }}
           >
             {row.map((col, j) => {
-              const color = col === 0 ? "transparent" : "beige";
+              const color = col === 0 ? "transparent" : "#2E737";
               return (
                 <div
                   key={`${i}-${j}`}
@@ -169,7 +169,7 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
                     width: 250,
                     height: 250,
                     margin: 2,
-                    backgroundColor: "skyblue",
+                    backgroundColor: "#fdf5df",
                     borderRadius: 25,
                     cursor: complete ? "not-allowed" : "pointer",
                     userSelect: "none"

@@ -111,6 +111,7 @@ export default function MemoryGame({ advanceStateFunction }) {
 
   useEffect(()=>{
     if (counter == 3){
+      counter = 0;
       setLoser(true);
       recordData(GAMES_ENUM.MEMORY, matchesMade)
       advanceStateFunction()
@@ -141,10 +142,6 @@ export default function MemoryGame({ advanceStateFunction }) {
           </div>
             {winner && (
               <div className="game">
-                <font size="+5">You Win</font>
-                <br />
-                <font size="-5">Finished in seconds</font>
-                <br />
                 { <button
                   onClick={() => {
                     
@@ -158,7 +155,7 @@ export default function MemoryGame({ advanceStateFunction }) {
                     setWinner(false);
                     oldGame += 1;
                   }}
-                  className="btn btn-warning mb-4"
+                  className="btn btn-primary btn-lg"
                 >
                   Next Round
                 </button> }
