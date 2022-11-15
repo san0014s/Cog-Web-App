@@ -24,11 +24,6 @@ export default function NavbarAvatarIcon() {
             handleCloseUserMenu()
             navigate('/profile')
         }},
-        {display: 'Account', onClick: () => {
-            handleCloseUserMenu()
-            navigate('/account')
-        }},
-        {display: 'Dashboard', onClick: () => handleCloseUserMenu()},
         {display: 'Logout', onClick: () => {
             SessionState.setId(-1);
             setAccount();
@@ -37,6 +32,10 @@ export default function NavbarAvatarIcon() {
         }}
     ];
 
+    const handleLoginClick = () => {
+        handleCloseUserMenu()
+        navigate('/login')
+    }
     // handle getting of account data
     const [account, setAccount] = useState();
 
@@ -86,7 +85,7 @@ export default function NavbarAvatarIcon() {
                     <Typography textAlign="center">{setting.display}</Typography>
                 </MenuItem> ))
             :  // else, show just the login button
-                <MenuItem onClick={() => navigate("/login")}>
+                <MenuItem onClick={() => handleLoginClick()}>
                     <Typography textAlign="center">Login</Typography>
                 </MenuItem>
         }

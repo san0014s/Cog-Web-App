@@ -52,7 +52,7 @@ body {
 }
 
 .group .group_member p.role{
-    color: #cccc;
+    color: #0000A7;
     font-size: 12px;
     text-transform: uppercase;
     margin: 12 px 0;
@@ -64,6 +64,8 @@ body {
     border-radius: 50%;
     /* position: absolute; */
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .group .group_member .team_img img{
