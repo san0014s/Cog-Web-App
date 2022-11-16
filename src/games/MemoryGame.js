@@ -1,7 +1,9 @@
 // eslint-disable-next-line
 import React, { useState, useEffect, useRef } from "react";
 import Grid from "../components/Grid";
+import { GAMES_ENUM } from "../constants/GamesConstants";
 import "../css/MemoryGame.css";
+import { recordData } from "./GameDataRecorder";
 
 
 var counter = 0;
@@ -9,7 +11,7 @@ var newG = 1;
 var oldGame = 1;
 
 //Image Array
-var imgs = ['https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000', 
+const imgs = ['https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000', 
             'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80', 
             'https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071873.jpg&fm=jpg/',
             'https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9',
@@ -39,9 +41,8 @@ function shuffle(array) {
   return array;
 }
 
-
 //Main Function
-export default function MemoryGame() {
+export default function MemoryGame({ advanceStateFunction }) {
 
   const [newGame, setNewGame] = useState(false);
   const [list] = useState([]);
@@ -49,6 +50,7 @@ export default function MemoryGame() {
   const [finishedItems, setFinishedItems] = useState([]);
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
+  const [matchesMade, setMatchesMade] = useState(0);
 
 
   //Check Items to See if they match or not
@@ -58,6 +60,7 @@ export default function MemoryGame() {
       firstIndex[1] === secondIndex[1]
     ) {
       setFinishedItems([...finishedItems, firstIndex, secondIndex]);
+      setMatchesMade(matchesMade + 1);
     } else {
       setTimeout(() => {
         setVisibleItems([]);
@@ -106,6 +109,15 @@ export default function MemoryGame() {
     [finishedItems]
   );
 
+  useEffect(()=>{
+    if (counter == 3){
+      counter = 0;
+      setLoser(true);
+      recordData(GAMES_ENUM.MEMORY, matchesMade)
+      advanceStateFunction()
+    }
+  }, [counter]);
+
   return (
     <div className="background">
       <div className="liveBox">
@@ -130,10 +142,6 @@ export default function MemoryGame() {
           </div>
             {winner && (
               <div className="game">
-                <font size="+5">You Win</font>
-                <br />
-                <font size="-5">Finished in seconds</font>
-                <br />
                 { <button
                   onClick={() => {
                     
@@ -147,7 +155,7 @@ export default function MemoryGame() {
                     setWinner(false);
                     oldGame += 1;
                   }}
-                  className="btn btn-warning mb-4"
+                  className="btn btn-primary btn-lg"
                 >
                   Next Round
                 </button> }
@@ -157,25 +165,7 @@ export default function MemoryGame() {
             <div>
               <font size="+5">You Lose</font>
               <br />
-              <font size="+3">Game will Restart in 3 Seconds!</font>
-              <meta http-equiv="refresh" content="3; URL=http://localhost:3000" />
               <br />
-              {/* { <button
-                onClick={() => {
-                  while(list.length >0){
-                    list.pop();
-                  }
-                  setNewGame(!newGame);
-                  setVisibleItems([]);
-                  setFinishedItems([]);
-                  counter = 0;
-                  oldGame = 1;
-                  newG = 1;
-                }}
-                className="btn btn-warning mb-4"
-              >
-                Restart
-              </button> } */}
             </div>
           )}
         </div>

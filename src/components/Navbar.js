@@ -7,11 +7,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-//import AdbIcon from '@mui/icons-material/Adb';
+import AdbIcon from '@mui/icons-material/Adb';
+import NavbarAvatarIcon from './NavbarAvatarIcon';
 
 const pages = [
     {display: 'Home', href: '/'},
@@ -19,33 +18,30 @@ const pages = [
     {display: 'About', href: '/about'},
     {display: 'Updates', href:'/updates'}
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: "#2E7378" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <img src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/Logo119x93.png"  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-        {/* <AdbIcon src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/Logo119x100.png"  sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />  */}
+        <img
+          src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/BiegeNewResized.png"
+          style={{
+            height: '50px', 
+            width: '50px',
+            marginRight: '10px',
+          }}
+        />
           <Typography
             variant="h6"
             noWrap
@@ -100,7 +96,6 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          {/* <img src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/Logo119x100.png" sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -117,7 +112,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            COGNIPRO INDUSTRIES
+            NEUROLINGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -132,35 +127,8 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          <NavbarAvatarIcon/>
+
         </Toolbar>
       </Container>
     </AppBar>

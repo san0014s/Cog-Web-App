@@ -1,40 +1,182 @@
-.Contact-body{
-    background-size: 1000% 1000%;
-    background-image: linear-gradient(
-          to right,
-          rgba(125, 220, 240, 1), 
-          rgba(160,250,248,1)
-    );  
+.Contact-body {
     animation: AnimateBG 7s ease-in-out infinite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 110vh;
+    width: 100%;
+    background-image: url('https://images.pexels.com/photos/6192337/pexels-photo-6192337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+}
+
+.Contact-h1{
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.sub-title{
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
 }
 
 #Contact-container{  /* I'm not sure what the # does here? */
-    width: 1600px;
+    width: 90vw;
     border-radius: 15px;
     overflow: hiddens;
     padding: 10px;
     display: flex;
-    background: white;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.75);
 }
 
 .Contact-info{
-    background-color: purple;
+    background-color: rgb(129, 0, 129, .7);
     flex: 0 1 40%;
     border-radius: 15px;
     padding: 40px;
     color: white;
     display: flex;
     flex-direction: column;
-
-   
 } 
 
-.Contact-h4{
-        font-size: 2rem;
-        font-weight: 500;
-        margin-top: 0;
+
+/*The paragraph above the contact form*/
+.Contact-p2{
+    color: rgba(255,255,255,.9);
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+.icon-Text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.social-media{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.icon-circle{
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 50%;
+    transition: .3s all ease-in-out;
+}
+
+/*trying to have a hovering effect over the icon circles*/
+/*having an issue hovering over anything changes the color rather than the icon*/
+/* :hover{
+    background: #05f7ff;
+} */
+
+/*it should be calling icon-Text and then the fa class*/
+.fa{
+    flex: 0 0 20px;
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    color: #05f7ff;
+}
+
+/*No class declared*/
+.Contact-span{
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+/****Acutal form****/
+.Contact-form {
+    padding: 40px;
+    width: 100%;
+}
+
+.column{
+    display: flex;
+    width: 100%;
+    flex: 0 0 100%;
+}
+
+.form-group{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 0 1 100%;
+    padding-right: 40px;
+} 
+.form-group:nth-child(){ /**matches every element that is the nth child of its parent**/
+    padding-right: 0;
+}
+
+#radio-buttons{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+} .solo{
+    padding: 0;
+}
+
+.Contact-rb  + label{
+    color: rgba(255, 255, 255, .4);
+}
+
+.Contact-rb:checked + label{
+    color: rgba(255, 255, 255);
+    font-weight: 700;
+}
+
+.Contact-button{
+    width: 200px;
+    height: 60px;
+    cursor: pointer; /*this allow it to appear clickable*/
+    background: white;  
+    border: none; 
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.right{
+    align-items: flex-end;
+}
+
+.radio-button{
+    margin-right: 20px;
+}
+
+.Contact-input {
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: white;
+    background: transparent;
+    border-bottom: 2px solid rgba(255,255,255,.4);
+    transition: .3s all ease-in-out;
+    margin-bottom: 2rem;
+} 
+.Contact-input:focus{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #05f7ff;
+}
+
+.Contact-label{
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .4);
+    margin-bottom: 1rem;
 }
