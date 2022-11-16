@@ -4,7 +4,6 @@ import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Updates from "./routes/Updates"
 import Contact from "./routes/Contact"
-import Account from "./routes/Account"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games"
@@ -40,7 +39,6 @@ function App() {
       <Route path="/updates" element={<Updates />} /> 
       <Route path="/about" element={<About />} /> 
       <Route path="/contact" element={<Contact />} /> 
-      <Route path="/account" element={<Account />} /> 
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/games" element={<Games />} />
