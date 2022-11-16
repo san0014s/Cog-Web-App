@@ -63,7 +63,7 @@ export default function ReactionGame({ advanceStateFunction }) {
             setInitialStateTimeoutId( // i need to capture the return value of setTimeout and store it in this variable
                 setTimeout(() => { // this callback will be executed in 5000 milliseconds (TODO: randomize this time)
                     setGameState(GameState.InProgress);
-                }, 5000));
+                }, Math.random() * 5000));
         }
         else if (gameState === GameState.InProgress) { // in progress means we are now timing the player until they click the button
             setStartTime(moment());
