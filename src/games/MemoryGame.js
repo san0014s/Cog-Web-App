@@ -11,7 +11,7 @@ var newG = 1;
 var oldGame = 1;
 
 //Image Array
-var imgs = ['https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000', 
+const imgs = ['https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000', 
             'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80', 
             'https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071873.jpg&fm=jpg/',
             'https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9',
@@ -109,6 +109,15 @@ export default function MemoryGame({ advanceStateFunction }) {
     [finishedItems]
   );
 
+  useEffect(()=>{
+    if (counter == 3){
+      counter = 0;
+      setLoser(true);
+      recordData(GAMES_ENUM.MEMORY, matchesMade)
+      advanceStateFunction()
+    }
+  }, [counter]);
+
   return (
     <div className="background">
       <div className="liveBox">
@@ -133,10 +142,6 @@ export default function MemoryGame({ advanceStateFunction }) {
           </div>
             {winner && (
               <div className="game">
-                <font size="+5">You Win</font>
-                <br />
-                <font size="-5">Finished in seconds</font>
-                <br />
                 { <button
                   onClick={() => {
                     
@@ -150,7 +155,7 @@ export default function MemoryGame({ advanceStateFunction }) {
                     setWinner(false);
                     oldGame += 1;
                   }}
-                  className="btn btn-warning mb-4"
+                  className="btn btn-primary btn-lg"
                 >
                   Next Round
                 </button> }
@@ -160,11 +165,6 @@ export default function MemoryGame({ advanceStateFunction }) {
             <div>
               <font size="+5">You Lose</font>
               <br />
-              <button onClick={() => {
-                console.log(matchesMade)
-                recordData(GAMES_ENUM.MEMORY, matchesMade)
-                advanceStateFunction()
-              }}>Finish</button>
               <br />
             </div>
           )}

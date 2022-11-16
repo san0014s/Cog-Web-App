@@ -26,6 +26,11 @@ const theme = {
     default: '#70deea',
     hover: '#1ba7b6',
     textColor: '#fafafa'
+  },
+  grey:{
+    default: '#2E7378',
+    hover: '#63666A',
+    textColor: '#FFFFFF'
   }
 }
 
@@ -68,7 +73,7 @@ const Button = styled.button`
 `
 
 Button.defaultProps = {
-  theme: 'blue'
+  theme: 'grey'
 }
 
 export default function Home() {
@@ -111,7 +116,7 @@ export default function Home() {
       />
       <h1>Track Your<span className="profile2"> Progress</span></h1>
       <p>Visit your Account and Track Your Progress over times in different areas of Memory</p>
-      <Button onClick = {() => navigate('/account')}>
+      <Button onClick = {() => navigate('/profile')}>
         {AccountButton}
       </Button>
     </div>

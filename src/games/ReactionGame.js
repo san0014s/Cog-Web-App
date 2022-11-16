@@ -29,7 +29,7 @@ const GameState = Object.freeze({
 
 // https://react.school/ui/button
 const Button = styled.button`
-    background-color: #3f51b5;
+    background-color: #2E7378;
     color: white;
     font-size: 40px;
     width: 48vw;
@@ -38,7 +38,7 @@ const Button = styled.button`
     margin: 1vh 1vw;
     cursor: pointer;
     &:hover {
-        background-color: #283593;
+        background-color: #72a8a1;
       }
 `
 
@@ -63,7 +63,7 @@ export default function ReactionGame({ advanceStateFunction }) {
             setInitialStateTimeoutId( // i need to capture the return value of setTimeout and store it in this variable
                 setTimeout(() => { // this callback will be executed in 5000 milliseconds (TODO: randomize this time)
                     setGameState(GameState.InProgress);
-                }, 5000));
+                }, Math.random() * 5000));
         }
         else if (gameState === GameState.InProgress) { // in progress means we are now timing the player until they click the button
             setStartTime(moment());

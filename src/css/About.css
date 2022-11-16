@@ -6,11 +6,19 @@
     box-sizing: border-box;
 }
 
-/*
-body {
-    background: blue;
+
+.color_body{
+  
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #fdf5df;  
+  
   }
-  */
 
   
 .wrapper{
@@ -42,7 +50,7 @@ body {
 }
 
 .group .group_member{
-    background: #2e7378;
+    background: #2E7378;
     margin: 5px;
     margin-bottom: 50px;
     width: 300px; 
@@ -81,6 +89,8 @@ body {
     border-radius: 100%;
     /* position: absolute; */
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .group .group_member .team_img img{

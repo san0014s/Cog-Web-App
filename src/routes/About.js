@@ -5,15 +5,16 @@ import '../css/About.css';
 
 const About = () => {
   return (
-    <body>
+    <body className='color_body'>
 
       <div class="wrapper">
         <h1> Meet Our Team </h1>
         
         <div class="group">
           <div class="group_member">
+
               <div class="team_img">
-                  <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/NSA.JPG" alt="nsa_image"></img>
+                <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/NSA.JPG" alt="nsa_image"></img>
               </div>
                 <h3>Nate Arndt</h3>
                 <p class="role"><u>Front End</u></p>
