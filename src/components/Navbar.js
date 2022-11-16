@@ -35,7 +35,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <img
-          src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/LogoWhiteResized.png"
+          src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/BiegeNewResized.png"
           style={{
             height: '50px', 
             width: '50px',
