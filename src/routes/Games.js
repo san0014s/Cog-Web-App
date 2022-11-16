@@ -44,6 +44,7 @@ export default function Games() {
             component: <SlidingPuzzle advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
         },
         {
+            id: GAMES_ENUM.COLORS,
             display: "Color Game",
             description: "Test your color awareness",
             howTo: "Pick the color of the word",

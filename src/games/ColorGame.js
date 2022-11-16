@@ -408,7 +408,7 @@ export default function ColorGame({ advanceStateFunction }) {
 
 
 
-	const max = 300;
+	const max = 30;
 
 	const [gameState, setGameState] = useState(GameState.InProgress);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
