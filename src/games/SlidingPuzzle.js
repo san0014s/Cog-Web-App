@@ -180,6 +180,7 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
                       src={`${process.env.PUBLIC_URL}/sliding_puzzle_images/image_part_00${col}.png`}
                       width="100%"
                       height="100%"
+                      draggable="false"
                     />
                   )}
                 </div>
