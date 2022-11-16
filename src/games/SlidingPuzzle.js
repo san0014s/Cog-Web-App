@@ -182,9 +182,6 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
                       height="100%"
                     />
                   )}
-                  {/* <span style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                    {col !== 0 && col}
-                  </span> */}
                 </div>
               );
             })}
