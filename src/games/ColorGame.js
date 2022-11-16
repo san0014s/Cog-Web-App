@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../css/ColorGame.css";
 import { recordData } from "./GameDataRecorder";
 import { GAMES_ENUM } from "../constants/GamesConstants";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const questions = [
@@ -425,11 +426,17 @@ export default function ColorGame({ advanceStateFunction }) {
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
+			toast.success('Good job! (+1 seconds)', {
+				position: toast.POSITION.BOTTOM_RIGHT,
+			})
 			setScore(score + 1);
-			setCount(count + 2);
+			setCount(count + 1);
 			clearTimeout(timer);
 		}
 		else{
+			toast.error('Wrong answer, try again! (-2 seconds)', {
+				position: toast.POSITION.BOTTOM_RIGHT,
+			})
 			setCount(count - 2);
 			clearTimeout(timer);
 		}
@@ -491,6 +498,10 @@ export default function ColorGame({ advanceStateFunction }) {
 					</div>
 				</>
 			)}
+		</div>
+
+		<div>
+			<ToastContainer />
 		</div>
 		</div>
 	);
