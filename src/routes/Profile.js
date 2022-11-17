@@ -4,6 +4,7 @@ import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
 import { GAMES_ENUM } from "../constants/GamesConstants";
 import { useNavigate } from 'react-router-dom';
+import DataBubbles from "../components/DataBubbles";
 
 export default function Profile() {
 
@@ -49,6 +50,7 @@ export default function Profile() {
                 <MenuItem value={GAMES_ENUM.SLIDING_PUZZLE}>Sliding Puzzle Game</MenuItem>
                 <MenuItem value={GAMES_ENUM.COLORS}>Color Matching Game</MenuItem>
             </Select>
+            <DataBubbles gameType={gameType}/>
             <PersonalDataChart gameType={gameType}/>
         </>
     }
