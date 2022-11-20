@@ -4,30 +4,35 @@ import MyS3Client from '../components/MyS3Client';
 
 // https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/javascript_s3_code_examples.html
 
-export default function UploadToS3Button({targetDirectory, setObjectKey}) {
+export default function UploadToS3Button({directory, objectKey, onUpload}) {
 
-    const [objectContent, setObjectContent] = useState();
-
-    useEffect(() => {
-        console.log(objectContent);
-    }, [objectContent])
-
-    const onSubmit = () => {
-        if (objectContent === undefined) {
-            console.log("no objectContent");
+    const uploadContent = (objectContent) => {
+        if (
+            objectContent === undefined
+            || directory === undefined
+            || objectKey === undefined
+        ) {
             return;
         }
 
         MyS3Client.send(new PutObjectCommand({
             Bucket: process.env.REACT_APP_BUCKET_NAME,
-            Key: crypto.randomUUID(),
+            Key: `${directory}/${objectKey}`,
             Body: objectContent
-        }))
+        })).then((response) => {
+            console.log(response)
+            if (onUpload) {
+                onUpload();
+            }
+        });
     }
 
     return <div>
-        <input type="file" name="myImage"  accept="image/*" onChange={(e) => setObjectContent(e.target.files[0])}/>
-        <br></br>
-        <button onClick={onSubmit}>Submit</button>
+        <input
+            type="file"
+            name="myImage" 
+            accept="image/*"
+            onChange={(e) => uploadContent(e.target.files[0])}
+        />
     </div>
 }

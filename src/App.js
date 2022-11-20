@@ -7,12 +7,16 @@ import Contact from "./routes/Contact"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games"
+import FFC_Edit from "./routes/FFC_Edit"
+import FFC_Select from "./routes/FFC_Select"
 import Profile from "./routes/Profile"
 
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
 import ProfileEdit from "./routes/ProfileEdit";
+import DeckList from "./components/Flashcards/DeckList";
+import CardList from "./components/Flashcards/CardList";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -33,18 +37,22 @@ function App() {
     // Hope this helps :)
     //
     <>
-    <Navbar></Navbar>
-    <Routes> 
-      <Route path="/" element={<Home />} /> 
-      <Route path="/updates" element={<Updates />} /> 
-      <Route path="/about" element={<About />} /> 
-      <Route path="/contact" element={<Contact />} /> 
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/games" element={<Games />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/profile/edit" element={<ProfileEdit />} />
-    </Routes>
+      <Navbar></Navbar>
+      <Routes> 
+        <Route path="/" element={<Home />} /> 
+        <Route path="/updates" element={<Updates />} /> 
+        <Route path="/about" element={<About />} /> 
+        <Route path="/contact" element={<Contact />} /> 
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<ProfileEdit />} />
+        <Route path="/FFC_Edit" element={<FFC_Edit />} />
+        <Route path="/FFC_Select" element={<FFC_Select />} />
+        <Route path="/decks" element={<DeckList />} />
+        <Route path="/edit/cards" element={<CardList />} />
+      </Routes>
     </>
   );
 }

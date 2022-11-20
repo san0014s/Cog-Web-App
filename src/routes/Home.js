@@ -161,9 +161,5 @@ export default function Home() {
     <footer id="page-footer" className="page-footer js-page-footer js-hide-in-app -bottomrail">
       
     </footer>
-
-  
-
-    
   </>
 }
