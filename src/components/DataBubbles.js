@@ -7,9 +7,8 @@ const bubbleStyle = {
     width: '180px',
     backgroundColor: '#bbb',
     borderRadius: '50%',
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    textAlign: "center",
+    padding: '56px 0',
     margin: "auto",
 };
 
@@ -61,47 +60,47 @@ export default function DataBubbles({ gameType }) {
     }, [gameType, SessionState])
 
     return <Grid container>
-        <Grid item xs={3}>
-            <div style={bubbleStyle}>
-                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                    {percentile}th
-                </p>
-                <p style={{ fontSize: "1rem" }}>
-                    percentile
-                </p>
-            </div>
-        </Grid>
-
-        <Grid item xs={3}>
-            <div style={bubbleStyle}>
-                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                    {average}
-                </p>
-                <p style={{ fontSize: "1rem" }}>
-                    average
-                </p>
-            </div>
-        </Grid>
-
         
         <Grid item xs={3}>
             <div style={bubbleStyle}>
+                <p style={{ fontSize: "1rem" }}>
+                    Best Score:
+                </p>
                 <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
                     {bestStat}
-                </p>
-                <p style={{ fontSize: "1rem" }}>
-                    best
                 </p>
             </div>
         </Grid>
 
         <Grid item xs={3}>
             <div style={bubbleStyle}>
+                <p style={{ fontSize: "1rem" }}>
+                    Percentile:
+                </p>
+                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                    {percentile}th
+                </p>
+            </div>
+        </Grid>
+
+        <Grid item xs={3}>
+            <div style={bubbleStyle}>
+                <p style={{ fontSize: "1rem" }}>
+                    Average Score:
+                </p>
+                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                    {average}
+                </p>
+            </div>
+        </Grid>
+
+        <Grid item xs={3}>
+            <div style={bubbleStyle}>
+                <p style={{ fontSize: "1rem" }}>
+                    Recent Score:
+                </p>
                 <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
                     {recentStat}
-                </p>
-                <p style={{ fontSize: "1rem" }}>
-                    recent
                 </p>
             </div>
         </Grid>
