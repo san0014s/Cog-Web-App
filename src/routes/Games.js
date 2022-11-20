@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
-import FamilyCard from "../games/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
 import SlidingPuzzle from "../games/SlidingPuzzle"
+import ColorGame from "../games/ColorGame.js"
 import { GAMES_ENUM } from "../constants/GamesConstants";
 
 
@@ -42,14 +42,28 @@ export default function Games() {
             description: "Test your spatial reasoning",
             howTo: "Complete Puzzle",
             component: <SlidingPuzzle advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+        },
+        {
+            id: GAMES_ENUM.COLORS,
+            display: "Color Game",
+            description: "Test your color awareness",
+            howTo: "Pick the color of the word",
+            component: <ColorGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
         }
     ]
     
 
     return <>
+    <div style={{    "position": "fixed",
+            width: "100vw",
+            height: "100vh",
+            overflow: "auto",
+            "background-color": "#fdf5df" }}>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
             return <div key={game.display}>
-                    <Button onClick={() => {
+                    <Button style={{display:"grid",
+  "grid-auto-flow": "row", "top": "125px", "margin": "auto", height:"150px", width: "400px",
+           "backgroundColor": "#2E7378", "color": "#fdf5df", "font": "Brush Script MT", gap: "50px", justifyContent: "center"}}onClick={() => {
                         setGameToRender(game);
                         setPageState(PAGE_STATE.PRE_GAME);
                     }}>
@@ -74,5 +88,7 @@ export default function Games() {
                 playAgain={() => setPageState(PAGE_STATE.PRE_GAME)}
                 backToGames={() => setPageState(PAGE_STATE.GAMES_LIST)}
             />}
+    </div>
     </>
+    
 }
