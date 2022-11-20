@@ -12,6 +12,7 @@ import Profile from "./routes/Profile"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
+import ProfileEdit from "./routes/ProfileEdit";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -42,6 +43,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/games" element={<Games />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/edit" element={<ProfileEdit />} />
     </Routes>
     </>
   );

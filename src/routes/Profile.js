@@ -43,8 +43,26 @@ export default function Profile() {
                     />
                     <p>Joined: {account.joinDate}</p>
                     <p>Interests: {account.interests}</p>
-                    <Button variant="outlined" onClick = {() => navigate('/FFC_Select')}>Go To Your Decks</Button> <br/> 
-                    </div>
+                    <Button variant="outlined" onClick = {
+                        () => navigate('/FFC_Select')
+                    }>
+                        Go To Your Decks
+                    </Button>
+                    <br/> 
+                    <Button variant="outlined" onClick = {() => {
+                        navigate(
+                            '/profile/edit',
+                            {
+                                state: { 
+                                    profile: account
+                                }
+                            }
+                        );
+                    }}>
+                        Edit Profile
+                    </Button>
+                    <br/> 
+                </div>
             </Grid>
             <Grid item xs={9}>
                 <Container style={{marginTop: '10px'}}>
