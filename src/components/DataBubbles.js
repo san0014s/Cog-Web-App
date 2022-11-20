@@ -1,5 +1,17 @@
+import { Grid } from "@mui/material";
 import React, { Fragment, useEffect, useMemo, useState } from "react"
 import SessionState from "./SessionState"
+
+const bubbleStyle = {
+    height: '180px',
+    width: '180px',
+    backgroundColor: '#bbb',
+    borderRadius: '50%',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "auto",
+};
 
 export default function DataBubbles({ gameType }) {
 
@@ -48,81 +60,50 @@ export default function DataBubbles({ gameType }) {
         })
     }, [gameType, SessionState])
 
-    return <Fragment>
-        <div
-            style={{
-                height: '15vw',
-                width: '15vw',
-                backgroundColor: '#bbb',
-                borderRadius: '50%',
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                {percentile}th
-            </p>
-            <p style={{ fontSize: "1rem" }}>
-                percentile
-            </p>
-        </div>
+    return <Grid container>
+        <Grid item xs={3}>
+            <div style={bubbleStyle}>
+                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                    {percentile}th
+                </p>
+                <p style={{ fontSize: "1rem" }}>
+                    percentile
+                </p>
+            </div>
+        </Grid>
 
-        <div
-            style={{
-                height: '15vw',
-                width: '15vw',
-                backgroundColor: '#bbb',
-                borderRadius: '50%',
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                {average}
-            </p>
-            <p style={{ fontSize: "1rem" }}>
-                average
-            </p>
-        </div>
+        <Grid item xs={3}>
+            <div style={bubbleStyle}>
+                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                    {average}
+                </p>
+                <p style={{ fontSize: "1rem" }}>
+                    average
+                </p>
+            </div>
+        </Grid>
 
-        <div
-            style={{
-                height: '15vw',
-                width: '15vw',
-                backgroundColor: '#bbb',
-                borderRadius: '50%',
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                {bestStat}
-            </p>
-            <p style={{ fontSize: "1rem" }}>
-                best
-            </p>
-        </div>
+        
+        <Grid item xs={3}>
+            <div style={bubbleStyle}>
+                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                    {bestStat}
+                </p>
+                <p style={{ fontSize: "1rem" }}>
+                    best
+                </p>
+            </div>
+        </Grid>
 
-        <div
-            style={{
-                height: '15vw',
-                width: '15vw',
-                backgroundColor: '#bbb',
-                borderRadius: '50%',
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                {recentStat}
-            </p>
-            <p style={{ fontSize: "1rem" }}>
-                recent
-            </p>
-        </div>
-    </Fragment>
+        <Grid item xs={3}>
+            <div style={bubbleStyle}>
+                <p style={{ fontSize: "2rem", fontWeight: "bold" }}>
+                    {recentStat}
+                </p>
+                <p style={{ fontSize: "1rem" }}>
+                    recent
+                </p>
+            </div>
+        </Grid>
+    </Grid>
 }
