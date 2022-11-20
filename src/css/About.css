@@ -22,20 +22,31 @@
 
   
 .wrapper{
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .wrapper h1{
     font-family: 'Brush Script MT', Brush Script Std, cursive;
-    font-size: 52 px;
-    margin-bottom: 20px;
+    font-size: 4em;
+    color: #2e7378;
+    margin-bottom: 50px;
     text-align: center; 
+    background-color: silver;  
+    margin-top: 50 px; 
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
 }
 
 .group{
     display: flex;
     text-align: center;
     width: auto;
+    text-align: center; /**/
     justify-content: center;
 }
 
@@ -53,23 +64,30 @@
 
 .group .group_member h3{
     font-family: 'Brush Script MT', Brush Script Std, cursive;
-    color: #fdf5df;
-    font-size: 26px;
-    margin-top: 50 px; 
+    color: beige;
+    font-size: 40px;
+    margin-top: 5px; 
+    margin-bottom: 10px;
+
 
 }
 
+
+
 .group .group_member p.role{
-    color: #0000A7;
-    font-size: 12px;
+    color: silver;
+    font-size: 20px;
     text-transform: uppercase;
     margin: 12 px 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
 }
 
 .group .group_member .team_img{
-    width: 100px;
-    height: 100px; 
-    border-radius: 50%;
+    width: 250px;
+    height: 120px; 
+    border-radius: 100%;
     /* position: absolute; */
     position: relative;
     margin-left: auto;

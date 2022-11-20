@@ -11,15 +11,16 @@ var newG = 1;
 var oldGame = 1;
 
 //Image Array
-const imgs = ['https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=5000', 
-            'https://images.unsplash.com/photo-1529778873920-4da4926a72c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMGNhdHxlbnwwfHwwfHw%3D&w=1000&q=80', 
-            'https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071873.jpg&fm=jpg/',
-            'https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9',
-            'https://styles.redditmedia.com/t5_2r5i1/styles/communityIcon_x4lqmqzu1hi81.jpg',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSstq5jDn2PIVgzt-5XgS4X37MTV6tpDyfSP0Racgf6rCJSxYw4MQSVNtaxQM6hI9IJrTs&usqp=CAU',
-            'https://th-thumbnailer.cdn-si-edu.com/bZAar59Bdm95b057iESytYmmAjI=/1400x1050/filters:focal(594x274:595x275)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/95/db/95db799b-fddf-4fde-91f3-77024442b92d/egypt_kitty_social.jpg',
-            'https://images.pexels.com/photos/1643457/pexels-photo-1643457.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-            'https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d'];
+const imgs = ['circle.png',
+              'decagon.png',
+              'hexagon.png',
+              'octagon.png',
+              'pentagon.png',
+              'rhombus.png',
+              'square.png',
+              'star.png',
+              'trapezoid.png',
+              'triangle.png',]
     
             
 //Shuffle Images in Grid
@@ -51,6 +52,7 @@ export default function MemoryGame({ advanceStateFunction }) {
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
   const [matchesMade, setMatchesMade] = useState(0);
+  const [round, setRound] = useState(0);
 
 
   //Check Items to See if they match or not
@@ -74,6 +76,8 @@ export default function MemoryGame({ advanceStateFunction }) {
     }
   };
 
+
+  
   //If New Game is Reached
   if (parseInt(newG) === parseInt(oldGame)){
     if(newG !== 1){
@@ -111,10 +115,13 @@ export default function MemoryGame({ advanceStateFunction }) {
 
   useEffect(()=>{
     if (counter == 3){
-      counter = 0;
       setLoser(true);
       recordData(GAMES_ENUM.MEMORY, matchesMade)
       advanceStateFunction()
+      counter = 0;
+      newG = 1;
+      oldGame = 1;
+      setNewGame(newGame);
     }
   }, [counter]);
 
