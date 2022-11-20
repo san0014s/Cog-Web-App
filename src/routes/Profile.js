@@ -61,7 +61,13 @@ export default function Profile() {
                     <div style={{marginBottom: '20px'}}>
                         <DataBubbles gameType={gameType}/>
                     </div>
-                    <PersonalDataChart gameType={gameType}/>
+                    <PersonalDataChart
+                        gameType={gameType}
+                        containerProps={{
+                            width: '100%',
+                            height: '500px',
+                        }}
+                    />
                 </Container>
             </Grid>
         </Grid>
