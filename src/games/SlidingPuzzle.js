@@ -172,12 +172,17 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
                     backgroundColor: "#fdf5df",
                     borderRadius: 25,
                     cursor: complete ? "not-allowed" : "pointer",
-                    userSelect: "none"
+                    userSelect: "none",
                   }}
                 >
-                  <span style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                    {col !== 0 && col}
-                  </span>
+                  {(col !== 0 &&
+                    <img
+                      src={`${process.env.PUBLIC_URL}/sliding_puzzle_images/image_part_00${col}.png`}
+                      width="100%"
+                      height="100%"
+                      draggable="false"
+                    />
+                  )}
                 </div>
               );
             })}
