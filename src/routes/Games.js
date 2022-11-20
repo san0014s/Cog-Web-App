@@ -25,30 +25,34 @@ export default function Games() {
         {
             id: GAMES_ENUM.REACTION,
             display: "Reaction game",
-            description: "Test your reaction time or whatever",
-            howTo: "Click the button when it says to click it i guess",
-            component: <ReactionGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+            description: "Test your reaction time!",
+            howTo: "When one of the two buttons changes, click on it as quickly as possible. Repeat this five times to get your score.",
+            component: <ReactionGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
+            imgURL: 'reactionImage.png'
         },
         {
             id: GAMES_ENUM.MEMORY,
             display: "Memory game",
-            description: "Test your memory",
-            howTo: "Match Images",
-            component: <MemoryGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+            description: "Test your memory by matching shapes in an increasing challenging version of a classic memory game!",
+            howTo: "Search around the board to find and match like shapes and complete as many boards as you can. You have three lives to start, and get an extra life after each successful board clear, but you lose a life for each incorrect match.",
+            component: <MemoryGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
+            imgURL: 'memoryImage.png'
         },
         {
             id: GAMES_ENUM.SLIDING_PUZZLE,
             display: "Sliding Puzzle",
-            description: "Test your spatial reasoning",
-            howTo: "Complete Puzzle",
-            component: <SlidingPuzzle advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+            description: "Test your spatial reasoning by completing a simple sliding puzzle!",
+            howTo: "To slide a piece, simply click on a piece that is adjacent to the empty square. Rearrange the segements of the shape to recrate it as shown in the image.",
+            component: <SlidingPuzzle advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
+            imgURL: 'slidingPuzzleFinish.png'
         },
         {
             id: GAMES_ENUM.COLORS,
             display: "Color Game",
-            description: "Test your color awareness",
-            howTo: "Pick the color of the word",
-            component: <ColorGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>
+            description: "Test your cognitive processing!",
+            howTo: "Pick the color/hue of the word that is on screen. For example, the answer to a word Blue colored Red would be Red. You have 30 seconds to get as many correct as you can, however incorrectly guessing will reduce that time by 2 seconds, but getting a question correct will add 2 seconds.",
+            component: <ColorGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
+            imgURL: 'colorGameImg.png'
         }
     ]
     
