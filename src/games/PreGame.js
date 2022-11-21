@@ -4,9 +4,9 @@ import { Button } from "@mui/material";
 export default function PreGame({ game, advanceStateFunction }) {
 
     return <>
-        <div style={{    "position": "fixed",
+        <div style={{    "position": "absoute",
   width: "100vw",
-  height: "100vh",
+  height: "120vh",
   overflow: "hidden",
   "background-position": "center",
   "background-repeat": "no-repeat",
