@@ -36,7 +36,10 @@ export default function Profile() {
                     <h1>{account.name}</h1>
                     <h4>@{account.username}</h4>
                     <img 
-                        width="95%"
+                        style={{
+                            width:'23vw',
+                            height:'23vw',
+                        }}
                         alt={account.name}
                         src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}
                     />
