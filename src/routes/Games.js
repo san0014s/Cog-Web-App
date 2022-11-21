@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
 import ReactionGame from "../games/ReactionGame"
-import FamilyCard from "../games/FamilyCard"
+import FamilyCard from "../components/Flashcards/FamilyCard"
 import MemoryGame from "../games/MemoryGame"
 import SlidingPuzzle from "../games/SlidingPuzzle"
 import { GAMES_ENUM } from "../constants/GamesConstants";

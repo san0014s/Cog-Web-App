@@ -9,17 +9,14 @@ import Account from "./routes/Account"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games"
-import FFC_Edit from "./routes/FFC_Edit"
-import FFC_Select from "./routes/FFC_Select"
 import Profile from "./routes/Profile"
-import FamilyCard from "./games/FamilyCard"
 
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
-import UploadToS3Button from "./s3/UploadToS3Button";
 import DeckList from "./components/Flashcards/DeckList";
 import CardList from "./components/Flashcards/CardList";
+import PlayDeck from "./components/Flashcards/PlayDeck";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -27,14 +24,6 @@ import CardList from "./components/Flashcards/CardList";
 // and can allows the us (users) to change the browser url
 
 function App() {
-  const SAMPLE_FLASHCARDS = [
-    {
-      id: 1,
-      name: 'Kryzstof',
-      picture: "https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KJK.png",
-      relationship: 'grandson'
-    }
-  ]
 
   return (
     // The Routes tag includes all the pages that can be accessed in the app. To add a new page, do the following
@@ -59,11 +48,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/games" element={<Games />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/FFC_Edit" element={<FFC_Edit />} />
-        <Route path="/FFC_Select" element={<FFC_Select />} />
         <Route path="/decks" element={<DeckList />} />
         <Route path="/edit/cards" element={<CardList />} />
-        <Route path="/play/deck" element={<FamilyCard flashcard= {SAMPLE_FLASHCARDS[0]} />} />
+        <Route path="/play/deck" element={<PlayDeck />} />
       </Routes>
     </>
   );
