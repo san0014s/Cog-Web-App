@@ -39,6 +39,7 @@
 
 .card .front{
     left: 0;
+    /**word-spacing: 5px;**/
 }
 
 .card .front,

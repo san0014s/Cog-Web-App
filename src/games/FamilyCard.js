@@ -3,21 +3,20 @@ import { Button } from "@mui/material";
 
 export default function FamilyCard({ flashcard }) {
     const [flip, setFlip] = useState(false) //should show front side instead of the back secondIndex
+    const [height, setHeight] = useState('initial')
 
     const frontEl = useRef()
     const backEl = useRef()
 
-    const [height, setHeight] =  useState('initial')
 
     function setMaxHeight(){
         const frontHeight = frontEl.current.getBoundingClientRect().height
         const backHeight = frontEl.current.getBoundingClientRect().height
-
         setHeight(Math.max(frontHeight, backHeight, 100))
     }
 
 
-    useEffect(setMaxHeight, [flashcard.question, flashcard.answer, flashcard.option])
+    useEffect(setMaxHeight, [flashcard])
     useEffect(() => {
         window.addEventListener('resize',setMaxHeight)
         return () => window.removeEventListener('resize',setMaxHeight)
@@ -30,14 +29,12 @@ export default function FamilyCard({ flashcard }) {
             onClick={() => setFlip(!flip)}
         >
             <div className="front" ref={frontEl}>
-                {flashcard.question}
-                <div className="flashcard-options">
-                    {flashcard.options.map(option => {
-                        return <div className="flashcard-option">{option}</div>
-                    })}
-                </div>
+                <img src={flashcard.picture} />
             </div>
-            <div className="back" ref={backEl}>{flashcard.answer}</div>
+            <div className="back" ref={backEl}>
+                {flashcard.name}
+                {flashcard.relationship}
+            </div>
         </div>
     )
 }

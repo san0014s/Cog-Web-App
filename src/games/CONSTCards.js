@@ -1,11 +1,23 @@
+import React, {useState, useEffect, useRef} from 'react';
+import FamilyList from './games/FamilyList';
 import "./FamilyCard.css";
 
-return(
+function App() {
+    const [flashcards, setflashcards] = useState([SAMPLE_FLASHCARDS])
+    return(
     <div className="container-cardwrapper">
-<><FamilyList flashcards={flashcards} /><></></>
+        <FamilyList flashcards={flashcards} />
     </div>
 )
-const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS)
+}
+
+// function decodeString(string) {
+//     const textArea = document.createElement('textarea')
+//     textArea.innerHTML = string
+//     return textArea.value
+// }
+
+
 
 const SAMPLE_FLASHCARDS = [
     {

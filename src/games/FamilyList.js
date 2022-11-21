@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-export default function FamilyList({flashcards}) {
-  return (
-    <div className="card-grid">
-        {flashcards.map(flashcard => {
-            return <flashcard flashcard={flashcard} key={flashcard.id} />
-        })}
-    </div>
-  )
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
 
