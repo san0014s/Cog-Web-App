@@ -8,6 +8,12 @@ import SlidingPuzzle from "../games/SlidingPuzzle"
 import ColorGame from "../games/ColorGame.js"
 import { GAMES_ENUM } from "../constants/GamesConstants";
 
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { spacing } from '@mui/system';
 
 const PAGE_STATE = Object.freeze({
     GAMES_LIST: Symbol("Games List"),
@@ -58,23 +64,41 @@ export default function Games() {
     
 
     return <>
-    <div style={{    "position": "fixed",
+    <div style={{    "position": "relative",
             width: "100vw",
             height: "100vh",
             overflow: "auto",
             "background-color": "#fdf5df" }}>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
-            return <div key={game.display}>
-                    <Button style={{display:"grid",
-  "grid-auto-flow": "row", "top": "125px", "margin": "auto", height:"150px", width: "400px",
-           "backgroundColor": "#2E7378", "color": "#fdf5df", "font": "Brush Script MT", gap: "50px", justifyContent: "center"}}onClick={() => {
-                        setGameToRender(game);
-                        setPageState(PAGE_STATE.PRE_GAME);
-                    }}>
-                        {game.display}
-                    </Button>
+            return <div key={game.display} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                    <Card sx={{ m: 2, border: 1, borderColor: "primary.main", maxWidth: 350, maxHeigth: 350, color: "#fdf5df", backgroundColor: "#2E7378"}}>
+                      <CardMedia
+                        component="img"
+                        style = {{width: "90%", height: "90%", position: "relative", marginLeft: "auto", marginRight: "auto", padding: "10px"}}
+                        image={game.imgURL}
+                        alt="something went wrong"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {game.display}
+                        </Typography>
+                        <Typography variant="body1" color="#fdf5df">
+                          {game.description}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button size="large" variant="contained" onClick={() => {
+                            setGameToRender(game);
+                            setPageState(PAGE_STATE.PRE_GAME);
+                        }}>Play</Button>
+                      </CardActions>
+                    </Card>
                 </div>
         })}
+
+
+
+
 
         {pageState === PAGE_STATE.PRE_GAME && 
             <PreGame 
