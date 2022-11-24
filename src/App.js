@@ -1,5 +1,6 @@
 import React from "react"; //using react
 import "./index.css"; //import css idex
+import "./css/FamilyCard.css"
 import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Updates from "./routes/Updates"
@@ -7,8 +8,6 @@ import Contact from "./routes/Contact"
 import Login from "./routes/Login"
 import Signup from "./routes/Signup"
 import Games from "./routes/Games"
-import FFC_Edit from "./routes/FFC_Edit"
-import FFC_Select from "./routes/FFC_Select"
 import Profile from "./routes/Profile"
 
 import Navbar from "./components/Navbar.js";
@@ -17,6 +16,7 @@ import { Route, Routes } from "react-router-dom";
 import ProfileEdit from "./routes/ProfileEdit";
 import DeckList from "./components/Flashcards/DeckList";
 import CardList from "./components/Flashcards/CardList";
+import PlayDeck from "./components/Flashcards/PlayDeck";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -48,10 +48,9 @@ function App() {
         <Route path="/games" element={<Games />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/profile/edit" element={<ProfileEdit />} />
-        <Route path="/FFC_Edit" element={<FFC_Edit />} />
-        <Route path="/FFC_Select" element={<FFC_Select />} />
         <Route path="/decks" element={<DeckList />} />
         <Route path="/edit/cards" element={<CardList />} />
+        <Route path="/play/deck" element={<PlayDeck />} />
       </Routes>
     </>
   );
