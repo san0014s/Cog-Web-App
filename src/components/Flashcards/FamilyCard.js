@@ -1,5 +1,4 @@
 import React, { useState , useEffect, useRef} from "react";
-import { Button } from "@mui/material";
 
 export default function FamilyCard({ flashcard }) {
     const [flip, setFlip] = useState(false) //should show front side instead of the back secondIndex
@@ -25,15 +24,24 @@ export default function FamilyCard({ flashcard }) {
     return (
         <div
             className={`card ${flip ? 'flip' : ''}`}
-            style={{height: height }}
+            style={{
+                height: "50vw",
+                width: "50vw",
+            }}
             onClick={() => setFlip(!flip)}
         >
             <div className="front" ref={frontEl}>
-                <img src={flashcard.picture} />
+                <img
+                    src={flashcard.picture} 
+                    style={{
+                        height: "100%",
+                        width: "100%",
+                    }}
+                />
             </div>
             <div className="back" ref={backEl}>
-                {flashcard.name}
-                {flashcard.relationship}
+                <p>{flashcard.name}</p>
+                <p>{flashcard.relationship}</p>
             </div>
         </div>
     )

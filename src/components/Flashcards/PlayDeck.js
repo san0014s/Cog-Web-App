@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import React, { Fragment, useState } from "react";
 import FamilyCard from "./FamilyCard";
 
@@ -34,25 +34,27 @@ export default function PlayDeck() {
     const [index, setIndex] = useState(0);
 
     return <Fragment>
-        <FamilyCard flashcard={SAMPLE_FLASHCARDS[index]} />
-        <Button
-            onClick={()=> {
-                if (index > 0) {
-                    setIndex(index - 1);
-                }
-            }}
-        >
-            Previous
-        </Button>
-        <Button
-            onClick={()=> {
-                if (index < SAMPLE_FLASHCARDS.length - 1) {
-                    setIndex(index + 1);
-                }
-            }}
-        >
-            Next
-        </Button>
+        <Container>
+            <FamilyCard flashcard={SAMPLE_FLASHCARDS[index]} />
+            <Button
+                onClick={()=> {
+                    if (index > 0) {
+                        setIndex(index - 1);
+                    }
+                }}
+            >
+                Previous
+            </Button>
+            <Button
+                onClick={()=> {
+                    if (index < SAMPLE_FLASHCARDS.length - 1) {
+                        setIndex(index + 1);
+                    }
+                }}
+            >
+                Next
+            </Button>
+        </Container>
     </Fragment>
 
 }
