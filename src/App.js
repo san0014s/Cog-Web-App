@@ -12,7 +12,6 @@ import Profile from "./routes/Profile"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
-import UploadToS3Button from "./s3/UploadToS3Button";
 
 
 //We will be using Router which essentially is the standard libary of routes
