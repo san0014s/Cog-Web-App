@@ -1,60 +1,61 @@
 import { Button, Container } from "@mui/material";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 import FamilyCard from "./FamilyCard";
-
-const SAMPLE_FLASHCARDS = [
-    {
-        id: 1,
-        name: 'Kryzstof',
-        picture: "https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KJK.png",
-        relationship: 'grandson'
-    },
-    {
-        id: 2,
-        name: "Kryzstof",
-        picture: "https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KJK.png",
-        relationship: "grandson",
-    },
-    {
-        id: 3,
-        name: "Steven",
-        picture: "https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/SAN.jpg",
-        relationship: "dad",
-    },
-    {
-        id: 22,
-        name: "karl",
-        picture: "https://cog-web-app-public-assets.s3.amazonaws.com/cardImages/22.png",
-        relationship: "father",
-    }
-]
 
 export default function PlayDeck() {
 
     const [index, setIndex] = useState(0);
 
+    const { state } = useLocation();
+    const deck = useMemo(() => {
+        if (state !== null) {
+            return state.deck;
+        }
+    }, [state]); // Read values passed on state 
+
+    const [cardsList, setCardsList] = useState();
+    useEffect(() => {
+        if (!deck) {
+            return;
+        }
+
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/deck/${deck.id}/card`, {
+            method: 'GET',
+            headers: { "Content-Type": "application/json" }
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            setCardsList(data)
+        }).catch(() => {})
+    }, [deck]);
+
+    console.log(cardsList)
+
     return <Fragment>
-        <Container>
-            <FamilyCard flashcard={SAMPLE_FLASHCARDS[index]} />
-            <Button
-                onClick={()=> {
-                    if (index > 0) {
-                        setIndex(index - 1);
-                    }
-                }}
-            >
-                Previous
-            </Button>
-            <Button
-                onClick={()=> {
-                    if (index < SAMPLE_FLASHCARDS.length - 1) {
-                        setIndex(index + 1);
-                    }
-                }}
-            >
-                Next
-            </Button>
-        </Container>
+        {cardsList && (
+            <Container>
+                <FamilyCard flashcard={cardsList[index]} />
+                <Button
+                    onClick={()=> {
+                        if (index > 0) {
+                            setIndex(index - 1);
+                        }
+                    }}
+                >
+                    Previous
+                </Button>
+                <Button
+                    onClick={()=> {
+                        if (index < cardsList.length - 1) {
+                            setIndex(index + 1);
+                        }
+                    }}
+                >
+                    Next
+                </Button>
+            </Container>
+        )}
     </Fragment>
 
 }
