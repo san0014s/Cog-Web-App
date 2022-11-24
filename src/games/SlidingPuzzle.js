@@ -143,8 +143,8 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
       <div
         style={{
           display: "inline-block",
-          backgroundColor: "beige",
-          border: `5px solid ${complete ? "black" : "beige"}`,
+          backgroundColor: "#2E7378",
+          border: `5px solid ${complete ? "black" : "#2E7378"}`,
           borderRadius: 5,
           padding: 25
         }}
@@ -157,7 +157,7 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
             }}
           >
             {row.map((col, j) => {
-              const color = col === 0 ? "transparent" : "beige";
+              const color = col === 0 ? "transparent" : "#2E737";
               return (
                 <div
                   key={`${i}-${j}`}
@@ -169,15 +169,20 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
                     width: 250,
                     height: 250,
                     margin: 2,
-                    backgroundColor: "skyblue",
+                    backgroundColor: "#fdf5df",
                     borderRadius: 25,
                     cursor: complete ? "not-allowed" : "pointer",
-                    userSelect: "none"
+                    userSelect: "none",
                   }}
                 >
-                  <span style={{ fontSize: "2rem", fontWeight: "bold" }}>
-                    {col !== 0 && col}
-                  </span>
+                  {(col !== 0 &&
+                    <img
+                      src={`${process.env.PUBLIC_URL}/sliding_puzzle_images/image_part_00${col}.png`}
+                      width="100%"
+                      height="100%"
+                      draggable="false"
+                    />
+                  )}
                 </div>
               );
             })}
