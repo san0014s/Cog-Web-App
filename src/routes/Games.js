@@ -54,9 +54,9 @@ export default function Games() {
     
 
     return <>
-    <div style={{    "position": "fixed",
+    <div style={{    "position": "absolute",
             width: "100vw",
-            height: "100vh",
+            height: "120vh",
             overflow: "auto",
             "background-color": "#fdf5df" }}>
         {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
