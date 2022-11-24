@@ -26,7 +26,7 @@ const GAME_DATA = [
     }
 ]
 
-export default function PersonalDataChart({ gameType }) {
+export default function PersonalDataChart({ gameType, containerProps }) {
 
     const [personalData, setPersonalData] = useState([]);
 
@@ -68,6 +68,6 @@ export default function PersonalDataChart({ gameType }) {
     }, [gameType]);
 
     return <Fragment>
-        <CanvasJSChart options = {options}/>
+        <CanvasJSChart options = {options} containerProps={containerProps}/>
     </Fragment>
 }
