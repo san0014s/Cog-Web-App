@@ -1,15 +1,14 @@
 import { MenuItem, Select, Button, Grid, Container } from "@mui/material";
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
 import { GAMES_ENUM } from "../constants/GamesConstants";
-import { useNavigate } from 'react-router-dom';
 import DataBubbles from "../components/DataBubbles";
 
 export default function Profile() {
 
     const navigate = useNavigate();
-
     const [account, setAccount] = useState();
     const [gameType, setGameType] = useState(GAMES_ENUM.REACTION);
 
@@ -37,14 +36,41 @@ export default function Profile() {
                     <h1>{account.name}</h1>
                     <h4>@{account.username}</h4>
                     <img 
-                        width="95%"
+                        style={{
+                            width:'23vw',
+                            height:'23vw',
+                        }}
                         alt={account.name}
                         src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}
                     />
                     <p>Joined: {account.joinDate}</p>
                     <p>Interests: {account.interests}</p>
-                    <Button variant="outlined" onClick = {() => navigate('/FFC_Select')}>Go To Your Decks</Button> <br/> 
-                    </div>
+                    <Button
+                        variant='contained'
+                        style={{
+                            backgroundColor: 'green',
+                        }}
+                        onClick={() => {
+                            navigate('/decks')
+                        }}
+                    >
+                        Go To Family Flashcards
+                    </Button>
+                    <br/> 
+                    <Button variant="outlined" onClick = {() => {
+                        navigate(
+                            '/profile/edit',
+                            {
+                                state: { 
+                                    profile: account
+                                }
+                            }
+                        );
+                    }}>
+                        Edit Profile
+                    </Button>
+                    <br/> 
+                </div>
             </Grid>
             <Grid item xs={9}>
                 <Container style={{marginTop: '10px'}}>

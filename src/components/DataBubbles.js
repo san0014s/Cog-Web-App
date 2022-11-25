@@ -26,7 +26,7 @@ export default function DataBubbles({ gameType }) {
         }).then((response) => {
             return response.json();
         }).then((data) => {
-            setPercentile(data);
+            setPercentile(Math.round(data));
         }).catch((error) => { // catch any errors
             console.error(error)
         })

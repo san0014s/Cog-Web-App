@@ -1,5 +1,6 @@
 import React from "react"; //using react
 import "./index.css"; //import css idex
+import "./css/FamilyCard.css"
 import Home from "./routes/Home" //import pages of the website
 import About from "./routes/About"
 import Updates from "./routes/Updates"
@@ -12,6 +13,10 @@ import Profile from "./routes/Profile"
 import Navbar from "./components/Navbar.js";
 
 import { Route, Routes } from "react-router-dom";
+import ProfileEdit from "./routes/ProfileEdit";
+import DeckList from "./components/Flashcards/DeckList";
+import CardList from "./components/Flashcards/CardList";
+import PlayDeck from "./components/Flashcards/PlayDeck";
 
 
 //We will be using Router which essentially is the standard libary of routes
@@ -32,17 +37,21 @@ function App() {
     // Hope this helps :)
     //
     <>
-    <Navbar></Navbar>
-    <Routes> 
-      <Route path="/" element={<Home />} /> 
-      <Route path="/updates" element={<Updates />} /> 
-      <Route path="/about" element={<About />} /> 
-      <Route path="/contact" element={<Contact />} /> 
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/games" element={<Games />} />
-      <Route path="/profile" element={<Profile />} />
-    </Routes>
+      <Navbar></Navbar>
+      <Routes> 
+        <Route path="/" element={<Home />} /> 
+        <Route path="/updates" element={<Updates />} /> 
+        <Route path="/about" element={<About />} /> 
+        <Route path="/contact" element={<Contact />} /> 
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/games" element={<Games />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<ProfileEdit />} />
+        <Route path="/decks" element={<DeckList />} />
+        <Route path="/edit/cards" element={<CardList />} />
+        <Route path="/play/deck" element={<PlayDeck />} />
+      </Routes>
     </>
   );
 }
