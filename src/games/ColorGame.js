@@ -409,7 +409,7 @@ export default function ColorGame({ advanceStateFunction }) {
 
 
 
-	const max = 30;
+	const max = 10;
 
 	const [gameState, setGameState] = useState(GameState.InProgress);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -467,6 +467,7 @@ export default function ColorGame({ advanceStateFunction }) {
 					<div className='score-section'>
 						You scored {score}
 						<p>
+							<br></br>
 						<button
 							onClick={() => {
 							recordData(GAMES_ENUM.COLORS, score);
@@ -483,13 +484,17 @@ export default function ColorGame({ advanceStateFunction }) {
 						<h1>{count}</h1>
 					</div>
 					<div className='question-section'>
-						<div style={{
-          color: questions[currentQuestion]["answer"],
-		  "padding": "15px",
-		  "justifyContent": "center",
-		  "text-align": "center",
-		  "font-size": "40px"
-        }}>{questions[currentQuestion].questionText}</div>
+						<div 
+							style={{
+								color: questions[currentQuestion]["answer"],
+								"padding": "15px",
+								"justifyContent": "center",
+								"text-align": "center",
+								"font-size": "40px"
+        			}}
+						>
+							{questions[currentQuestion].questionText}
+						</div>
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (

@@ -43,7 +43,7 @@ const About = () => {
                 <img src="https://cog-web-app-public-assets.s3.amazonaws.com/Headshots/KJK.png" alt="kk_image"></img>
             </div>
                 <h3>Krysztof Kudlak</h3>
-                <p class="role"><u>Front End</u></p>
+                <p class="role"><u>Back End</u></p>
                 <p>I am a Computer Science major at WVU graduating Fall '22 with an Area of 
                   emphasis in Cybersecurity. I work full time as a Software Engineering Intern
                   at Leidos. I specialize in fullstack software development and hope to continue

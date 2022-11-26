@@ -1,7 +1,6 @@
-import React, { useState , useEffect, useRef} from "react";
+import React, {useRef} from "react";
 
-export default function FamilyCard({ flashcard }) {
-    const [flip, setFlip] = useState(false) //should show front side instead of the back secondIndex
+export default function FamilyCard({ flashcard, flip, setFlip }) {
 
     const frontEl = useRef()
     const backEl = useRef()

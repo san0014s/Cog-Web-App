@@ -56,7 +56,7 @@ export default function Games() {
             id: GAMES_ENUM.COLORS,
             display: "Color Game",
             description: "Test your cognitive processing!",
-            howTo: "Pick the color/hue of the word that is on screen. For example, the answer to a word Blue colored Red would be Red. You have 30 seconds to get as many correct as you can, however incorrectly guessing will reduce that time by 2 seconds, but getting a question correct will add 2 seconds.",
+            howTo: "Pick the color/hue of the word that is on screen. For example, the answer to a word Red colored Blue would be Blue. You have 10 seconds to get as many correct as you can, however incorrectly guessing will reduce that time by 2 seconds, but getting a question correct will add 1 second.",
             component: <ColorGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
             imgURL: 'colorGameImg.png'
         }
