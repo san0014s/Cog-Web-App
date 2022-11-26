@@ -118,6 +118,8 @@ export default function Games() {
                                             marginLeft: '10%',
                                             marginRight: '10%',
                                             marginBottom: '10%',
+                                            color: '#fdf5df',
+                                            backgroundColor: 'gray',
                                         }}
                                     >
                                         Play
