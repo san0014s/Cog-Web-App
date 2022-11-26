@@ -39,7 +39,6 @@ export default function CreateDeckModal({ open, onClose, deckToEdit }) {
                 ...deckToEdit,
                 name: deckName,
             }
-            console.log(updatedDeck)
             fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/deck/${deckToEdit.id}`, {
                 method: 'PUT',
                 headers: { "Content-Type": "application/json" },

@@ -1,4 +1,5 @@
 import { Button, Card, CardActions, CardContent, Container } from "@mui/material";
+import moment from "moment/moment";
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SessionState from "../SessionState";
@@ -42,6 +43,18 @@ export default function DeckList() {
         })
     }, [existingDecks]);
 
+    const updateLastUsed = useCallback((deck) => {
+        const updatedDeck = {
+            ...deck, 
+            lastUsed: moment().format('YYYY-MM-DD'),
+        }
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/deck/${updatedDeck.id}`, {
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedDeck)
+        })
+    }, []);
+
     return <Container style={{marginTop: '20px'}}>
 
         {existingDecks.map((deck) => {
@@ -55,6 +68,7 @@ export default function DeckList() {
                     <CardActions>
                         <Button 
                             onClick={() => {
+                                updateLastUsed(deck);
                                 navigate(
                                     '/play/deck', 
                                     {
