@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import React, { useState } from "react"; 
 import PostGame from "../games/PostGame";
 import PreGame from "../games/PreGame";
@@ -39,7 +39,7 @@ export default function Games() {
         {
             id: GAMES_ENUM.MEMORY,
             display: "Memory game",
-            description: "Test your memory by matching shapes in an increasing challenging version of a classic memory game!",
+            description: "Test your memory by matching shapes!",
             howTo: "Search around the board to find and match like shapes and complete as many boards as you can. You have three lives to start, and get an extra life after each successful board clear, but you lose a life for each incorrect match.",
             component: <MemoryGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
             imgURL: 'memoryImage.png'
@@ -47,7 +47,7 @@ export default function Games() {
         {
             id: GAMES_ENUM.SLIDING_PUZZLE,
             display: "Sliding Puzzle",
-            description: "Test your spatial reasoning by completing a simple sliding puzzle!",
+            description: "Test your spatial reasoning!",
             howTo: "To slide a piece, simply click on a piece that is adjacent to the empty square. Rearrange the segements of the shape to recrate it as shown in the image.",
             component: <SlidingPuzzle advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
             imgURL: 'slidingPuzzleFinish.png'
@@ -69,32 +69,67 @@ export default function Games() {
             height: "120vh",
             overflow: "auto",
             "background-color": "#fdf5df" }}>
-        {pageState === PAGE_STATE.GAMES_LIST && GAMES.map((game) => {
-            return <div key={game.display} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                    <Card sx={{ m: 2, border: 1, borderColor: "primary.main", maxWidth: 350, maxHeigth: 350, color: "#fdf5df", backgroundColor: "#2E7378"}}>
-                      <CardMedia
-                        component="img"
-                        style = {{width: "90%", height: "90%", position: "relative", marginLeft: "auto", marginRight: "auto", padding: "10px"}}
-                        image={game.imgURL}
-                        alt="something went wrong"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {game.display}
-                        </Typography>
-                        <Typography variant="body1" color="#fdf5df">
-                          {game.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button size="large" variant="contained" onClick={() => {
-                            setGameToRender(game);
-                            setPageState(PAGE_STATE.PRE_GAME);
-                        }}>Play</Button>
-                      </CardActions>
-                    </Card>
-                </div>
-        })}
+        {pageState === PAGE_STATE.GAMES_LIST && (
+            <Grid container>
+            {GAMES.map((game) => {
+                return <Grid item xs={6} style={{height: '100% !important'}}>
+                        <div key={game.display} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                            <Card 
+                                sx={{ 
+                                    m: 2, 
+                                    border: 1, 
+                                    borderColor: "primary.main", 
+                                    width: 350, 
+                                    height: 400,
+                                    color: "#fdf5df", 
+                                    backgroundColor: "#2E7378"
+                                }}
+                            >
+                                <CardContent>
+                                    <img
+                                        src={game.imgURL}
+                                        alt="something went wrong"
+                                        style = {{
+                                            width: "100%", 
+                                            height: 200, 
+                                            position: "relative", 
+                                            marginLeft: "auto", 
+                                            marginRight: "auto", 
+                                            padding: "10px"
+                                        }}
+                                    />
+                                    <Typography gutterBottom variant="h5" component="div">
+                                    {game.display}
+                                    </Typography>
+                                    <Typography variant="body1" color="#fdf5df">
+                                    {game.description}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button 
+                                        size="large" 
+                                        variant="contained" 
+                                        onClick={() => {
+                                            setGameToRender(game);
+                                            setPageState(PAGE_STATE.PRE_GAME);
+                                        }}
+                                        style={{
+                                            width: '80%',
+                                            marginLeft: '10%',
+                                            marginRight: '10%',
+                                            marginBottom: '10%',
+                                        }}
+                                    >
+                                        Play
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </div>
+                    </Grid>
+                }
+            )}
+            </Grid>
+        )}
 
 
 
@@ -105,6 +140,9 @@ export default function Games() {
                 game={gameToRender} 
                 advanceStateFunction={() => {
                     setPageState(PAGE_STATE.IN_GAME);
+                }}
+                goBackStateFunction={() => {
+                    setPageState(PAGE_STATE.GAMES_LIST);
                 }}
             />}
 
