@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Container } from "@mui/material";
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SessionState from "../SessionState";
@@ -42,42 +42,66 @@ export default function DeckList() {
         })
     }, [existingDecks]);
 
-    return <Fragment>
+    return <Container style={{marginTop: '20px'}}>
 
         {existingDecks.map((deck) => {
             return <div key={deck.id}>
-                <p>{deck.name} | {deck.creationDate} | {deck.lastUsed}</p>
-                <button onClick={() => {
-                    navigate(
-                        '/play/deck', 
-                        {
-                            state: {  // STEVEN: look at how this was used in CardList.js. Use it like that
-                               deck: deck
-                            }
-                        }
-                    );
-                }}>
-                    Play Deck
-                </button>
-                <button onClick={() => {
-                    setDeckToEdit(deck);
-                    setDeckModalOpen(true);
-                }}>
-                    Edit Deck
-                </button>
-                <button onClick={() => {
-                    navigate(
-                        '/edit/cards', 
-                        {
-                            state: { 
-                               deck: deck
-                            }
-                        }
-                    );
-                }}>
-                    Edit Cards
-                </button>
-                <button onClick={() => deleteDeck(deck.id)}>Delete</button>
+                <Card style={{width: '40vw'}}>
+                    <CardContent>
+                        <p><strong>Name:</strong> {deck.name}</p>
+                        <p><strong>Created:</strong> {deck.creationDate}</p>
+                        <p><strong>Last Used:</strong> {deck.lastUsed}</p>
+                    </CardContent>
+                    <CardActions>
+                        <Button 
+                            onClick={() => {
+                                navigate(
+                                    '/play/deck', 
+                                    {
+                                        state: {  // STEVEN: look at how this was used in CardList.js. Use it like that
+                                        deck: deck
+                                        }
+                                    }
+                                );
+                            }}
+                            style={{backgroundColor: "green"}}
+                            variant="contained"
+                        >
+                            Play Deck
+                        </Button>
+                        <Button 
+                            onClick={() => deleteDeck(deck.id)}
+                            variant="contained"
+                            style={{backgroundColor: "red"}}
+                        >
+                            Delete
+                        </Button>
+                        <Button 
+                            onClick={() => {
+                                setDeckToEdit(deck);
+                                setDeckModalOpen(true);
+                            }}
+                            variant="contained"
+                        >
+                            Edit Deck
+                        </Button>
+                        <Button 
+                            onClick={() => {
+                                navigate(
+                                    '/edit/cards', 
+                                    {
+                                        state: { 
+                                        deck: deck
+                                        }
+                                    }
+                                );
+                            }}
+                            variant="contained"
+                        >
+                            Edit Cards
+                        </Button>
+                </CardActions>
+                </Card>
                 <br /><br />
             </div>
         })}
@@ -93,12 +117,13 @@ export default function DeckList() {
                 setDeckModalOpen(true);
             }}
             style={{
-                textTransform: 'none'
+                textTransform: 'none',
+                marginRight: '10px',
             }}
+            variant="outlined"
         >
             Create Deck
         </Button>
-        <br></br>
         <Button
             onClick={() => {
                 navigate('/profile')
@@ -106,9 +131,10 @@ export default function DeckList() {
             style={{
                 textTransform: 'none'
             }}
+            variant="outlined"
         >
             Back to Profile
         </Button>
 
-    </Fragment>
+    </Container>
 }
