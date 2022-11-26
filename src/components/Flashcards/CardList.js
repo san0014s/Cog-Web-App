@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Container } from "@mui/material";
 import React, { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import UploadToS3Button from "../../s3/UploadToS3Button";
@@ -72,7 +72,7 @@ export default function CardList() {
     }
 
     if (deck) {
-        return <Fragment>
+        return <Container style={{marginTop: '20px'}}>
 
             <CreateCardModal
                 open={cardModalOpen}
@@ -82,28 +82,44 @@ export default function CardList() {
             />
 
             {existingCards.map((card) => {
-                return <Fragment key={card.id}>
-                    <p>{card.name} | {card.relationship}</p>
-                    <img
-                        src={card.picture}
-                        style={{
-                            height: '100px',
-                            width: '100px',
-                        }}
-                    />
-                    <br/>
-                    <UploadToS3Button
-                        directory={'cardImages'}
-                        objectKey={`${card.id}.png`}
-                        onUpload={() => onImageUpload(card)}
-                    />
-                    <button onClick={() => {
-                        setCardToEdit(card);
-                        setCardModalOpen(true);
-                    }}>
-                        Edit Card
-                    </button>
-                    <button onClick={() => deleteCard(card.id)}>Delete</button>
+                return <Fragment>
+                    <Card key={card.id} style={{width: '20vw'}}>
+                        <CardContent>
+                            <p><strong>Name: </strong>{card.name}</p>
+                            <p><strong>Relationship: </strong>{card.relationship}</p>
+                            <br />
+                            <img
+                                src={card.picture}
+                                style={{
+                                    height: '100px',
+                                    width: '100px',
+                                }}
+                            />
+                            <UploadToS3Button
+                                directory={'cardImages'}
+                                objectKey={`${card.id}.png`}
+                                onUpload={() => onImageUpload(card)}
+                            />
+                        </CardContent>
+                        <CardActions>
+                            <Button 
+                                onClick={() => {
+                                    setCardToEdit(card);
+                                    setCardModalOpen(true);
+                                }}
+                                variant='contained'
+                            >
+                                Edit Card
+                            </Button>
+                            <Button 
+                                onClick={() => deleteCard(card.id)}
+                                variant='contained'
+                                style={{backgroundColor: 'red'}}
+                            >
+                                Delete
+                            </Button>
+                        </CardActions>
+                    </Card>
                     <br /><br />
                 </Fragment>
             })}
@@ -113,9 +129,7 @@ export default function CardList() {
                     setCardToEdit(undefined);
                     setCardModalOpen(true);
                 }}
-                style={{
-                    textTransform: 'none'
-                }}
+                variant='outlined'
             >
                 Create Card
             </Button>
@@ -124,14 +138,12 @@ export default function CardList() {
                 onClick={() => {
                     navigate('/decks')
                 }}
-                style={{
-                    textTransform: 'none'
-                }}
+                variant='outlined'
             >
                 Back to Deck List
             </Button>
 
-        </Fragment>  
+        </Container>  
     }
     return <></>
 }
