@@ -40,12 +40,14 @@
 
 .card .front,
 .card .back {
-    position: absolute;
     backface-visibility: hidden;
 }
 
 .card .back{
     transform: rotateY(180deg);
+    font-size: 3rem;
+    margin-top: -65%;
+    text-align: center;
 }
 
 .flashcard-options{

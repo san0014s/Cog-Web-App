@@ -117,7 +117,6 @@ export default function DeckList() {
                 setDeckModalOpen(true);
             }}
             style={{
-                textTransform: 'none',
                 marginRight: '10px',
             }}
             variant="outlined"
@@ -127,9 +126,6 @@ export default function DeckList() {
         <Button
             onClick={() => {
                 navigate('/profile')
-            }}
-            style={{
-                textTransform: 'none'
             }}
             variant="outlined"
         >

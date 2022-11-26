@@ -1,10 +1,12 @@
 import { Button, Container } from "@mui/material";
 import React, { Fragment, useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import FamilyCard from "./FamilyCard";
 
 export default function PlayDeck() {
 
+    const [flip, setFlip] = useState(false) //should show front side instead of the back secondIndex
+    const navigate = useNavigate();
     const [index, setIndex] = useState(0);
 
     const { state } = useLocation();
@@ -30,18 +32,22 @@ export default function PlayDeck() {
         }).catch(() => {})
     }, [deck]);
 
-    console.log(cardsList)
-
     return <Fragment>
         {cardsList && (
-            <Container>
-                <FamilyCard flashcard={cardsList[index]} />
+            <Container style={{marginTop: '20px'}}>
+                <FamilyCard
+                    flashcard={cardsList[index]}
+                    flip={flip}
+                    setFlip={setFlip}
+                />
+                <br />
                 <Button
                     onClick={()=> {
-                        if (index > 0) {
-                            setIndex(index - 1);
-                        }
+                        setIndex(index - 1);
                     }}
+                    style={{marginRight: '10px'}}
+                    variant='contained'
+                    disabled={index <= 0}
                 >
                     Previous
                 </Button>
@@ -51,8 +57,17 @@ export default function PlayDeck() {
                             setIndex(index + 1);
                         }
                     }}
+                    variant='contained'
+                    disabled={index >= cardsList.length - 1}
                 >
                     Next
+                </Button>
+                <br /><br />
+                <Button
+                    onClick={()=> navigate('/decks')}
+                    variant='outlined'
+                >
+                    Back to Deck List
                 </Button>
             </Container>
         )}

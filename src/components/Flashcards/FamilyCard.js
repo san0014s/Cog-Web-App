@@ -2,24 +2,9 @@ import React, { useState , useEffect, useRef} from "react";
 
 export default function FamilyCard({ flashcard }) {
     const [flip, setFlip] = useState(false) //should show front side instead of the back secondIndex
-    const [height, setHeight] = useState('initial')
 
     const frontEl = useRef()
     const backEl = useRef()
-
-
-    function setMaxHeight(){
-        const frontHeight = frontEl.current.getBoundingClientRect().height
-        const backHeight = frontEl.current.getBoundingClientRect().height
-        setHeight(Math.max(frontHeight, backHeight, 100))
-    }
-
-
-    useEffect(setMaxHeight, [flashcard])
-    useEffect(() => {
-        window.addEventListener('resize',setMaxHeight)
-        return () => window.removeEventListener('resize',setMaxHeight)
-    }, [])
 
     return (
         <div
@@ -34,14 +19,15 @@ export default function FamilyCard({ flashcard }) {
                 <img
                     src={flashcard.picture} 
                     style={{
-                        height: "100%",
-                        width: "100%",
+                        height: "50vw",
+                        width: "50vw",
+                        padding: "2vw",
                     }}
                 />
             </div>
             <div className="back" ref={backEl}>
-                <p>{flashcard.name}</p>
-                <p>{flashcard.relationship}</p>
+                <p><strong>Name: </strong>{flashcard.name}</p>
+                <p><strong>Relationship: </strong>{flashcard.relationship}</p>
             </div>
         </div>
     )
