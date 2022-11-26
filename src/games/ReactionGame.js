@@ -152,7 +152,15 @@ export default function ReactionGame({ advanceStateFunction }) {
     }
 
     return <>
-        <div>Reacted in {timeDiffList.slice(-1)} ms, Average is {getAverage()} ms, Attempts so far {timeDiffList.length}/{ROUNDS_TO_PLAY}</div>
+        <div 
+            style={{
+                marginTop: '10px',
+                fontSize: '30px',
+                textAlign: 'center',
+            }}
+        >
+            Reacted in {timeDiffList.slice(-1)} ms | Average is {getAverage()} ms | Attempts so far {timeDiffList.length}/{ROUNDS_TO_PLAY}
+        </div>
         <Button id={BUTTON_1_ID} onClick={onClickFunction}>
             {button1Text}
         </Button>
