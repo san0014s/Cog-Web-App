@@ -465,9 +465,7 @@ export default function ColorGame({ advanceStateFunction }) {
 			<div className='colorGame'>
 				{showScore ? (
 					<div className='score-section'>
-						You scored {score}
-						<p>
-							<br></br>
+						<p>You scored {score}</p>
 						<button
 							onClick={() => {
 							recordData(GAMES_ENUM.COLORS, score);
@@ -476,7 +474,6 @@ export default function ColorGame({ advanceStateFunction }) {
 						>
 							Finish
 						</button>
-						</p>
 					</div>
 			) : (
 				<>

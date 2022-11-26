@@ -1,6 +1,6 @@
 import { DiscordMessage, DiscordMessages } from '@danktuary/react-discord-message';
 import React, { useEffect, useState } from 'react'
-import { Container } from '@mui/system';
+import { Container } from '@mui/material';
 import { Paper } from '@mui/material';
 
 const Updates = () => {
@@ -22,9 +22,22 @@ const Updates = () => {
   }, [])
 
   return (
-    <div>
-      Updates
-      <Paper style={{'whiteSpace': 'pre-wrap', height: '70vh', width: '80vw', overflow: 'auto', resize: 'both'}}>
+    <Container style={{marginTop: '10px'}}>
+      <h1>Updates</h1>
+      <p style={{fontSize: '20px', marginTop: '20px'}}>
+        Updates are pulled from our discord server in a channel where we tell each other what we're
+        going to work on next.
+      </p>
+      <Paper 
+        style={{
+          whiteSpace: 'pre-wrap', 
+          height: '70vh', 
+          width: '80vw', 
+          overflow: 'auto', 
+          resize: 'both',
+          marginTop: '10px',
+        }}
+      >
         <DiscordMessages>
           {messages && messages.map((message) => {
             return (
@@ -39,7 +52,7 @@ const Updates = () => {
           })}   
         </DiscordMessages>   
       </Paper>
-    </div>
+    </Container>
   )
 }
 
