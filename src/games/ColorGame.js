@@ -450,10 +450,10 @@ export default function ColorGame({ advanceStateFunction }) {
 	};
 
 	useEffect(()=>{
-        if(count>0){
-            timer = setTimeout(()=>setCount(count - 1),1000);
-        }
-		else if (count == 0) {
+		if(count>0){
+				timer = setTimeout(()=>setCount(count - 1),1000);
+		}
+		else {
 			setShowScore(true);
 		}
 
