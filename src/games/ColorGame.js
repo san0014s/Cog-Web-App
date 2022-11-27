@@ -79,7 +79,7 @@ const questions = [
 		answerOptions: [
 			{ answerText: 'Blue ', isCorrect: true },
 			{ answerText: 'Yellow', isCorrect: false },
-			{ answerText: 'Blue', isCorrect: false },
+			{ answerText: 'Green', isCorrect: false },
 			{ answerText: 'Orange', isCorrect: false },
 		],
 	},
