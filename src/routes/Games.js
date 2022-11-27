@@ -34,7 +34,7 @@ export default function Games() {
             description: "Test your reaction time!",
             howTo: "When one of the two buttons changes, click on it as quickly as possible. Repeat this five times to get your score.",
             component: <ReactionGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
-            imgURL: 'reactionImage.png'
+            imgURL: `${process.env.PUBLIC_URL}/reactionImage.png`
         },
         {
             id: GAMES_ENUM.MEMORY,
@@ -42,7 +42,7 @@ export default function Games() {
             description: "Test your memory by matching shapes!",
             howTo: "Search around the board to find and match like shapes and complete as many boards as you can. You have three lives to start, and get an extra life after each successful board clear, but you lose a life for each incorrect match.",
             component: <MemoryGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
-            imgURL: 'memoryImage.png'
+            imgURL: `${process.env.PUBLIC_URL}/memoryImage.png`
         },
         {
             id: GAMES_ENUM.SLIDING_PUZZLE,
@@ -50,7 +50,7 @@ export default function Games() {
             description: "Test your spatial reasoning!",
             howTo: "To slide a piece, simply click on a piece that is adjacent to the empty square. Rearrange the segements of the shape to recrate it as shown in the image.",
             component: <SlidingPuzzle advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
-            imgURL: 'slidingPuzzleFinish.png'
+            imgURL: `${process.env.PUBLIC_URL}/slidingPuzzleFinish.png`
         },
         {
             id: GAMES_ENUM.COLORS,
@@ -58,7 +58,7 @@ export default function Games() {
             description: "Test your cognitive processing!",
             howTo: "Pick the color/hue of the word that is on screen. For example, the answer to a word Red colored Blue would be Blue. You have 10 seconds to get as many correct as you can, however incorrectly guessing will reduce that time by 2 seconds, but getting a question correct will add 1 second.",
             component: <ColorGame advanceStateFunction={() => setPageState(PAGE_STATE.POST_GAME)}/>,
-            imgURL: 'colorGameImg.png'
+            imgURL: `${process.env.PUBLIC_URL}/colorGameImg.png`
         }
     ]
     
