@@ -3,7 +3,7 @@
         height: 250px;
         text-align: center;
         display: inline-block;
-        background-color: beige;  
+        background-color: #fdf5df;  
         margin: auto;
 
 }
@@ -33,15 +33,15 @@
     text-align: center;
     justify-content: center;
     align-content: center;
-    background-color: #70deea;  
+    background-color:#72a8a1; 
     margin: auto;
 }
 
 .profile{
-    color:beige;
+    color:#fdf5df;
 }
 
 .profile2{
-    color:#70deea;
+    color:#2E7378;
 }
 

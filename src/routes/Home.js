@@ -26,6 +26,11 @@ const theme = {
     default: '#70deea',
     hover: '#1ba7b6',
     textColor: '#fafafa'
+  },
+  grey:{
+    default: '#2E7378',
+    hover: '#63666A',
+    textColor: '#FFFFFF'
   }
 }
 
@@ -68,7 +73,7 @@ const Button = styled.button`
 `
 
 Button.defaultProps = {
-  theme: 'blue'
+  theme: 'grey'
 }
 
 export default function Home() {
@@ -156,9 +161,5 @@ export default function Home() {
     <footer id="page-footer" className="page-footer js-page-footer js-hide-in-app -bottomrail">
       
     </footer>
-
-  
-
-    
   </>
 }

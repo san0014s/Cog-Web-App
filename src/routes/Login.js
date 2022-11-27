@@ -58,22 +58,56 @@ export default function Login() {
   }
 
   return<>
-    <form onSubmit={(e) => { handleSubmit(e) }}>
-    <h2> Welcome Back</h2>
-    <h3> Login </h3>
-    <label >
+   <div style={{    "position": "absolute",
+            width: "100vw",
+            height: "100vh",
+            overflow: "auto",
+            "background-color": "#fdf5df" }}>
+    <div style={{  "position":"relative", "width": "400px",
+  "height": "400px",
+  "top" : "20vh",
+  "border-radius": "50px",
+  "background-color": "#2E7378",
+  "margin": "auto",
+  "box-sizing" : "content-box"}}>
+    <h1 style={{"position":"relative", "top":"25px", 
+             "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center","color": "#fdf5df", "font": "Brush Script MT"}} > Welcome Back</h1>
+    <h2 style={{"position":"relative", "top":"25px", 
+             "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center","color": "#fdf5df", "font": "Brush Script MT"}} > Login </h2>
+    <form style={{"position":"relative", "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center", "top":"75px"}} onSubmit={(e) => { handleSubmit(e) }}>
+    <label style={{"position":"relative", "top":"0px", 
+             "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center","color": "#fdf5df", "font": "Brush Script MT"}}>
       Username:
     </label><br />
     <input type="text" value={username} required onChange={(e)=> setUsername(e.target.value) } /><br />
-    <label>
+    <label style={{"position":"relative", "top":"0px", 
+             "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center","color": "#fdf5df", "font": "Brush Script MT"}}>
       Password:
     </label><br />
     <input type="password" value={password} required onChange={(e) => setPassword(e.target.value) } /><br />
-    <input type="submit" value="Submit" />
-    <p>Don't have an account? <a href="/signup">Sign up!</a></p>
+    <input style={{"position":"relative", "top":"25px", width: "75px",
+            height: "50px","margin": "auto", "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center","color": "#2E7378"}} type="submit" value="Submit" />
+    <p style={{"position":"relative", "top":"50px",  
+             "text-align": "center",
+             "justify-content": "center",
+             "align-items": "center","color": "#fdf5df", "font": "Brush Script MT"}}>Don't have an account? <a style={{"color": "#000000", "font": "Brush Script MT"}} href="/signup">Sign up!</a></p>
     </form>
     <div>
         <ToastContainer />
+    </div>
+    </div>
     </div>
   </>
 }

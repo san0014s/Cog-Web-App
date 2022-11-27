@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import React from "react";
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from '../components/SessionState';
@@ -6,14 +6,25 @@ import { useNavigate } from 'react-router-dom';
 
 export default function PostGame({ game, playAgain, backToGames }) {
 
-    const navigate = useNavigate();
-
     if (SessionState.getId() > 0) { //if the user is logged in
-        return <>
-            <PersonalDataChart gameType={game.id}/>
-            <Button onClick={playAgain}>Play Again</Button>
-            <Button onClick={backToGames}>Back to Games</Button>
-        </>
+        return <Container style={{marginTop: '20px'}}>
+            <PersonalDataChart 
+                gameType={game.id}
+                containerProps={{
+                    width: '100%',
+                    height: '600px',
+                }}
+            />
+            <br />
+            <Button
+                onClick={playAgain}
+                variant='outlined'
+                style={{marginRight: '10px'}}
+            >
+                Play Again
+            </Button>
+            <Button onClick={backToGames} variant='outlined'>Back to Games</Button>
+        </Container>
     }        
     else {
         return<>

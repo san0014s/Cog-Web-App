@@ -1,14 +1,14 @@
-import { MenuItem, Select, Button } from "@mui/material";
+import { MenuItem, Select, Button, Grid, Container } from "@mui/material";
 import React, { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
 import { GAMES_ENUM } from "../constants/GamesConstants";
-import { useNavigate } from 'react-router-dom';
+import DataBubbles from "../components/DataBubbles";
 
 export default function Profile() {
 
     const navigate = useNavigate();
-
     const [account, setAccount] = useState();
     const [gameType, setGameType] = useState(GAMES_ENUM.REACTION);
 
@@ -30,27 +30,73 @@ export default function Profile() {
     }, [])
 
     if (account) {
-        return <>
-            <h1>{account.name}</h1>
-            <h4>@{account.username}</h4>
-            <img 
-                alt={account.name}
-                src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}
-            />
-            <p>Joined: {account.joinDate}</p>
-            <p>Interests: {account.interests}</p>
-            <Button variant="outlined" onClick = {() => navigate('/FFC_Select')}>Go To Your Decks</Button> <br/> 
-            <Select 
-                value={gameType}
-                onChange={(e) => {setGameType(e.target.value)}}
-            >
-                <MenuItem value={GAMES_ENUM.REACTION}>Reaction Game</MenuItem>
-                <MenuItem value={GAMES_ENUM.MEMORY}>Memory Game</MenuItem>
-                <MenuItem value={GAMES_ENUM.SLIDING_PUZZLE}>Sliding Puzzle Game</MenuItem>
-                <MenuItem value={GAMES_ENUM.COLORS}>Color Matching Game</MenuItem>
-            </Select>
-            <PersonalDataChart gameType={gameType}/>
-        </>
+        return <Grid container>
+            <Grid item xs={3}>
+                <div style={{margin: "10px"}}>
+                    <h1>{account.name}</h1>
+                    <h4>@{account.username}</h4>
+                    <img 
+                        style={{
+                            width:'23vw',
+                            height:'23vw',
+                        }}
+                        alt={account.name}
+                        src={account.picture ? account.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}
+                    />
+                    <p>Joined: {account.joinDate}</p>
+                    <p>Interests: {account.interests}</p>
+                    <Button
+                        variant='contained'
+                        style={{
+                            backgroundColor: 'green',
+                        }}
+                        onClick={() => {
+                            navigate('/decks')
+                        }}
+                    >
+                        Go To Family Flashcards
+                    </Button>
+                    <br/> 
+                    <Button variant="outlined" onClick = {() => {
+                        navigate(
+                            '/profile/edit',
+                            {
+                                state: { 
+                                    profile: account
+                                }
+                            }
+                        );
+                    }}>
+                        Edit Profile
+                    </Button>
+                    <br/> 
+                </div>
+            </Grid>
+            <Grid item xs={9}>
+                <Container style={{marginTop: '10px'}}>
+                    <Select 
+                        value={gameType}
+                        onChange={(e) => {setGameType(e.target.value)}}
+                        style={{marginBottom: '20px'}}
+                    >
+                        <MenuItem value={GAMES_ENUM.REACTION}>Reaction Game</MenuItem>
+                        <MenuItem value={GAMES_ENUM.MEMORY}>Memory Game</MenuItem>
+                        <MenuItem value={GAMES_ENUM.SLIDING_PUZZLE}>Sliding Puzzle Game</MenuItem>
+                        <MenuItem value={GAMES_ENUM.COLORS}>Color Matching Game</MenuItem>
+                    </Select>
+                    <div style={{marginBottom: '20px'}}>
+                        <DataBubbles gameType={gameType}/>
+                    </div>
+                    <PersonalDataChart
+                        gameType={gameType}
+                        containerProps={{
+                            width: '100%',
+                            height: '500px',
+                        }}
+                    />
+                </Container>
+            </Grid>
+        </Grid>
     }
     else {
         return <>
