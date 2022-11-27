@@ -27,7 +27,7 @@ export default function DeckList() {
         }).catch((error) => { // catch any errors
             console.error(error)
         })
-    }, [])
+    }, [deckModalOpen])
 
     const deleteDeck = useCallback((id) => {
         fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/deck/${id}`, {

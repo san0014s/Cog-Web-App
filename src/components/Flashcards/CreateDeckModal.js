@@ -23,6 +23,7 @@ export default function CreateDeckModal({ open, onClose, deckToEdit }) {
     }, [])
 
     const createDeck = useCallback((e) => {
+        e.preventDefault();
         if (deckToEdit === undefined) {
             const newDeck = {
                 name: deckName,
@@ -34,6 +35,9 @@ export default function CreateDeckModal({ open, onClose, deckToEdit }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newDeck)
             })
+            .then(() => {
+                onClose()
+            })
         } else {
             const updatedDeck = {
                 ...deckToEdit,
@@ -43,6 +47,9 @@ export default function CreateDeckModal({ open, onClose, deckToEdit }) {
                 method: 'PUT',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedDeck)
+            })
+            .then(() => {
+                onClose()
             })
         }
     }, [deckName, currentMoment]);
