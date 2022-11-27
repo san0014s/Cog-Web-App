@@ -32,9 +32,9 @@ export default function PlayDeck() {
         }).catch(() => {})
     }, [deck]);
 
-    return <Fragment>
-        {cardsList && (
-            <Container style={{marginTop: '20px'}}>
+    return <Container style={{marginTop: '20px'}}>
+        {cardsList && (cardsList.length > 0 ) && (
+            <Fragment>
                 <FamilyCard
                     flashcard={cardsList[index]}
                     flip={flip}
@@ -63,14 +63,22 @@ export default function PlayDeck() {
                     Next
                 </Button>
                 <br /><br />
-                <Button
-                    onClick={()=> navigate('/decks')}
-                    variant='outlined'
-                >
-                    Back to Deck List
-                </Button>
-            </Container>
+            </Fragment>
         )}
-    </Fragment>
+        {cardsList && (cardsList.length === 0) && (
+            <Fragment>
+                <p>
+                    This deck does not contain any cards
+                </p>
+                <br /><br />
+            </Fragment>
+        )}
+        <Button
+            onClick={()=> navigate('/decks')}
+            variant='outlined'
+        >
+            Back to Deck List
+        </Button>
+    </Container>
 
 }
