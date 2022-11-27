@@ -112,7 +112,7 @@ export default function Home() {
     <div className="body">
     <img
         className="demo-bg"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOtoDFsuNMocdew6aFbBI1LE1DgYNDMPlDPg&usqp=CAU"
+        src="johnDoe.png"
       />
       <h1>Track Your<span className="profile2"> Progress</span></h1>
       <p>Visit your Account and Track Your Progress over times in different areas of Memory</p>
@@ -136,10 +136,10 @@ export default function Home() {
     <div className="body">
     <img
         className="demo-bg"
-        src="https://image.shutterstock.com/image-vector/graffiti-squad-word-sprayed-black-260nw-1552607156.jpg"
+        src="code.png"
       />
       <h1>Meet the<span className="profile2"> Team</span></h1>
-      <p>Click here to learn about the team behind your favorite games on ENTER TEAM NAME.</p>
+      <p>Click here to learn about the team behind your favorite games on Neurolingo.</p>
       <Button onClick = {() => navigate('/about')}>
         {AboutButton}
       </Button>
