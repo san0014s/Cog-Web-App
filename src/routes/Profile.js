@@ -1,5 +1,5 @@
 import { MenuItem, Select, Button, Grid, Container } from "@mui/material";
-import React, { useEffect, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from "../components/SessionState"
@@ -11,6 +11,7 @@ export default function Profile() {
     const navigate = useNavigate();
     const [account, setAccount] = useState();
     const [gameType, setGameType] = useState(GAMES_ENUM.REACTION);
+    const [curveData, setCurveData] = useState();
 
     useEffect(() => {
         if (SessionState.getId() < 0) {
@@ -28,6 +29,19 @@ export default function Profile() {
             console.error(error)
         })
     }, [])
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}/curveData/${gameType}`, {
+            method: 'GET',
+            headers: { "Content-Type": "application/json" }
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            setCurveData(data);
+        }).catch(() => {
+            setCurveData(undefined);
+        });
+    }, [gameType]);
 
     if (account) {
         return <Grid container>
@@ -84,16 +98,25 @@ export default function Profile() {
                         <MenuItem value={GAMES_ENUM.SLIDING_PUZZLE}>Sliding Puzzle Game</MenuItem>
                         <MenuItem value={GAMES_ENUM.COLORS}>Color Matching Game</MenuItem>
                     </Select>
-                    <div style={{marginBottom: '20px'}}>
-                        <DataBubbles gameType={gameType}/>
-                    </div>
-                    <PersonalDataChart
-                        gameType={gameType}
-                        containerProps={{
-                            width: '100%',
-                            height: '500px',
-                        }}
-                    />
+                    {curveData && (
+                        <Fragment>
+                            <div style={{marginBottom: '20px'}}>
+                                <DataBubbles gameType={gameType}/>
+                            </div>
+                            <PersonalDataChart
+                                gameType={gameType}
+                                containerProps={{
+                                    width: '100%',
+                                    height: '500px',
+                                }}
+                            />
+                        </Fragment>
+                    )}
+                    {curveData === undefined && (
+                        <p>
+                            No data to display at this time. Try playing some <a href='/games'>Games</a> to help us gather some data about your cognitive abilities.
+                        </p>
+                    )}
                 </Container>
             </Grid>
         </Grid>
