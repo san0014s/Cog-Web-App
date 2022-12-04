@@ -395,30 +395,13 @@ const questions = [
 
 export default function ColorGame({ advanceStateFunction }) {
 
-
-	const GameState = Object.freeze({
-		Initial: Symbol("Initial"), 
-		InProgress: Symbol("In Progress"),
-		GameOver: Symbol("Game Over")
-	});
-
-	const [startTime, setStartTime] = useState(0);
-    const [endTime, setEndTime] = useState(0);
-    const [timeDiffList, setTimeDiffList] = useState([]);
-
-
-
-
 	const max = 10;
 
-	const [gameState, setGameState] = useState(GameState.InProgress);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
-	const [initialMinute,initialSeconds] = [0,max];
-    const [minutes, setMinutes ] = useState(initialMinute);
-    const [seconds, setSeconds ] =  useState(initialSeconds);
-	const [start, setStart] = useState(0);
+	const [,initialSeconds] = [0,max];
+    const [seconds, ] =  useState(initialSeconds);
 	const [count, setCount] = useState(seconds);
 	var timer;
 

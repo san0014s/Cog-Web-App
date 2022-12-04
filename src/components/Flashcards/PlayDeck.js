@@ -1,6 +1,6 @@
 import { Button, Container } from "@mui/material";
 import React, { Fragment, useEffect, useMemo, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import FamilyCard from "./FamilyCard";
 
 export default function PlayDeck() {

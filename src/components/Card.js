@@ -7,7 +7,7 @@ const Card = props => {
       <img
         className={`img-thumbnail img-fluid grid-img`}
         src={`${process.env.PUBLIC_URL}${imgSource}`}
-        alt={'${ process.env.PUBLIC_URL}' + imgSource}
+        alt={`${process.env.PUBLIC_URL}${imgSource}`}
       />
     </div>
   );

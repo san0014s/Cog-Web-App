@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useMemo, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SessionState from "../components/SessionState";
 import UploadToS3Button from "../s3/UploadToS3Button";
@@ -16,15 +16,13 @@ export default function ProfileEdit() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log("submit");
-        console.log(profile);
         fetch(`${process.env.REACT_APP_BACKEND_URL}/account/${SessionState.getId()}`, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(profile)
         })
-        .then((response) => {
-            console.log(response);
+        .then(() => {
+            navigate("/profile")
         })
     };
 

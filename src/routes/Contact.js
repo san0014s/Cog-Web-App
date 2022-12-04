@@ -65,9 +65,7 @@ export default function Contact() {
           </div>
           
           <div className="social-media">
-            <a href="#" className="icon-circle">
-              <i className="fa fa-linkedin-square" aria-hidden="true"></i>
-            </a>
+            <i className="fa fa-linkedin-square" aria-hidden="true"></i>
           </div>
         </div>
 

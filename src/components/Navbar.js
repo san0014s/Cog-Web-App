@@ -9,7 +9,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import NavbarAvatarIcon from './NavbarAvatarIcon';
 
 const pages = [
@@ -35,6 +34,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <img
+          alt="neurolingo logo"
           src ="https://cog-web-app-public-assets.s3.amazonaws.com/Logos/BiegeNewResized.png"
           style={{
             height: '50px', 

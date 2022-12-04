@@ -94,6 +94,7 @@ export default function CardList() {
                                     height: '100px',
                                     width: '100px',
                                 }}
+                                alt={card.name}
                             />
                             <UploadToS3Button
                                 directory={'cardImages'}

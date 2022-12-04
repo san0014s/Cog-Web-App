@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import moment from 'moment';
-import SessionState from "../components/SessionState";
 import { recordData } from "./GameDataRecorder";
 
 const GAME_TYPE = 1;

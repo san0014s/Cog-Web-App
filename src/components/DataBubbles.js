@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import React, { Fragment, useEffect, useMemo, useState } from "react"
+import React, { useEffect, useState } from "react"
 import SessionState from "./SessionState"
 
 const bubbleStyle = {

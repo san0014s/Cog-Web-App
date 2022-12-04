@@ -2,7 +2,6 @@ import { Button, Container } from "@mui/material";
 import React from "react";
 import PersonalDataChart from "../components/PersonalDataChart";
 import SessionState from '../components/SessionState';
-import { useNavigate } from 'react-router-dom';
 
 export default function PostGame({ game, playAgain, backToGames }) {
 

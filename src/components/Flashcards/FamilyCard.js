@@ -16,6 +16,7 @@ export default function FamilyCard({ flashcard, flip, setFlip }) {
         >
             <div className="front" ref={frontEl}>
                 <img
+                    alt={"flashcard"}
                     src={flashcard.picture} 
                     style={{
                         height: "50vw",

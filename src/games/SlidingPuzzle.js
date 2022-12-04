@@ -131,12 +131,6 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
     return emptySlot;
   };
 
-  const resetPuzzle = () => {
-    setComplete(false);
-    setPuzzle(getPuzzle());
-    setMoves(0);
-  };
-
   return (
     <div className="Slide">
       {<h1>Moves: {moves}</h1>}
@@ -157,7 +151,6 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
             }}
           >
             {row.map((col, j) => {
-              const color = col === 0 ? "transparent" : "#2E737";
               return (
                 <div
                   key={`${i}-${j}`}
@@ -177,6 +170,7 @@ export default function SlidingPuzzle({ advanceStateFunction }) {
                 >
                   {(col !== 0 &&
                     <img
+                      alt={col}
                       src={`${process.env.PUBLIC_URL}/sliding_puzzle_images/image_part_00${col}.png`}
                       width="100%"
                       height="100%"

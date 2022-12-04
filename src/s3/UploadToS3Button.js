@@ -1,4 +1,4 @@
-import React , {useEffect, useState} from 'react';
+import React from 'react';
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import MyS3Client from '../components/MyS3Client';
 

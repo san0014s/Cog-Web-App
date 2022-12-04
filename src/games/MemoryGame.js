@@ -52,7 +52,6 @@ export default function MemoryGame({ advanceStateFunction }) {
   const [winner, setWinner] = useState(false);
   const [loser, setLoser] = useState(false);
   const [matchesMade, setMatchesMade] = useState(0);
-  const [round, setRound] = useState(0);
 
 
   //Check Items to See if they match or not
@@ -114,7 +113,7 @@ export default function MemoryGame({ advanceStateFunction }) {
   );
 
   useEffect(()=>{
-    if (counter == 3){
+    if (counter === 3){
       setLoser(true);
       recordData(GAMES_ENUM.MEMORY, matchesMade)
       advanceStateFunction()
