@@ -395,7 +395,7 @@ const questions = [
 
 export default function ColorGame({ advanceStateFunction }) {
 
-	const max = 10;
+	const max = 30;
 
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
@@ -409,14 +409,16 @@ export default function ColorGame({ advanceStateFunction }) {
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
-			toast.success('Good job! (+1 seconds)', {
+			toast.dismiss();
+			toast.success('Good job!', {
 				position: toast.POSITION.BOTTOM_RIGHT,
 			})
 			setScore(score + 1);
-			setCount(count + 1);
-			clearTimeout(timer);
+			// setCount(count + 1);
+			// clearTimeout(timer);
 		}
 		else{
+			toast.dismiss();
 			toast.error('Wrong answer, try again! (-2 seconds)', {
 				position: toast.POSITION.BOTTOM_RIGHT,
 			})
