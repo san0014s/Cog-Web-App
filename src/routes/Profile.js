@@ -44,7 +44,8 @@ export default function Profile() {
     }, [gameType]);
 
     if (account) {
-        return <Grid container>
+        return <div style={{backgroundColor: '#fdf5df', paddingBottom: '200px'}}>
+        <Grid container>
             <Grid item xs={3}>
                 <div style={{margin: "10px"}}>
                     <h1>{account.name}</h1>
@@ -59,18 +60,7 @@ export default function Profile() {
                     />
                     <p>Joined: {account.joinDate}</p>
                     <p>Interests: {account.interests}</p>
-                    <Button
-                        variant='contained'
-                        style={{
-                            backgroundColor: 'green',
-                        }}
-                        onClick={() => {
-                            navigate('/decks')
-                        }}
-                    >
-                        Go To Family Flashcards
-                    </Button>
-                    <br/> 
+                    <br />
                     <Button variant="outlined" onClick = {() => {
                         navigate(
                             '/profile/edit',
@@ -82,6 +72,18 @@ export default function Profile() {
                         );
                     }}>
                         Edit Profile
+                    </Button>
+                    <br/> <br />
+                    <Button
+                        variant='contained'
+                        style={{
+                            backgroundColor: 'green',
+                        }}
+                        onClick={() => {
+                            navigate('/decks')
+                        }}
+                    >
+                        Go To Family Flashcards
                     </Button>
                     <br/> 
                 </div>
@@ -120,6 +122,7 @@ export default function Profile() {
                 </Container>
             </Grid>
         </Grid>
+        </div>
     }
     else {
         return <>

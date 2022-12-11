@@ -72,7 +72,8 @@ export default function CardList() {
     }
 
     if (deck) {
-        return <Container style={{marginTop: '20px'}}>
+        return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
+            <Container style={{marginTop: '20px'}}>
 
             <CreateCardModal
                 open={cardModalOpen}
@@ -85,9 +86,11 @@ export default function CardList() {
                 return <Fragment>
                     <Card key={card.id} style={{width: '20vw'}}>
                         <CardContent>
-                            <p><strong>Name: </strong>{card.name}</p>
+                            <p style={{fontSize: '30px'}}><strong>Name: </strong>{card.name}</p>
+                            <br />
                             <p><strong>Relationship: </strong>{card.relationship}</p>
                             <br />
+                            <p><strong>Picture:</strong></p>
                             <img
                                 src={card.picture}
                                 style={{
@@ -145,6 +148,7 @@ export default function CardList() {
             </Button>
 
         </Container>  
+        </div>
     }
     return <></>
 }

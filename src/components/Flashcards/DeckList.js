@@ -55,13 +55,15 @@ export default function DeckList() {
         })
     }, []);
 
-    return <Container style={{marginTop: '20px'}}>
+    return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
+        <Container style={{marginTop: '20px'}}>
 
         {existingDecks.map((deck) => {
             return <div key={deck.id}>
                 <Card style={{width: '40vw'}}>
                     <CardContent>
-                        <p><strong>Name:</strong> {deck.name}</p>
+                        <p style={{fontSize: '30px'}}><strong>Name:</strong> {deck.name}</p>
+                        <br />
                         <p><strong>Created:</strong> {deck.creationDate}</p>
                         <p><strong>Last Used:</strong> {deck.lastUsed}</p>
                     </CardContent>
@@ -147,4 +149,5 @@ export default function DeckList() {
         </Button>
 
     </Container>
+    </div>
 }

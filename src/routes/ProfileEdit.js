@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { Container } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SessionState from "../components/SessionState";
 import UploadToS3Button from "../s3/UploadToS3Button";
@@ -34,48 +35,61 @@ export default function ProfileEdit() {
     }
 
     if (profile) {
-        return <Fragment>
-            <h1>Edit profile</h1>
-            <form onSubmit={(e) => { onSubmit(e) }}>
-                <label>Preferred Name:</label>
-                <br />
-                <input
-                    type="text"
-                    value={profile.name}
-                    required
-                    onChange={(e)=> setProfile({...profile, name: e.target.value})} 
-                />
-                <br />
+        return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
+            <Container style={{marginTop: '10px'}}>
+                <h1>Edit profile</h1>
+                <br /><br />
 
-                <label>Date of Birth:</label>
-                <br />
-                <input 
-                    type="date" 
-                    value={profile.birthDate} 
-                    min="1900-01-01" 
-                    required 
-                    onChange={(e) => setProfile({...profile, birthDate: e.target.value})}
-                />
-                <br />
-                
-                <label>Interests:</label>
-                <br />
-                <input 
-                    type="text" 
-                    value={profile.interests} 
-                    onChange={(e) => setProfile({...profile, interests: e.target.value})}
-                />
-                <br />
+                <form onSubmit={(e) => { onSubmit(e) }}>
+                    <label>Preferred Name:</label>
+                    <br />
+                    <input
+                        type="text"
+                        value={profile.name}
+                        required
+                        onChange={(e)=> setProfile({...profile, name: e.target.value})} 
+                    />
+                    <br /><br />
 
-                <UploadToS3Button
-                    directory={'profileImages'}
-                    objectKey={`${SessionState.getId()}.png`}
-                    onUpload={() => onImageUpload()}
-                />
-                
-                <input type="submit" value="Submit" />
-            </form>
-        </Fragment>
+                    <p>Upload new Profile Picture:</p>
+                    <img src={profile.picture} style={{ height: '150px', width: '150px' }} alt="current profile pic"/>
+                    <UploadToS3Button
+                        directory={'profileImages'}
+                        objectKey={`${SessionState.getId()}.png`}
+                        onUpload={() => onImageUpload()}
+                    />
+                    <br /><br />
+
+                    <label>Date of Birth:</label>
+                    <br />
+                    <input 
+                        type="date" 
+                        value={profile.birthDate} 
+                        min="1900-01-01" 
+                        required 
+                        onChange={(e) => setProfile({...profile, birthDate: e.target.value})}
+                    />
+                    <br /><br />
+                    
+                    <label>Interests:</label>
+                    <br />
+                    <input 
+                        type="text" 
+                        value={profile.interests} 
+                        onChange={(e) => setProfile({...profile, interests: e.target.value})}
+                    />
+                    <br /><br />
+                    
+                    <input type="submit" value="Submit" />
+                    <button 
+                        onClick={() => { navigate('/profile') }}
+                        style={{ marginLeft: '10px' }}
+                    >
+                        Cancel
+                    </button>
+                </form>
+            </Container>
+        </div>
     }
 
     return <></>

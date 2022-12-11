@@ -5,9 +5,10 @@ import SessionState from "./SessionState"
 const bubbleStyle = {
     height: '180px',
     width: '180px',
-    backgroundColor: '#bbb',
+    backgroundColor: '#2e7378BB',
     borderRadius: '50%',
     textAlign: "center",
+    color: "#000000",
     padding: '56px 0',
     margin: "auto",
 };

@@ -32,7 +32,8 @@ export default function PlayDeck() {
         }).catch(() => {})
     }, [deck]);
 
-    return <Container style={{marginTop: '20px'}}>
+    return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
+        <Container style={{marginTop: '20px'}}>
         {cardsList && (cardsList.length > 0 ) && (
             <Fragment>
                 <FamilyCard
@@ -80,5 +81,6 @@ export default function PlayDeck() {
             Back to Deck List
         </Button>
     </Container>
+    </div>
 
 }
