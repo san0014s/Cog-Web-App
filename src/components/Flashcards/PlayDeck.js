@@ -33,7 +33,7 @@ export default function PlayDeck() {
     }, [deck]);
 
     return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
-        <Container style={{marginTop: '20px'}}>
+        <Container style={{paddingTop: '20px', maxWidth: '95vw'}}>
         {cardsList && (cardsList.length > 0 ) && (
             <Fragment>
                 <FamilyCard
@@ -44,6 +44,7 @@ export default function PlayDeck() {
                 <br />
                 <Button
                     onClick={()=> {
+                        setFlip(false);
                         setIndex(index - 1);
                     }}
                     style={{marginRight: '10px'}}
@@ -55,6 +56,7 @@ export default function PlayDeck() {
                 <Button
                     onClick={()=> {
                         if (index < cardsList.length - 1) {
+                            setFlip(false);
                             setIndex(index + 1);
                         }
                     }}

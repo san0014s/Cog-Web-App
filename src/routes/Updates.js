@@ -23,7 +23,7 @@ const Updates = () => {
 
   return (
     <div style={{backgroundColor: '#fdf5df', paddingBottom: '200px'}}>
-      <Container style={{marginTop: '10px'}}>
+      <Container style={{paddingTop: '10px', maxWidth: '95vw'}}>
         <h1>Updates</h1>
         <p style={{fontSize: '20px', marginTop: '20px'}}>
           Updates are pulled from our discord server in a channel where we tell each other what we're

@@ -36,7 +36,7 @@ export default function ProfileEdit() {
 
     if (profile) {
         return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
-            <Container style={{marginTop: '10px'}}>
+            <Container style={{paddingTop: '10px', maxWidth: '95vw'}}>
                 <h1>Edit profile</h1>
                 <br /><br />
 
@@ -52,7 +52,11 @@ export default function ProfileEdit() {
                     <br /><br />
 
                     <p>Upload new Profile Picture:</p>
-                    <img src={profile.picture} style={{ height: '150px', width: '150px' }} alt="current profile pic"/>
+                    <img 
+                        src={profile.picture ? profile.picture : "https://cog-web-app-public-assets.s3.amazonaws.com/profile-pictures/default-pfp.jpg"}
+                        style={{ height: '150px', width: '150px' }}
+                        alt="current profile pic"
+                    />
                     <UploadToS3Button
                         directory={'profileImages'}
                         objectKey={`${SessionState.getId()}.png`}

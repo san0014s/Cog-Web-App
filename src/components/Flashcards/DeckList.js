@@ -56,7 +56,7 @@ export default function DeckList() {
     }, []);
 
     return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
-        <Container style={{marginTop: '20px'}}>
+        <Container style={{paddingTop: '20px', maxWidth: '95vw'}}>
 
         {existingDecks.map((deck) => {
             return <div key={deck.id}>

@@ -73,7 +73,7 @@ export default function CardList() {
 
     if (deck) {
         return <div style={{backgroundColor: '#fdf5df', paddingBottom: '100vh'}}>
-            <Container style={{marginTop: '20px'}}>
+            <Container style={{paddingTop: '20px', maxWidth: '95vw'}}>
 
             <CreateCardModal
                 open={cardModalOpen}
